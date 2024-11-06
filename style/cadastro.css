@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+body{
+    background-image: url(../img/cadastro-pc.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.cadastro{
+    font-family: var(--font);
+    h1{
+        color: var(--amarelo);
+    }
+    p{
+        color: var(--branco-escuro);
+    }
+    a{
+        text-decoration: none;
+        color: var(--amarelo-claro);
+    }
+}
