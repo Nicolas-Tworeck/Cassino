@@ -13,63 +13,53 @@ html {
 }
 
 body {
-    background: black;
     background-image: url(../img/backgorund-pc.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
-    height: 79vh;
+    height: 100vh;
+    font-family: var(--font);
+    display: flex;
 }
 
-.login {
-    width: 300px;
-    font-family: var(--font);
-    margin-left: 8%;
-    margin-top: 10%;
-
-    a {
-        text-decoration: none;
+.login{
+    width: 60%;
+    margin-left: 30%;
+    margin-top: 30%;
+    h1{
         color: var(--amarelo);
+        font-size: 59.5px;
+        line-height: 96%;
+    }
+    p{
+        color: var(--branco-escuro);
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+    a{
+        color: var(--amarelo);
+        text-decoration: none;
+        font-size: 12px;
+        transition: 0.5s;
     }
     a:hover{
         color: var(--amarelo-claro);
     }
-
-    h1 {
-        color: var(--amarelo);
-        line-height: 95%;
-        font-size: 55px;
-    }
-
-    p {
-        color: var(--branco);
-        margin-bottom: 50px;
-        font-size: 13px;
-    }
-
-    .campos {
-        margin-top: 20px;
-        color: var(--branco);
-
-        input {
-            width: 100%;
-            background: var(--branco);
-            font-size: 20px;
+    .campos{
+        label{
+            color: var(--branco-escuro);
+        }
+        input{
             margin-bottom: 25px;
-            font-weight: 100;
-            border-radius: 5px;
+            width: 99%;
+            font-size: 20px;
             padding-top: 5px;
             padding-bottom: 5px;
+            border-radius: 5px;
+            border: none;
         }
-
-        label {
-            font-size: 13px;
-            font-weight: 200;
-        }
-
     }
-
     .button {
         width: 100%;
 
@@ -126,6 +116,7 @@ body {
         a {
             text-decoration: none;
             color: var(--branco-escuro);
+            transition: 0.5s;
         }
         a:hover{
             color: var(--amarelo);
@@ -137,18 +128,33 @@ body {
 
 }
 
-
 @media (max-width:1200px) {
     body {
-        background-image: url(../img/background-pc.jpg);
+        background-image: url(../img/background-tablet.jpg);
         background-position: center center;
         background-size: cover;
         width: 100%;
         height: 100vh;
+
     }
 
     .login {
-        margin-left: 175px;
+        
+        width: 300px;
+        p{
+            color: var(--branco-escuro);
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
+        a{
+            color: var(--amarelo);
+            text-decoration: none;
+            font-size: 12px;
+            transition: 0.5s;
+        }
+        a:hover{
+            color: var(--amarelo-claro);
+        }
     }
 }
 
@@ -160,23 +166,25 @@ body {
         background-size: cover;
         background-position: center;
         height: 100vh;
+
+    
     }
 
     .login {
         margin: 0;
         width: 400px;
         margin-top: 200px;
-        margin-bottom: 150px;
 
         h1 {
             font-size: 80px;
         }
 
-        p {
-            font-size: 20px;
-
+        p{
+            font-size: 15px;
         }
-
+        a{
+            font-size: 15px;
+        }
 
 
         .campos {
@@ -200,6 +208,9 @@ body {
 
             a {
                 font-size: 20px;
+                color: var(--branco-escuro);
+            }
+            a:active{
                 color: var(--amarelo-claro);
             }
         }
@@ -227,8 +238,11 @@ body {
         }
 
         p {
-            font-size: 10px;
+            font-size: 8px;
             margin-bottom: 20px;
+        }
+        a{
+            font-size: 8px;
         }
 
 
@@ -255,8 +269,11 @@ body {
 
             a {
                 font-size: 10px;
-                color: var(--amarelo-claro);
+                color: var(--branco-escuro);
 
+            }
+            a:active{
+                color: var(--amarelo-claro);
             }
         }
     }
