@@ -10,6 +10,7 @@ html {
     -ms-user-select: none;
     user-select: none;
 
+    background-color: black;
 }
 
 body {
