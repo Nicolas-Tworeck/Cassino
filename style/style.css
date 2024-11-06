@@ -11,6 +11,7 @@ html {
     user-select: none;
 
     background-color: black;
+    overflow: hidden;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
     height: 100vh;
     font-family: var(--font);
     display: flex;
-    overflow: hidden;
+   
 }
 
 .login{
