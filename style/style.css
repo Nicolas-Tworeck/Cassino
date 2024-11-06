@@ -158,7 +158,7 @@ body {
     }
 }
 
-@media(max-width:720px) {
+@media(max-width:1100px) {
     body {
         background-image: url(../img/background-cell.png);
         display: flex;
