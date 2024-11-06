@@ -1,6 +1,3 @@
-
-
-
 * {
     margin: 0;
 }
@@ -30,10 +27,15 @@ body {
     font-family: var(--font);
     margin-left: 8%;
     margin-top: 10%;
-    a{
+
+    a {
         text-decoration: none;
+        color: var(--amarelo);
+    }
+    a:hover{
         color: var(--amarelo-claro);
     }
+
     h1 {
         color: var(--amarelo);
         line-height: 95%;
@@ -71,25 +73,66 @@ body {
     .button {
         width: 100%;
 
-        button {
-            width: 102%;
-            font-size: 20px;
-            font-weight: 800;
+        .sign {
+            background: rgb(255,151,0);
+            border: none;
+            z-index: 1;
+          }
+          .sign:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: var(--amarelo-claro);
+            
+             box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
+            transition: all 0.3s ease;
+          }
+          .sign:hover {
+            color: #000;
+          }
+          .sign:hover:after {
+            top: auto;
+            bottom: 0;
+            height: 100%;
+          }
+          .sign:active {
+            top: 2px;
+          }
+          .custom-btn {
+            width: 100%;
+            height: 40px;
+            color: black;
+            border-radius: 5px;
             padding-top: 5px;
             padding-bottom: 5px;
+            font-weight: 800;
+            font-size: 20px;
             background: var(--amarelo);
             cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background: var(--amarelo-claro);
-        }
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+             box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+             7px 7px 20px 0px rgba(0,0,0,.1),
+             4px 4px 5px 0px rgba(0,0,0,.1);
+            outline: none;
+          }
 
         a {
             text-decoration: none;
             color: var(--branco-escuro);
         }
+        a:hover{
+            color: var(--amarelo);
+        }
+
+
+
     }
 
 }
@@ -124,6 +167,7 @@ body {
         width: 400px;
         margin-top: 200px;
         margin-bottom: 150px;
+
         h1 {
             font-size: 80px;
         }
