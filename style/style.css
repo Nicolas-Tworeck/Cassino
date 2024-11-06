@@ -28,8 +28,8 @@ body {
 .login {
     width: 300px;
     font-family: var(--font);
-    margin-left: 100px;
-    margin-top: 150px;
+    margin-left: 8%;
+    margin-top: 10%;
     a{
         text-decoration: none;
         color: var(--amarelo-claro);
