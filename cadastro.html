@@ -14,10 +14,34 @@
 
     <form>
 
+        <div class="logo">
+
+            <img src="img/logo.png" alt="">
+
+        </div>
+        <p>Return to <a href="#" onclick="login()">my account</a></p>
         <div class="cadastro">
 
-            <h1>WELCOME TO VEGAS!</h1>
-            <p>Log into<a href="#" onclick="login()"> my account</a></p>
+            <div class="campos">
+
+                <label>Name</label><br>
+                <input type="text"><br>
+                <label>Surname</label><br>
+                <input type="text"><br>
+                <label>Phone</label><br>
+                <input type="tel"class="form-control" id="tel" name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
+                <label>Email</label><br>
+                <input type="email" required="true"><br>
+                <label>Password</label><br>
+                <input type="password" required="true">
+
+                <div class="button">
+
+                    <button type="submit">REGISTER</button>
+
+                </div>
+
+            </div>
 
         </div>
 
