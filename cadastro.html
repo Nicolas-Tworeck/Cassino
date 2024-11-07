@@ -24,20 +24,33 @@
 
             <div class="campos">
 
-                <label>Name</label><br>
-                <input type="text"><br>
-                <label>Surname</label><br>
-                <input type="text"><br>
-                <label>Phone</label><br>
-                <input type="tel"class="form-control" id="tel" name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
-                <label>Email</label><br>
-                <input type="email" required="true"><br>
-                <label>Password</label><br>
-                <input type="password" required="true">
+                <h1>Register Here!</h1>
+
+                <div class="campos-input">
+
+                <label>Name</label>
+                <label>CPF</label>
+
+                <input class="esquerda" type="text">
+                <input class="direita" type="text"id="cpf" maxlength="11">
+
+                <label>Surname</label>
+                <label>Email</label>
+
+                <input class="esquerda" type="text">
+                <input class="direita" type="email" required="true">
+
+                <label>Phone</label>
+                <label>Password</label>
+
+                <input class="esquerda" type="tel"class="form-control" placeholder="(xx)xxxx-xxxx" id="tel" name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
+                <input class="direita" type="password" required="true">
+
+            </div>
 
                 <div class="button">
 
-                    <button type="submit">REGISTER</button>
+                    <button class="custom-btn register" type="submit">REGISTER</button>
 
                 </div>
 
@@ -45,7 +58,14 @@
 
         </div>
 
+        <footer>
+
+
+            
+        </footer>
+
     </form>
+
 
 </body>
 
