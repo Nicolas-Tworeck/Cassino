@@ -11,7 +11,7 @@
 </head>
 
 <body>
- 
+
     <form>
 
         <div class="registro">
@@ -30,47 +30,46 @@
 
                     <div class="campos-input">
 
-                        <label>Full Name</label>
+                        <label>Name</label>
                         <label>CPF</label>
-
-                        <input class="esquerda" type="text" placeholder="My Full Name">
-                        <input class="direita" type="text" id="cpf" maxlength="11" placeholder="My CPF">
-
-                        <label>User Name</label>
-                        <label>Email</label>
-
-                        <input class="esquerda" type="text" placeholder="My User Name">
-                        <input class="direita" type="email" required="true" placeholder="My Email">
-
-                        <label>Phone</label>
                         <label>Password</label>
 
-                        <input class="esquerda" type="tel" class="form-control" placeholder="(xx)xxxx-xxxx" id="tel"
-                            name="tel" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
-                        <input class="direita" type="password"  name="senha" id="senha" required="true" placeholder="My Password">
+                        <input class="esquerda" type="text" placeholder="My Name" required="true">
+                        <input oninput="mascara(this)" type="text" placeholder="My CPF" required="true">
+                        <input class="direita" type="password" name="senha" id="senha" required="true"
+                            placeholder="My Password">
 
+                        <label>Surname</label>
+                        <label>Email</label>
+                        <label>Confirm Password</label>
+
+                        <input type="text" placeholder="My Surname" required="true">
+                        <input class="direita" type="email" required="true" placeholder="My Email">
+                        <input type="password" name="senhaC" id="senhaC" placeholder="Confirm Password" required="true">
+
+                        <label>Username</label>
+                        <label>Phone</label>
+                        <label class="contrato"><input class="chack" required="true" type="checkbox">Li e aceito os <a href="#" onclick="contrato()" class="contrato">termos do contrato</a></label>
+
+                        <input type="text" placeholder="My Username" required="true">
+                        <input type="tel" class="form-control" placeholder="(xx)xxxx-xxxx" id="tel" name="tel"
+                            maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" required="true">
+
+                            <div class="button">
+
+                                <button class="custom-btn register" onclick="return validarSenha()"
+                                    type="submit">REGISTER</button>
+    
+                            </div>
                     </div>
 
-                    <div class="confirm">
 
-                        <label>Confirm Password</label><br>
-                        <input type="password" name="senhaC" id="senhaC" placeholder="My Password" required="true">
-
-                    </div>
-
-                    <div class="button">
-
-                        <button class="custom-btn register" onclick="return validarSenha()" type="submit">REGISTER</button>
-
-                    </div>
 
                 </div>
 
             </div>
 
         </div>
-
-
 
     </form>
 

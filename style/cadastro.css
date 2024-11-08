@@ -65,7 +65,7 @@ form {
     background: var(--preto-opaco);
     border-radius: 15px;
     padding-bottom: 10px;
-    width: 500px;
+    width: 750px;
     display: flex;
     justify-content: center;
     .campos {
@@ -77,7 +77,7 @@ form {
         }
         .campos-input {
             display: grid;
-            grid-template-columns: 250px 250px;
+            grid-template-columns: 250px 250px 250px;
             input {
                 margin-left: 25px;
                 margin-right: 25px;
@@ -94,33 +94,37 @@ form {
                 margin-left: 25px;
                 color: var(--branco-escuro);
             }
-        }
-        .confirm{
-            width: 100%;
-            text-align: center;
-            margin-top: 10px;
-            label{
-                color: var(--branco-escuro);
+            .contrato{
+                font-size: 11px;
+                a{
+                    text-decoration: none;
+                    color: var(--amarelo);
+                    transition: 0.3s;
+                }
+                a:hover{
+                    color: var(--amarelo-escuro);
+                }
+            }
+            .chack{
+                margin: 0;
+                margin-right: 5px;
+                font-size: 100px;
                 
             }
-            input{
-                font-size: 15px;
-                border-radius: 5px;
-                border: none;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                background-color:#dfdfdf;
-                color: black;  
-            }
+        }
+
+
         }
         .button{
-            width: 100%;
+
+            margin-left: 25px;
+            margin-right: 25px;
             background: transparent;
             display: flex;
             justify-content: center;
-            margin-top: 15px;
+            padding: 0;
 
-            z-index: -1;
+            z-index: 1;
             .register {
                 background: rgb(255,151,0);
                 border: none;
@@ -153,13 +157,10 @@ form {
               }
               .custom-btn {
                 width: 250px;
-                height: 40px;
                 color: black;
                 border-radius: 5px;
-                padding-top: 5px;
-                padding-bottom: 5px;
                 font-weight: 800;
-                font-size: 20px;
+                font-size: 18px;
                 background: var(--amarelo);
                 cursor: pointer;
                 transition: all 0.3s ease;
@@ -173,4 +174,4 @@ form {
               }
         }
     }
-}
+
