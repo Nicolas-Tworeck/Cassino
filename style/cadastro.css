@@ -64,7 +64,7 @@ form {
     z-index: -1;
     background: var(--preto-opaco);
     border-radius: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     width: 750px;
     display: flex;
     justify-content: center;
