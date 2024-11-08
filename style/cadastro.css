@@ -16,6 +16,7 @@ body {
     margin: 0;
 }
 
+
 form {
     width: 500px;
     margin: 0;
@@ -172,13 +173,4 @@ form {
               }
         }
     }
-}
-footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #8b0000a4;
-    color: #FFF;
-    width: 100%;
-    height: 100px;    
-    z-index: 1;
 }
