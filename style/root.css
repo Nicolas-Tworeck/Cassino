@@ -2,9 +2,10 @@
 
 :root {
     --amarelo: #efff00;
-    --amarelo-claro: #bfcc04;
+    --amarelo-escuro: #bfcc04;
     --branco-escuro: #d1d1d1;
     --branco: #ffffff;
+    --preto-opaco:rgba(0, 0, 0, 0.733);
 
     --font: 'Poppins', sans-serif;
 }
