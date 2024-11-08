@@ -9,16 +9,12 @@ function contrato(){
 }
 
 //telefone
-const tel = document.getElementById('tel') 
-
-tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) 
-
-const mascaraTelefone = (valor) => {
-    valor = valor.replace(/\D/g, "")
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
-    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
-    tel.value = valor
-}
+$(document).ready(function() {
+  $("#telefone").inputmask({
+    mask: ["(99) 9999-9999", "(99) 99999-9999", ],
+    keepStatic: true
+  });
+})
 
 //CPF
 function mascara(i){

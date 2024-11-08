@@ -49,21 +49,20 @@
 
                         <label>Username</label>
                         <label>Phone</label>
-                        <label class="contrato"><input class="chack" required="true" type="checkbox">Li e aceito os <a href="#" onclick="contrato()" class="contrato">termos do contrato</a></label>
+                        <label class="contrato"><input class="chack" required="true" type="checkbox">Li e aceito os <a
+                                href="#" onclick="contrato()" class="contrato">termos do contrato</a></label>
 
                         <input type="text" placeholder="My Username" required="true">
-                        <input type="tel" class="form-control" placeholder="(xx)xxxx-xxxx" id="tel" name="tel"
-                            maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" required="true">
+                        <input type="text" id="telefone" name="telefone" placeholder="My Phone" required="true" />
 
-                            <div class="button">
+                        <div class="button">
 
-                                <button class="custom-btn register" onclick="return validarSenha()"
-                                    type="submit">REGISTER</button>
-    
-                            </div>
+                            <button class="custom-btn register" onclick="return validarSenha()"
+                                type="submit">REGISTER</button>
+
+                        </div>
+
                     </div>
-
-
 
                 </div>
 
@@ -73,6 +72,9 @@
 
     </form>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+    <script type="text/javascript"></script>
 
 </body>
 
