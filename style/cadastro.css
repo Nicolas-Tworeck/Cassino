@@ -48,8 +48,9 @@ p {
         transition: 0.5s;
     }
 
+
     a:hover {
-        color: var(--amarelo-claro);
+        color: var(--amarelo-escuro);
     }
 }
 form {
@@ -123,7 +124,6 @@ form {
             display: flex;
             justify-content: center;
             padding: 0;
-
             z-index: 1;
             .register {
                 background: rgb(255,151,0);
