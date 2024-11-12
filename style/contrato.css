@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    font-family: var(--font);
+}
+
+body {
+    width: 100%;
+    display: flex;
+    background: var(--branco-escuro);
+    font-weight: 500;
+}
+
+.nav {
+    width: 100%;
+    background: var(--bordo);
+    display: flex;
+
+
+    h1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        margin-right: 10%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        color: white;
+    }
+
+    .btn {
+        width: 5%;
+        background: var(--bordo);
+        border: none;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background: var(--bordo-escuro);
+        color: var(--branco-escuro);
+    }
+}
+
+.area-contrato {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contrato {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 50%;
+    text-align: justify;
+
+    h1 {
+        text-align: center;
+    }
+
+    h3 {
+        margin-top: 30px;
+    }
+
+}
