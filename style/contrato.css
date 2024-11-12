@@ -57,10 +57,10 @@ body {
 
 .contrato {
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     width: 50%;
     text-align: justify;
-
+    justify-content: center;
     h1 {
         text-align: center;
     }
@@ -68,5 +68,38 @@ body {
     h3 {
         margin-top: 30px;
     }
-
+    .button{
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        .confirm{
+            background: var(--amarelo);
+            padding: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: 700;
+            border-radius: 5px;
+            border: none;
+            transition: 0.5s;
+        }
+        .confirm:hover{
+            background: var(--amarelo-escuro);
+        }
+    }
+}
+@media(max-width:800px){
+    .contrato{
+        width: 70%;
+    }
+}
+@media(max-width:500px){
+    .nav{
+        .btn{
+            width: 10%;
+        }
+    }
+    .contrato{
+        width: 80%;
+    }
 }
