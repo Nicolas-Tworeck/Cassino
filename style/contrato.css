@@ -6,16 +6,24 @@
 body {
     width: 100%;
     display: flex;
-    background: var(--branco-escuro);
+    background: var(--cream);
     font-weight: 500;
+    justify-content: center;
 }
-
-.nav {
+.contract{
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nav {
+    box-shadow: 10px 10px 10px 10px;
+    margin-top: 50px;
+    width: 50%;
     background: var(--bordo);
     display: flex;
-
-
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
     h1 {
         width: 100%;
         display: flex;
@@ -28,7 +36,7 @@ body {
     }
 
     .btn {
-        width: 5%;
+        width: 10%;
         background: var(--bordo);
         border: none;
         text-decoration: none;
@@ -38,7 +46,7 @@ body {
         color: white;
         margin-top: 5px;
         margin-bottom: 5px;
-        margin-left: 10px;
+       
         transition: 0.3s;
         border-radius: 5px;
     }
@@ -53,14 +61,17 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    background: var(--cream);
 }
 
 .contrato {
-    margin-top: 50px;
+    box-shadow:  10px  10px 10px 10px;
     margin-bottom: 80px;
     width: 50%;
     text-align: justify;
     justify-content: center;
+    background: white;
+    padding: 30px;
     h1 {
         text-align: center;
     }
