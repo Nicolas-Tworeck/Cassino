@@ -126,10 +126,8 @@ function checkRequiredFields() {
         if (idade < 18) {
           customValid = false;
           document.getElementById('age-error').style.display = 'block'; // Exibe erro se idade < 18
-          document.getElementById('birthdate-error').style.display = 'none'; // Oculta o erro de data
         } else {
           document.getElementById('age-error').style.display = 'none'; // Oculta o erro se idade >= 18
-          document.getElementById('birthdate-error').style.display = 'block'; // Exibe o erro de data
         }
       }
     } else if (field.id === 'email') {
@@ -141,10 +139,10 @@ function checkRequiredFields() {
 
     // Verificação final
     if (!isValid || !customValid) {
-      errorPopup.style.display = 'block'; // Exibe o erro
+      errorPopup.style.display = 'block';
       allValid = false;
     } else {
-      errorPopup.style.display = 'none'; // Oculta o erro
+      errorPopup.style.display = 'none';
     }
   });
 
@@ -156,38 +154,27 @@ function checkRequiredFields() {
   return allValid;
 }
 
-// Função para ocultar todos os erros de campo
-function hideAllErrors() {
-  const errorFields = document.querySelectorAll('.error');
-  errorFields.forEach(error => {
-    error.style.display = 'none'; // Oculta todos os erros de campo
-  });
-}
-
 // Aplicar a máscara em tempo real
 document.getElementById('cpf').addEventListener('input', function() {
   this.value = mascaraCPF(this.value);
-  hideAllErrors(); // Oculta erros ao digitar
 });
 
 document.getElementById('phone').addEventListener('input', function() {
   this.value = mascaraTelefone(this.value);
-  hideAllErrors(); // Oculta erros ao digitar
 });
 
 document.getElementById('birthdate').addEventListener('input', function() {
   this.value = mascaraData(this.value);
-  hideAllErrors(); // Oculta erros ao digitar
 });
 
+// Validar email ao digitar
 document.getElementById('email').addEventListener('input', function() {
   checkRequiredFields(); // Verifica se o email está válido enquanto o usuário digita
-  hideAllErrors(); // Oculta erros ao digitar
 });
 
+// Validar a confirmação de senha ao digitar
 document.getElementById('confirm-password').addEventListener('input', function() {
   validatePasswordMatch(); // Verifica se as senhas coincidem enquanto o usuário digita
-  hideAllErrors(); // Oculta erros ao digitar
 });
 
 // Botões de navegação para avançar
@@ -223,7 +210,14 @@ nextBtnThird.addEventListener("click", function () {
 
 submitBtn.addEventListener("click", function () {
   if (checkRequiredFields()) {
-    alert("Formulário Enviado!");
+    bullet[current - 1].classList.add("active");
+    progressCheck[current - 1].classList.add("active");
+    progressText[current - 1].classList.add("active");
+    current += 1;
+    setTimeout(function () {
+      alert("Seu formulário foi enviado com sucesso.");
+      location.reload();
+    }, 800);
   }
 });
 
