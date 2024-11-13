@@ -40,6 +40,21 @@ function mascaraData(data) {
   return data;
 }
 
+// Função para calcular a idade a partir da data de nascimento
+function validarIdade(dataNascimento) {
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento.split("/").reverse().join("-")); // Converte para formato yyyy-mm-dd
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const m = hoje.getMonth() - nascimento.getMonth();
+
+  // Ajusta a idade caso ainda não tenha feito aniversário neste ano
+  if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) {
+    idade--;
+  }
+
+  return idade;
+}
+
 // Função para validar CPF, telefone e email
 function validateCPF(cpf) {
   const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
@@ -105,7 +120,17 @@ function checkRequiredFields() {
       field.value = mascaraData(field.value); // Aplica a máscara de data
       if (!validateDateOfBirth(field.value)) {
         customValid = false;
-        errorPopup.textContent = 'Please fill in the date of birth correctly (dd/mm/yyyy).';
+        errorPopup.textContent = 'Por favor, preencha a data de nascimento corretamente (dd/mm/yyyy).';
+      } else {
+        const idade = validarIdade(field.value);
+        if (idade < 18) {
+          customValid = false;
+          document.getElementById('age-error').style.display = 'block'; // Exibe erro se idade < 18
+          document.getElementById('birthdate-error').style.display = 'none'; // Oculta o erro de data
+        } else {
+          document.getElementById('age-error').style.display = 'none'; // Oculta o erro se idade >= 18
+          document.getElementById('birthdate-error').style.display = 'block'; // Exibe o erro de data
+        }
       }
     } else if (field.id === 'email') {
       if (!validateEmail(field.value)) {
@@ -116,10 +141,10 @@ function checkRequiredFields() {
 
     // Verificação final
     if (!isValid || !customValid) {
-      errorPopup.style.display = 'block';
+      errorPopup.style.display = 'block'; // Exibe o erro
       allValid = false;
     } else {
-      errorPopup.style.display = 'none';
+      errorPopup.style.display = 'none'; // Oculta o erro
     }
   });
 
@@ -131,27 +156,38 @@ function checkRequiredFields() {
   return allValid;
 }
 
+// Função para ocultar todos os erros de campo
+function hideAllErrors() {
+  const errorFields = document.querySelectorAll('.error');
+  errorFields.forEach(error => {
+    error.style.display = 'none'; // Oculta todos os erros de campo
+  });
+}
+
 // Aplicar a máscara em tempo real
 document.getElementById('cpf').addEventListener('input', function() {
   this.value = mascaraCPF(this.value);
+  hideAllErrors(); // Oculta erros ao digitar
 });
 
 document.getElementById('phone').addEventListener('input', function() {
   this.value = mascaraTelefone(this.value);
+  hideAllErrors(); // Oculta erros ao digitar
 });
 
 document.getElementById('birthdate').addEventListener('input', function() {
   this.value = mascaraData(this.value);
+  hideAllErrors(); // Oculta erros ao digitar
 });
 
-// Validar email ao digitar
 document.getElementById('email').addEventListener('input', function() {
   checkRequiredFields(); // Verifica se o email está válido enquanto o usuário digita
+  hideAllErrors(); // Oculta erros ao digitar
 });
 
-// Validar a confirmação de senha ao digitar
 document.getElementById('confirm-password').addEventListener('input', function() {
   validatePasswordMatch(); // Verifica se as senhas coincidem enquanto o usuário digita
+  hideAllErrors(); // Oculta erros ao digitar
 });
 
 // Botões de navegação para avançar
@@ -187,59 +223,31 @@ nextBtnThird.addEventListener("click", function () {
 
 submitBtn.addEventListener("click", function () {
   if (checkRequiredFields()) {
-    bullet[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    current += 1;
-    setTimeout(function () {
-      alert("Seu formulário foi enviado com sucesso.");
-      location.reload();
-    }, 800);
+    alert("Formulário Enviado!");
   }
 });
 
 // Botões de navegação para voltar
 prevBtnSec.addEventListener("click", function () {
   slidePage.style.marginLeft = "0%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
+  bullet[current - 1].classList.remove("active");
+  progressCheck[current - 1].classList.remove("active");
+  progressText[current - 1].classList.remove("active");
   current -= 1;
 });
 
 prevBtnThird.addEventListener("click", function () {
   slidePage.style.marginLeft = "-25%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
+  bullet[current - 1].classList.remove("active");
+  progressCheck[current - 1].classList.remove("active");
+  progressText[current - 1].classList.remove("active");
   current -= 1;
 });
 
 prevBtnFourth.addEventListener("click", function () {
   slidePage.style.marginLeft = "-50%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
+  bullet[current - 1].classList.remove("active");
+  progressCheck[current - 1].classList.remove("active");
+  progressText[current - 1].classList.remove("active");
   current -= 1;
-});
-
-// Máscara de CEP
-document.addEventListener('DOMContentLoaded', function() {
-  const cepInput = document.getElementById('cep');
-
-  cepInput.addEventListener('input', function(e) {
-    let value = e.target.value;
-
-    // Remove qualquer caractere não numérico
-    value = value.replace(/\D/g, '');
-
-    // Aplica a máscara de CEP (XXXXX-XXX)
-    if (value.length <= 5) {
-      value = value.replace(/(\d{5})(\d{0,3})/, '$1-$2');
-    } else {
-      value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
-    }
-
-    e.target.value = value;
-  });
 });
