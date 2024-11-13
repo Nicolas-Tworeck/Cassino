@@ -29,6 +29,7 @@ body {
             width: 10%;
             color: white;
             transition: 0.3s;
+            cursor: pointer;
         }
         a:hover{
             background: var(--bordo-escuro);
@@ -89,6 +90,7 @@ body {
             border-radius: 5px;
             border: none;
             transition: 0.5s;
+            cursor: pointer;
         }
 
         .confirm:hover {

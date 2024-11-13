@@ -1,84 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulário de várias etapas</title>
     <link rel="stylesheet" href="style/cadastro.css">
     <link rel="stylesheet" href="style/root.css">
-    <link rel="shotcut icon" href="img/logo.png">
-    <title>Cadastro</title>
-</head>
-
-<body>
-
-    <form>
-
-        <div class="registro">
-
-            <div class="logo">
-
-                <img src="img/logo.png" alt="">
-                
-
-            </div>
-            <p>Return to <a href="#" onclick="login()">my account</a></p>
-            <div class="cadastro">
-
-                <div class="campos">
-
-                    <h1>Register Here!</h1>
-
-                    <div class="campos-input">
-
-                        <label>Name</label>
-                        <label>CPF</label>
-                        <label>Password</label>
-
-                        <input class="esquerda" type="text" placeholder="My Name" required="true">
-                        <input oninput="mascara(this)" type="text" placeholder="My CPF" required="true">
-                        <input class="direita" type="password" name="senha" id="senha" required="true"
-                            placeholder="My Password">
-
-                        <label>Surname</label>
-                        <label>Email</label>
-                        <label>Confirm Password</label>
-
-                        <input type="text" placeholder="My Surname" required="true">
-                        <input class="direita" type="email" required="true" placeholder="My Email">
-                        <input type="password" name="senhaC" id="senhaC" placeholder="Confirm Password" required="true">
-
-                        <label>Username</label>
-                        <label>Phone</label>
-                        <label class="contrato"><input class="chack" required="true" type="checkbox">Li e aceito os <a
-                                href="#" onclick="contrato()" class="contrato">termos do contrato</a></label>
-
-                        <input type="text" placeholder="My Username" required="true">
-                        <input type="text" id="telefone" name="telefone" placeholder="My Phone" required="true" />
-
-                        <div class="button">
-
-                            <button class="custom-btn register" onclick="return validarSenha()"
-                                type="submit">REGISTER</button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <img src="img/logo.png"  width="150px">
+      <div class="progress-bar">
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>1</span>
+          </div>
+          <div class="check fas fa-check"></div>
         </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>2</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>3</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p></p>
+          <div class="bullet">
+            <span>4</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+      </div>
 
-    </form>
+      <div class="form-outer">
+        <form action="#"> 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
-    <script type="text/javascript"></script>
+          <div class="page slide-page">
+            <div class="field">
+              <div class="label">Name</div>
+              <input id="fullname" placeholder="Your Name" type="text">
+              <div class="popup-error" id="fullname-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <div class="label">Surname</div>
+              <input id="surname" placeholder="Your Surname" type="text">
+              <div class="popup-error" id="surname-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <div class="label">Username</div>
+              <input id="username" placeholder="Your Username" type="text">
+              <div class="popup-error" id="username-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <button type="button" class="firstNext next">NEXT</button>
+            </div>
+          </div>
 
-</body>
+          <div class="page">
+            <div class="field">
+              <div class="label">CPF</div>
+              <input id="cpf" placeholder="Your CPF" type="text" maxlength="14">
+              <div class="popup-error" id="cpf-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <div class="label">Phone</div>
+              <input id="phone" placeholder="Your Phone" type="text" maxlength="15">
+              <div class="popup-error" id="phone-error">Please fill in this field.</div>
+            </div>
+            <div class="field btns">
+              <button type="button" class="prev-1 prev">RETURN</button>
+              <button type="button" class="next-1 next">NEXT</button>
+            </div>
+          </div>
 
-<script src="script/script.js"></script>
+          <div class="page">
+            <div class="field">
+              <div class="label">Date of Birth</div>
+              <input id="birthdate" placeholder="Your Birth"maxlength="10" type="text">
+              <div class="popup-error" id="birthdate-error" >Please fill in the date of birth correctly (dd/mm/yyyy).</div>
+            
+            </div>
+            <div class="field">
+              <div class="label">Gender</div>
+              <select id="gender">
+                <option value="">SELECT</option>
+                <option value="masculino">MALE</option>
+                <option value="feminino">FEMALE</option>
+                <option value="outros">OTHER</option>
+              </select>
+              <div class="popup-error" id="gender-error">Please select an option.</div>
+            </div>
+            <div class="field">
+              <div class="label">CEP</div>
+              <input id="cep" placeholder="Your CEP" type="text" maxlength="10">
+              <div class="popup-error" id="cep-error">Please fill in this field.</div>
+            
+            </div>
+            <div class="field btns">
+              <button type="button" class="prev-2 prev">RETURN</button>
+              <button type="button" class="next-2 next">NEXT</button>
+            </div>
+          </div>
 
+          <div class="page">
+            <div class="field">
+              <div class="label">Email</div>
+              <input id="email" placeholder="Your Email" type="email">
+              <div class="popup-error" id="email-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <div class="label">Password</div>
+              <input id="password" placeholder="Your Password" type="password">
+              <div class="popup-error" id="password-error">Please fill in this field.</div>
+            </div>
+            <div class="field">
+              <div class="label">Confirm Password</div>
+              <input id="confirm-password" placeholder="Confirm Your Password" type="password">
+              <div class="popup-error" id="confirm-password-error">Please fill in this field.</div>
+            </div>
+            <div class="field btns">
+              <button type="button" class="prev-3 prev">RETURN</button>
+              <button type="submit" class="submit">FINISH</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <script src="script/cadastro.js"></script>
+  </body>
 </html>
