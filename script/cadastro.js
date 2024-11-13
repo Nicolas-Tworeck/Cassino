@@ -85,7 +85,7 @@ function validatePasswordMatch() {
 
   if (confirmPassword.value !== password.value) {
     confirmPasswordError.style.display = 'block';
-    confirmPasswordError.textContent = 'As senhas não coincidem. Por favor, tente novamente.';
+    confirmPasswordError.textContent = 'The passwords do not match. Please try again.';
     return false;
   } else {
     confirmPasswordError.style.display = 'none';
@@ -120,7 +120,7 @@ function checkRequiredFields() {
       field.value = mascaraData(field.value); // Aplica a máscara de data
       if (!validateDateOfBirth(field.value)) {
         customValid = false;
-        errorPopup.textContent = 'Por favor, preencha a data de nascimento corretamente (dd/mm/yyyy).';
+        errorPopup.textContent = '';
       } else {
         const idade = validarIdade(field.value);
         if (idade < 18) {
@@ -244,4 +244,14 @@ prevBtnFourth.addEventListener("click", function () {
   progressCheck[current - 1].classList.remove("active");
   progressText[current - 1].classList.remove("active");
   current -= 1;
+});
+function mascaraCEP(cep) {
+  cep = cep.replace(/\D/g, '');  // Remove qualquer caractere não numérico
+  cep = cep.replace(/^(\d{5})(\d)/, '$1-$2');  // Adiciona o hífen após os primeiros 5 números
+  return cep;
+}
+
+// Aplicar a máscara em tempo real no campo de CEP
+document.getElementById('cep').addEventListener('input', function() {
+  this.value = mascaraCEP(this.value);
 });
