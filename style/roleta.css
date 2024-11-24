@@ -2,15 +2,18 @@
     margin: 0;
     font-family: var(--font);
 }
+
 body {
     background: black;
-    
+
 }
+
 form {
     display: flex;
     height: 100vh;
     justify-content: center;
 }
+
 .slot-container {
     width: 30%;
     background: var(--bordo);
@@ -19,6 +22,7 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
 .slot-machine {
     display: flex;
     justify-content: center;
@@ -30,6 +34,7 @@ form {
     position: relative;
     border-radius: 5px;
 }
+
 .symbol {
     width: 100px;
     height: 100px;
@@ -38,7 +43,8 @@ form {
     justify-content: center;
     align-items: center;
 }
-#girar{
+
+#girar {
     font-size: 50px;
     border-radius: 100%;
     padding-left: 13px;
@@ -46,10 +52,12 @@ form {
     background: var(--amarelo);
     transition: 0.3s;
 }
-#girar:hover{
+
+#girar:hover {
     background-color: var(--amarelo-escuro);
 }
-.banca{
+
+.banca {
     background: var(--bordo-escuro);
     font-size: 25px;
     padding: 5px;
@@ -58,14 +66,17 @@ form {
     color: var(--branco-escuro);
     cursor: pointer;
     transition: 0.3s;
-    label{
+
+    label {
         cursor: pointer;
     }
 }
-.banca:hover{
+
+.banca:hover {
     background-color: var(--bordo-mais-escuro);
 }
-.aposta{
+
+.aposta {
     background: var(--bordo-escuro);
     padding: 5px;
     border-radius: 5px;
@@ -75,13 +86,16 @@ form {
     color: var(--branco-escuro);
     cursor: pointer;
     transition: 0.3s;
-    label{
+
+    label {
         cursor: pointer;
     }
 }
-.aposta:hover{
+
+.aposta:hover {
     background: var(--bordo-mais-escuro);
 }
+
 #result {
     margin-top: 20px;
     font-size: 18px;
@@ -90,13 +104,15 @@ form {
 
 /*popup*/
 .popup {
-    display: none; /* Começa oculto */
+    display: none;
+    /* Começa oculto */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo semitransparente */
     justify-content: center;
     align-items: center;
 }
@@ -104,20 +120,68 @@ form {
 /* Estilo para o conteúdo do popup */
 .popup-content {
     background-color: #fff;
-    padding: 20px;
+
     border-radius: 10px;
     width: 300px;
-    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo para o botão de fechar */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
+.button-pop-close {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    button {
+        background: transparent;
+        border: none;
+        color: var(--bordo);
+        margin-top: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
 }
 
+.minha-aposta {
+    display: flex;
+    justify-content: center;
+    margin: 0;
 
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
+
+.valor {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background: var(--branco-escuro);
+
+    label {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+.teclado-numerico {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    button{
+        border:none;
+        transition: 0.3s;
+        background: transparent;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        background: var(--branco-escuro);
+    }
+}

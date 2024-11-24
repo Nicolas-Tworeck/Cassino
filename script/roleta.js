@@ -105,16 +105,9 @@ aposta.addEventListener("click", function(event) {
     popup.style.display = "flex";
 });
 
-// Fecha o popup
+// Fecha o popup quando o botão de fechar for clicado
 closePopupBtn.addEventListener("click", function() {
     popup.style.display = "none";
-});
-
-// Fecha o popup clicando fora do conteúdo
-window.addEventListener("click", function(event) {
-    if (event.target === popup) {
-        popup.style.display = "none";
-    }
 });
 
 // Configura as bobinas
