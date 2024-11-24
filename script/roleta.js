@@ -43,7 +43,7 @@ function spinReels() {
     resultDiv.textContent = "Girando...";
 
     // Determinar se o jogador deve ganhar 
-    const shouldWin = Math.random() < 0.05;
+    const shouldWin = Math.random() < 0.01;
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
