@@ -4,41 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/roleta.css">
     <link rel="stylesheet" href="style/root.css">
-    <title>WELCOME BACK!</title>
-    <link rel="shotcut icon" href="img/logo.png">
+    <title>Document</title>
 </head>
 
 <body>
     <form>
+        <div class="slot-container">
+            <div class="banca">
+                <label>R$00,00</label>
+            </div>
+            <div class="slot-machine">
+                <div class="reel" id="reel-1"></div>
+                <div class="reel" id="reel-2"></div>
+                <div class="reel" id="reel-3"></div>
+            </div>
 
-        <div class="login">
+            <div class="aposta">
 
-            <h1>WELCOME BACK!</h1>
-            <p>Please log in to tour account or <a onclick="cadastro()">create account</a></p>
-
-            <div class="campos">
-
-                <label>Email Address</label><br>
-                <input type="email" required="true"><br>
-                <label>Password</label><br>
-                <input type="password" required="true">
+                <label>R$00,00</label>
 
             </div>
 
-            <div class="button">
+                <button id="girar"><i class="bi bi-arrow-repeat"></i></button>
 
-                <button type="submit" class="custom-btn sign">SIGN UP</button>
-                <a>Forgot your password?</a>
-
-            </div>
-
+            <div id="result"></div>
         </div>
-
+        <script src="script/roleta.js"></script>
     </form>
 </body>
-
-<script src="script/script.js"></script>
 
 </html>
