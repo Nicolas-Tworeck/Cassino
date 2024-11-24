@@ -185,3 +185,12 @@ form {
         background: var(--branco-escuro);
     }
 }
+
+
+
+@media(max-width:500px){
+    .slot-container{
+        width: 100%;
+        margin: 0;
+    }
+}
