@@ -1,3 +1,4 @@
+// Seleciona os elementos
 const symbols = ["🍀", "🍒", "⭐", "🍉", "🔔", "💎", "🍋", "🔑", "🐅"];
 const reels = [
     document.getElementById("reel-1"),
@@ -6,6 +7,9 @@ const reels = [
 ];
 const girar = document.getElementById("girar");
 const resultDiv = document.getElementById("result");
+const aposta = document.getElementById("aposta");
+const closePopupBtn = document.getElementById("closePopupBtn");
+const popup = document.getElementById("popup");
 
 let isSpinning = false;
 
@@ -84,7 +88,7 @@ function showResult(winningSymbol) {
 
     const isWinning = winningSymbol !== null;
     resultDiv.textContent = isWinning
-        ? ` Você ganhou !`
+        ? `Você ganhou!`
         : "Você perdeu! Tente novamente.";
 
     isSpinning = false;
@@ -93,4 +97,25 @@ function showResult(winningSymbol) {
 
 // Configurações iniciais
 girar.addEventListener("click", spinReels);
+
+// Popup
+// Mostra o popup
+aposta.addEventListener("click", function(event) {
+    event.preventDefault(); // Impede o comportamento padrão do botão
+    popup.style.display = "flex";
+});
+
+// Fecha o popup
+closePopupBtn.addEventListener("click", function() {
+    popup.style.display = "none";
+});
+
+// Fecha o popup clicando fora do conteúdo
+window.addEventListener("click", function(event) {
+    if (event.target === popup) {
+        popup.style.display = "none";
+    }
+});
+
+// Configura as bobinas
 setupReels();
