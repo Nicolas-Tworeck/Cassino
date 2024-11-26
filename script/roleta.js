@@ -13,6 +13,7 @@ const closePopupBtn = document.getElementById("closePopupBtn");
 const valorLabel = document.querySelector(".valor label");
 const teclasNumericas = document.querySelectorAll(".teclado-numerico button");
 const checkBtn = document.getElementById("checkBtn"); // Botão de "check"
+const errorMessage = document.getElementById("error-message"); // Mensagem de erro abaixo do valor
 
 // Variáveis para controlar o valor inserido
 let isSpinning = false;
@@ -37,6 +38,12 @@ function formatarValor(valor) {
         // Se o valor for menor que 3 caracteres, exibe os centavos com 2 dígitos
         return `R$00,${valor.padStart(2, '0')}`;
     }
+}
+
+// Função para verificar se a aposta é válida (valor >= R$2)
+function isApostaValida() {
+    const valor = valorAtual.replace(/\D/g, ''); // Remove não numéricos
+    return Number(valor) >= 200; // Verifica se é maior ou igual a 2 reais (em centavos)
 }
 
 // Adiciona os símbolos nas bobinas
@@ -107,6 +114,11 @@ function showResult(winningSymbol) {
 // Eventos para o botão girar
 girar.addEventListener("click", function (event) {
     event.preventDefault(); // Evita comportamento padrão do formulário
+    if (!isApostaValida()) {
+        errorMessage.textContent = "A aposta mínima é de R$2,00"; // Exibe a mensagem de erro
+        errorMessage.style.display = "block"; // Torna a mensagem visível
+        return; // Impede o giro se o valor for inválido
+    }
     spinReels();
 });
 
@@ -114,6 +126,7 @@ girar.addEventListener("click", function (event) {
 aposta.addEventListener("click", function (event) {
     event.preventDefault(); // Evita comportamento padrão
     popup.style.display = "flex";
+    errorMessage.style.display = "none"; // Esconde a mensagem de erro ao abrir o popup
 });
 
 // Fecha o popup
@@ -148,12 +161,19 @@ teclasNumericas.forEach((botao) => {
 
 // Quando o botão "✔" for pressionado, transfere o valor para o label da aposta
 checkBtn.addEventListener("click", function () {
-    // Atualiza o valor no label da aposta
-    const apostaLabel = document.getElementById("aposta-label");
-    apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
+    // Verifica se a aposta é válida
+    if (isApostaValida()) {
+        // Atualiza o valor no label da aposta
+        const apostaLabel = document.getElementById("aposta-label");
+        apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
 
-    // Fecha o popup
-    popup.style.display = "none";
+        // Fecha o popup
+        popup.style.display = "none";
+    } else {
+        // Exibe a mensagem de erro
+        errorMessage.textContent = "A aposta mínima é de R$2,00";
+        errorMessage.style.display = "block"; // Torna a mensagem visível
+    }
 });
 
 // Configura as bobinas

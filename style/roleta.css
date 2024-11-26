@@ -185,7 +185,11 @@ form {
         background: var(--branco-escuro);
     }
 }
-
+.apostaMinima{
+    text-align: center;
+    color: var(--amarelo-escuro);
+    font-weight: 600;
+}
 
 
 @media(max-width:500px){
