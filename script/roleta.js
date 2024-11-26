@@ -12,7 +12,9 @@ const popup = document.getElementById("popup");
 const closePopupBtn = document.getElementById("closePopupBtn");
 const valorLabel = document.querySelector(".valor label");
 const teclasNumericas = document.querySelectorAll(".teclado-numerico button");
+const checkBtn = document.getElementById("checkBtn"); // Botão de "check"
 
+// Variáveis para controlar o valor inserido
 let isSpinning = false;
 let valorAtual = "";
 
@@ -134,9 +136,6 @@ teclasNumericas.forEach((botao) => {
         if (isDelete) {
             // Apaga o último caractere visível na tela
             valorAtual = valorAtual.slice(0, -1);
-        } else if (conteudo === "✔") {
-            // Confirmar e fechar popup
-            popup.style.display = "none";
         } else {
             // Adiciona o número
             valorAtual += conteudo;
@@ -145,6 +144,16 @@ teclasNumericas.forEach((botao) => {
         // Atualiza o texto do label com a máscara
         valorLabel.textContent = formatarValor(valorAtual);
     });
+});
+
+// Quando o botão "✔" for pressionado, transfere o valor para o label da aposta
+checkBtn.addEventListener("click", function () {
+    // Atualiza o valor no label da aposta
+    const apostaLabel = document.getElementById("aposta-label");
+    apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
+
+    // Fecha o popup
+    popup.style.display = "none";
 });
 
 // Configura as bobinas
