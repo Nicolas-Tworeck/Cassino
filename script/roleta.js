@@ -140,6 +140,12 @@ teclasNumericas.forEach((botao) => {
     botao.addEventListener("click", function () {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
+        const isZero = conteudo === "0"; // Verifica se o número clicado é zero
+
+        // Se for zero, verifica se já existe um número não zero antes de adicionar o zero
+        if (isZero && (valorAtual === "" || valorAtual === "0")) {
+            return; // Não adiciona zero se não houver um número não zero antes
+        }
 
         // Não adiciona mais números se o limite de 7 caracteres for alcançado
         if (valorAtual.length >= 7 && !isDelete) {
