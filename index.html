@@ -13,7 +13,7 @@
     <form>
         <div class="slot-container">
             <div class="banca">
-                <label>R$00,00</label>
+                <label id="banca-label">R$00,00</label>
             </div>
             <div class="slot-machine">
                 <div class="reel" id="reel-1"></div>
@@ -22,8 +22,7 @@
             </div>
 
             <div id="aposta" class="aposta">
-                <label>R$00,00</label>
-
+                <label id="aposta-label">R$00,00</label>
             </div>
 
             <button id="girar"><i class="bi bi-arrow-repeat"></i></button>
@@ -35,20 +34,15 @@
         <div id="popup" class="popup">
             <div class="popup-content">
                 <div class="button-pop-close">
-                    <button id="closePopupBtn" class="close-btn">X</button> <!-- Botão de fechar dentro do popup -->
+                    <button id="closePopupBtn" type="button" class="close-btn">X</button>
                 </div>
                 <div class="minha-aposta">
-
                     <h1>MINHA APOSTA</h1>
-
                 </div>
                 <div class="valor">
-
-                    <label>R$00,00</label>
-
+                    <label id="popup-label">R$00,00</label>
                 </div>
                 <div class="teclado-numerico">
-
                     <button type="button">1</button>
                     <button type="button">2</button>
                     <button type="button">3</button>
@@ -58,15 +52,12 @@
                     <button type="button">7</button>
                     <button type="button">8</button>
                     <button type="button">9</button>
-                    <button type="button"><i class="bi bi-arrow-return-left"></i></button>
+                    <button type="button" id="deleteBtn"><i class="bi bi-arrow-return-left"></i></button>
                     <button type="button">0</button>
                     <button type="button"><i class="bi bi-check-lg"></i></button>
-
                 </div>
             </div>
         </div>
-
-
 
         <script src="script/roleta.js"></script>
     </form>

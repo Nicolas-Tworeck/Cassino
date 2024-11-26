@@ -1,4 +1,4 @@
-// Seleciona os elementos
+// Seleciona os elementos principais
 const symbols = ["🍀", "🍒", "⭐", "🍉", "🔔", "💎", "🍋", "🔑", "🐅"];
 const reels = [
     document.getElementById("reel-1"),
@@ -8,22 +8,23 @@ const reels = [
 const girar = document.getElementById("girar");
 const resultDiv = document.getElementById("result");
 const aposta = document.getElementById("aposta");
-const closePopupBtn = document.getElementById("closePopupBtn");
 const popup = document.getElementById("popup");
+const closePopupBtn = document.getElementById("closePopupBtn");
+const valorLabel = document.querySelector(".valor label");
+const teclasNumericas = document.querySelectorAll(".teclado-numerico button");
 
 let isSpinning = false;
+let valorAtual = "";
 
-// Adiciona os símbolos dentro das bobinas
+// Adiciona os símbolos nas bobinas
 function setupReels() {
     reels.forEach(reel => {
         reel.innerHTML = ""; // Limpa o conteúdo para evitar duplicatas
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
 
-        // Aumentando o número de símbolos visíveis nas bobinas
-        const totalSymbolsToDisplay = symbols.length * 4; // Aqui aumentei a quantidade de símbolos
+        const totalSymbolsToDisplay = symbols.length * 4; // Multiplicamos para criar efeito visual
 
-        // Adiciona símbolos suficientes para criar a ilusão de rotação contínua
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
             symbolDiv.classList.add("symbol");
@@ -42,35 +43,28 @@ function spinReels() {
     girar.disabled = true;
     resultDiv.textContent = "Girando...";
 
-    // Determinar se o jogador deve ganhar 
     const shouldWin = Math.random() < 0.01;
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-
-        // Reduzimos o tempo de animação para tornar o giro mais rápido
-        const duration = 0.3 + 0.1 * index; // Tempo de animação reduzido para velocidade maior
+        const duration = 0.6 + 0.2 * index;
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
         let stopPosition;
-
         if (shouldWin) {
-            // Forçar a parada no símbolo vencedor
             stopPosition = symbols.indexOf(winningSymbol);
         } else {
-            // Posição aleatória se o jogador não for ganhar
             stopPosition = Math.floor(Math.random() * symbols.length);
         }
 
-        const offset = stopPosition * 100; // Deslocamento para baixo
-        reelInner.style.transform = `translateY(-${offset}px)`; // Gira para baixo (sentido negativo)
+        const offset = stopPosition * 100; // Calcula o deslocamento
+        reelInner.style.transform = `translateY(-${offset}px)`;
 
-        // Garantir que a animação pare corretamente
         setTimeout(() => {
             if (index === reels.length - 1) {
-                showResult(winningSymbol); // Verifica o resultado ao final do último giro
+                showResult(winningSymbol);
             }
         }, duration * 1000);
     });
@@ -78,14 +72,6 @@ function spinReels() {
 
 // Exibe o resultado
 function showResult(winningSymbol) {
-    const finalSymbols = reels.map(reel => {
-        const reelInner = reel.querySelector(".reel-inner");
-        const transformValue = reelInner.style.transform;
-        const offset = parseInt(transformValue.match(/-?\d+/)[0], 10); // Extrai o valor do offset
-        const stopIndex = (offset / 100) % symbols.length;
-        return symbols[stopIndex < 0 ? stopIndex + symbols.length : stopIndex];
-    });
-
     const isWinning = winningSymbol !== null;
     resultDiv.textContent = isWinning
         ? `Você ganhou!`
@@ -95,19 +81,44 @@ function showResult(winningSymbol) {
     girar.disabled = false;
 }
 
-// Configurações iniciais
-girar.addEventListener("click", spinReels);
+// Eventos para o botão girar
+girar.addEventListener("click", function (event) {
+    event.preventDefault(); // Evita comportamento padrão do formulário
+    spinReels();
+});
 
-// Popup
 // Mostra o popup
-aposta.addEventListener("click", function(event) {
-    event.preventDefault(); // Impede o comportamento padrão do botão
+aposta.addEventListener("click", function (event) {
+    event.preventDefault(); // Evita comportamento padrão
     popup.style.display = "flex";
 });
 
-// Fecha o popup quando o botão de fechar for clicado
-closePopupBtn.addEventListener("click", function() {
+// Fecha o popup
+closePopupBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // Evita comportamento padrão
     popup.style.display = "none";
+});
+
+// Atualiza o valor ao clicar nos botões do teclado numérico
+teclasNumericas.forEach((botao) => {
+    botao.addEventListener("click", function () {
+        const conteudo = botao.textContent.trim();
+        const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
+
+        if (isDelete) {
+            // Apagar o último caractere
+            valorAtual = valorAtual.slice(0, -1);
+        } else if (conteudo === "✔") {
+            // Confirmar e fechar popup
+            popup.style.display = "none";
+        } else {
+            // Adiciona o número
+            valorAtual += conteudo;
+        }
+
+        // Atualiza o texto do label
+        valorLabel.textContent = `R$${valorAtual || "0,00"}`;
+    });
 });
 
 // Configura as bobinas
