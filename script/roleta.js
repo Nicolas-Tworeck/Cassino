@@ -16,6 +16,27 @@ const teclasNumericas = document.querySelectorAll(".teclado-numerico button");
 let isSpinning = false;
 let valorAtual = "";
 
+// Função para formatar o valor como moeda R$
+function formatarValor(valor) {
+    // Remove qualquer caractere não numérico (caso o usuário insira algo indevido)
+    valor = valor.replace(/\D/g, '');
+
+    // Limita o valor a no máximo 7 caracteres
+    if (valor.length > 7) {
+        valor = valor.slice(0, 7);
+    }
+
+    // Se o valor tiver 6 ou mais caracteres, separa os reais e centavos
+    if (valor.length > 2) {
+        const reais = valor.slice(0, -2);  // Pega todos os caracteres exceto os dois últimos
+        const centavos = valor.slice(-2);  // Pega os dois últimos caracteres
+        return `R$${reais},${centavos}`;
+    } else {
+        // Se o valor for menor que 3 caracteres, exibe os centavos com 2 dígitos
+        return `R$00,${valor.padStart(2, '0')}`;
+    }
+}
+
 // Adiciona os símbolos nas bobinas
 function setupReels() {
     reels.forEach(reel => {
@@ -105,8 +126,13 @@ teclasNumericas.forEach((botao) => {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
 
+        // Não adiciona mais números se o limite de 7 caracteres for alcançado
+        if (valorAtual.length >= 7 && !isDelete) {
+            return; // Não faz nada se o limite de caracteres for atingido
+        }
+
         if (isDelete) {
-            // Apagar o último caractere
+            // Apaga o último caractere visível na tela
             valorAtual = valorAtual.slice(0, -1);
         } else if (conteudo === "✔") {
             // Confirmar e fechar popup
@@ -116,8 +142,8 @@ teclasNumericas.forEach((botao) => {
             valorAtual += conteudo;
         }
 
-        // Atualiza o texto do label
-        valorLabel.textContent = `R$${valorAtual || "0,00"}`;
+        // Atualiza o texto do label com a máscara
+        valorLabel.textContent = formatarValor(valorAtual);
     });
 });
 
