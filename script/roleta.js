@@ -22,45 +22,41 @@ let numeroDigitado = false; // Flag para detectar se já foi inserido um número
 
 // Função para formatar o valor como moeda R$
 function formatarValor(valor) {
-    // Remove qualquer caractere não numérico (caso o usuário insira algo indevido)
-    valor = valor.replace(/\D/g, '');
+    valor = valor.replace(/\D/g, ''); // Remove qualquer caractere não numérico
 
-    // Limita o valor a no máximo 7 caracteres
     if (valor.length > 7) {
-        valor = valor.slice(0, 7);
+        valor = valor.slice(0, 7); // Limita o valor a no máximo 7 caracteres
     }
 
-    // Se o valor tiver 6 ou mais caracteres, separa os reais e centavos
     if (valor.length > 2) {
-        const reais = valor.slice(0, -2);  // Pega todos os caracteres exceto os dois últimos
-        const centavos = valor.slice(-2);  // Pega os dois últimos caracteres
+        const reais = valor.slice(0, -2);
+        const centavos = valor.slice(-2);
         return `R$${reais},${centavos}`;
     } else {
-        // Se o valor for menor que 3 caracteres, exibe os centavos com 2 dígitos
         return `R$00,${valor.padStart(2, '0')}`;
     }
 }
 
-// Função para verificar se a aposta é válida (valor >= R$2 e <= R$10.000)
+// Função para verificar se a aposta é válida
 function isApostaValida() {
-    const valor = valorAtual.replace(/\D/g, ''); // Remove não numéricos
-    const valorEmReais = Number(valor) / 100; // Converte para reais
-    return valorEmReais >= 2 && valorEmReais <= 10000; // Verifica se está entre 2 e 10.000 reais
+    const valor = valorAtual.replace(/\D/g, '');
+    const valorEmReais = Number(valor) / 100;
+    return valorEmReais >= 2 && valorEmReais <= 10000;
 }
 
-// Função para verificar se a aposta é menor que 2 ou maior que 10000
+// Função para verificar se a aposta está fora do limite
 function verificarLimiteAposta() {
-    const valor = valorAtual.replace(/\D/g, ''); // Remove não numéricos
-    const valorEmReais = Number(valor) / 100; // Converte para reais
+    const valor = valorAtual.replace(/\D/g, '');
+    const valorEmReais = Number(valor) / 100;
 
     if (valorEmReais < 2) {
-        errorMessage.textContent = "A aposta mínima é de R$2,00"; // Exibe a mensagem de erro
-        errorMessage.style.display = "block"; // Torna a mensagem visível
+        errorMessage.textContent = "A aposta mínima é de R$2,00";
+        errorMessage.style.display = "block";
     } else if (valorEmReais > 10000) {
-        errorMessage.textContent = "A aposta máxima é de R$10.000,00"; // Exibe a mensagem de erro
-        errorMessage.style.display = "block"; // Torna a mensagem visível
+        errorMessage.textContent = "A aposta máxima é de R$10.000,00";
+        errorMessage.style.display = "block";
     } else {
-        errorMessage.style.display = "none"; // Esconde a mensagem de erro, caso a aposta seja válida
+        errorMessage.style.display = "none";
     }
 }
 
@@ -71,7 +67,7 @@ function setupReels() {
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
 
-        const totalSymbolsToDisplay = symbols.length * 4; // Multiplicamos para criar efeito visual
+        const totalSymbolsToDisplay = symbols.length * 4;
 
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
@@ -107,7 +103,7 @@ function spinReels() {
             stopPosition = Math.floor(Math.random() * symbols.length);
         }
 
-        const offset = stopPosition * 100; // Calcula o deslocamento
+        const offset = stopPosition * 100;
         reelInner.style.transform = `translateY(-${offset}px)`;
 
         setTimeout(() => {
@@ -131,26 +127,26 @@ function showResult(winningSymbol) {
 
 // Eventos para o botão girar
 girar.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita comportamento padrão do formulário
-    verificarLimiteAposta(); // Verifica os limites da aposta
+    event.preventDefault();
+    verificarLimiteAposta();
 
     if (errorMessage.style.display === "block") {
-        return; // Se houver mensagem de erro, impede o giro
+        return;
     }
-    
-    spinReels(); // Inicia o giro se a aposta for válida
+
+    spinReels();
 });
 
 // Mostra o popup
 aposta.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita comportamento padrão
+    event.preventDefault();
     popup.style.display = "flex";
-    errorMessage.style.display = "none"; // Esconde a mensagem de erro ao abrir o popup
+    errorMessage.style.display = "none";
 });
 
 // Fecha o popup
 closePopupBtn.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita comportamento padrão
+    event.preventDefault();
     popup.style.display = "none";
 });
 
@@ -158,75 +154,45 @@ closePopupBtn.addEventListener("click", function (event) {
 teclasNumericas.forEach((botao) => {
     botao.addEventListener("click", function () {
         const conteudo = botao.textContent.trim();
-        const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
+        const isDelete = botao.id === "deleteBtn";
 
-        // Caso o número seja zero, só adicione se já foi inserido um número diferente de zero
         if (conteudo === "0" && !numeroDigitado) {
-            return; // Não adiciona o zero se nenhum outro número foi digitado
+            return;
         }
 
-        // Não adiciona mais números se o limite de 7 caracteres for alcançado
         if (valorAtual.length >= 7 && !isDelete) {
-            return; // Não faz nada se o limite de caracteres for atingido
+            return;
         }
 
         if (isDelete) {
-            // Apaga o último caractere visível na tela
             valorAtual = valorAtual.slice(0, -1);
             if (valorAtual === "") {
-                numeroDigitado = false; // Reseta a flag se apagar tudo
+                numeroDigitado = false;
             }
         } else {
-            // Adiciona o número
             valorAtual += conteudo;
             if (conteudo !== "0") {
-                numeroDigitado = true; // Marca que um número não zero foi digitado
+                numeroDigitado = true;
             }
         }
 
-        // Atualiza o texto do label com a máscara
         valorLabel.textContent = formatarValor(valorAtual);
     });
 });
 
-// Quando o botão "✔" for pressionado, transfere o valor para o label da aposta
+// Quando o botão "✔" for pressionado
 checkBtn.addEventListener("click", function () {
-    // Verifica os limites da aposta antes de transferir o valor
     verificarLimiteAposta();
 
     if (errorMessage.style.display === "block") {
-        return; // Se houver mensagem de erro, impede a transferência
+        return;
     }
 
-    // Atualiza o valor no label da aposta
     const apostaLabel = document.getElementById("aposta-label");
-    apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
+    apostaLabel.textContent = formatarValor(valorAtual);
 
-    // Fecha o popup
     popup.style.display = "none";
 });
 
 // Configura as bobinas
 setupReels();
-
-// Seleciona os elementos do popup e do botão de fechar
-const popupBanca = document.getElementById("popupBanca");
-const closePopupBancaBtn = document.getElementById("closePopupBanca");
-const banca = document.querySelector(".banca");
-
-// Exibe o popup quando a classe .banca for clicada
-banca.addEventListener("click", function () {
-    popupBanca.style.display = "block";
-});
-
-// Fecha o popup quando o botão de fechar for clicado
-closePopupBancaBtn.addEventListener("click", function () {
-    popupBanca.style.display = "none";
-});
-
-// Fecha o popup da banca quando o clique for fora da área do popup
-window.addEventListener("click", function (event) {
-    if (event.target === popupBanca) {
-        popupBanca.style.display = "none"; // Fecha o popup
-    }
-});
