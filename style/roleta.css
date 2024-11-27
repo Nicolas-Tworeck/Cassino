@@ -14,7 +14,7 @@ form {
 }
 
 .slot-container {
-    width: 30%;
+    width: 450px;
     background: var(--bordo);
     display: flex;
     justify-content: center;
