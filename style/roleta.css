@@ -81,6 +81,21 @@ form {
         background: var(--bordo-mais-escuro);
 
     }
+    .banca{
+        display: flex;
+        justify-content: start;
+        background: var(--verde);
+        margin-left: 9px;
+        margin-right: 60px;
+        border-radius: 10px; 
+        label{
+            font-size: 22px;
+            margin-left: 20px;
+            color: var(--amarelo-escuro);
+        }
+    }
+
+
 }
 
 
