@@ -45,34 +45,24 @@ form {
     align-items: center;
 }
 
-#girar {
-    font-size: 50px;
-    border-radius: 100%;
-    padding-left: 13px;
-    padding-right: 13px;
-    background: var(--amarelo);
-    transition: 0.3s;
-    cursor: pointer;
-}
 
-#girar:hover {
-    background-color: var(--amarelo-escuro);
-}
 
 .grid-banca {
     display: grid;
-    grid-template-columns: 200px 200px;
-    margin-top: 53px;
+    grid-template-columns: 133px  133px 133px;
+        margin-bottom: 30px;
     .aposta {
         display: flex;
-        justify-content: end;
+        justify-content: center;
         background: var(--verde);
-        margin-right: 4px;
-        margin-left: 66px;
+        align-items: center;
         border-radius: 10px;
+        margin-top: 32px;
+        margin-bottom: 31px;
+        transition: 0.3s;
         label{
             font-size: 22px;
-            margin-right: 20px;
+
             color: var(--amarelo-escuro);
         }
     }
@@ -83,16 +73,35 @@ form {
     }
     .banca{
         display: flex;
-        justify-content: start;
+        justify-content: center;
         background: var(--verde);
-        margin-left: 9px;
-        margin-right: 60px;
-        border-radius: 10px; 
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 32px;
+        margin-bottom: 31px;
+        margin-left: 7px;
         label{
             font-size: 22px;
-            margin-left: 20px;
+
             color: var(--amarelo-escuro);
         }
+    }
+
+
+    #girar {
+        font-size: 50px;
+        border-radius: 100%;
+        margin-left: 20px;
+        margin-right: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: var(--amarelo);
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    
+    #girar:hover {
+        background-color: var(--amarelo-escuro);
     }
 
 
