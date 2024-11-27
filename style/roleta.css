@@ -4,7 +4,9 @@
 }
 
 body {
-    background: black;
+    background-image: url(../img/back-jogo-pc.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 form {
@@ -15,7 +17,7 @@ form {
 
 .slot-container {
     width: 450px;
-    background: var(--bordo);
+    background-image: url(../img/back-roll.png);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -26,13 +28,12 @@ form {
 .slot-machine {
     display: flex;
     justify-content: center;
-    width: 320px;
-    height: 300px;
+    width: 380px;
+    height: 320px;
     border: 3px solid var(--amarelo);
     background: #fff;
     overflow: hidden;
-    position: relative;
-    border-radius: 5px;
+    margin-top: 15px;
 }
 
 .symbol {
@@ -58,37 +59,32 @@ form {
     background-color: var(--amarelo-escuro);
 }
 
-.banca {
-    background: var(--bordo-escuro);
-    font-size: 25px;
-    padding: 5px;
-    border-radius: 10px;
-    margin-bottom: 70px;
-    color: var(--branco-escuro);
+.grid-banca {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    margin-top: 53px;
+    .aposta {
+        display: flex;
+        justify-content: end;
+        background: var(--verde);
+        margin-right: 4px;
+        margin-left: 66px;
+        border-radius: 10px;
+        label{
+            font-size: 22px;
+            margin-right: 20px;
+            color: var(--amarelo-escuro);
+        }
+    }
 
+    .aposta:hover {
+        background: var(--bordo-mais-escuro);
 
-}
-
-
-.aposta {
-    background: var(--bordo-escuro);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: var(--branco-escuro);
-    cursor: pointer;
-    transition: 0.3s;
-
-    label {
-        cursor: pointer;
     }
 }
 
-.aposta:hover {
-    background: var(--bordo-mais-escuro);
-}
+
+
 
 #result {
     margin-top: 20px;
@@ -177,40 +173,47 @@ form {
     grid-template-columns: 100px 100px 100px;
     margin-bottom: 10px;
     margin-top: 10px;
-    button{
-        border:none;
+
+    button {
+        border: none;
         transition: 0.3s;
         background: transparent;
         font-size: 20px;
         cursor: pointer;
     }
-    button:hover{
+
+    button:hover {
         background: var(--branco-escuro);
     }
 }
-.apostaMinima{
+
+.apostaMinima {
     text-align: center;
     color: var(--amarelo-escuro);
     font-weight: 600;
 }
+
 /* Estilo do Popup */
 .popup {
-    display: none; /* Inicialmente o popup está oculto */
+    display: none;
+    /* Inicialmente o popup está oculto */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com opacidade */
-    z-index: 1000; /* Fica acima dos outros elementos */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cor de fundo com opacidade */
+    z-index: 1000;
+    /* Fica acima dos outros elementos */
 }
 
 
 
 
 
-@media(max-width:500px){
-    .slot-container{
+@media(max-width:500px) {
+    .slot-container {
         width: 100%;
         margin: 0;
     }

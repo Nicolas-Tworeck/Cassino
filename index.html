@@ -12,22 +12,20 @@
 <body>
     <form>
         <div class="slot-container">
-            <div class="banca">
-                <label id="banca-label">R$00,00</label>
-            </div>
             <div class="slot-machine">
                 <div class="reel" id="reel-1"></div>
                 <div class="reel" id="reel-2"></div>
                 <div class="reel" id="reel-3"></div>
             </div>
-
-            <div id="aposta" class="aposta">
-                <label id="aposta-label">R$00,00</label>
+            <div class="grid-banca">
+                <div class="banca">
+                    <label>R$00,00</label>
+                </div>
+                <div id="aposta" class="aposta">
+                    <label id="aposta-label">R$00,00</label>
+                </div>
             </div>
-
             <button id="girar"><i class="bi bi-arrow-repeat"></i></button>
-
-            <div id="result"></div>
         </div>
 
         <!-- Popup -->
@@ -58,11 +56,9 @@
                     <button type="button">0</button>
                     <button type="button" id="checkBtn"><i class="bi bi-check-lg"></i></button>
                 </div>
-                <!-- Mensagem de erro -->
-
             </div>
         </div>
-       
+
         <script src="script/roleta.js"></script>
     </form>
 </body>
