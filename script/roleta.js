@@ -18,6 +18,7 @@ const errorMessage = document.getElementById("error-message"); // Mensagem de er
 // Variáveis para controlar o valor inserido
 let isSpinning = false;
 let valorAtual = "";
+let numeroDigitado = false; // Flag para detectar se já foi inserido um número não-zero
 
 // Função para formatar o valor como moeda R$
 function formatarValor(valor) {
@@ -159,6 +160,11 @@ teclasNumericas.forEach((botao) => {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
 
+        // Caso o número seja zero, só adicione se já foi inserido um número diferente de zero
+        if (conteudo === "0" && !numeroDigitado) {
+            return; // Não adiciona o zero se nenhum outro número foi digitado
+        }
+
         // Não adiciona mais números se o limite de 7 caracteres for alcançado
         if (valorAtual.length >= 7 && !isDelete) {
             return; // Não faz nada se o limite de caracteres for atingido
@@ -167,9 +173,15 @@ teclasNumericas.forEach((botao) => {
         if (isDelete) {
             // Apaga o último caractere visível na tela
             valorAtual = valorAtual.slice(0, -1);
+            if (valorAtual === "") {
+                numeroDigitado = false; // Reseta a flag se apagar tudo
+            }
         } else {
             // Adiciona o número
             valorAtual += conteudo;
+            if (conteudo !== "0") {
+                numeroDigitado = true; // Marca que um número não zero foi digitado
+            }
         }
 
         // Atualiza o texto do label com a máscara
