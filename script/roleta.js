@@ -223,3 +223,10 @@ banca.addEventListener("click", function () {
 closePopupBancaBtn.addEventListener("click", function () {
     popupBanca.style.display = "none";
 });
+
+// Fecha o popup da banca quando o clique for fora da área do popup
+window.addEventListener("click", function (event) {
+    if (event.target === popupBanca) {
+        popupBanca.style.display = "none"; // Fecha o popup
+    }
+});
