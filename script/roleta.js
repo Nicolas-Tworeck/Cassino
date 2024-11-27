@@ -40,10 +40,27 @@ function formatarValor(valor) {
     }
 }
 
-// Função para verificar se a aposta é válida (valor >= R$2)
+// Função para verificar se a aposta é válida (valor >= R$2 e <= R$10.000)
 function isApostaValida() {
     const valor = valorAtual.replace(/\D/g, ''); // Remove não numéricos
-    return Number(valor) >= 200; // Verifica se é maior ou igual a 2 reais (em centavos)
+    const valorEmReais = Number(valor) / 100; // Converte para reais
+    return valorEmReais >= 2 && valorEmReais <= 10000; // Verifica se está entre 2 e 10.000 reais
+}
+
+// Função para verificar se a aposta é menor que 2 ou maior que 10000
+function verificarLimiteAposta() {
+    const valor = valorAtual.replace(/\D/g, ''); // Remove não numéricos
+    const valorEmReais = Number(valor) / 100; // Converte para reais
+
+    if (valorEmReais < 2) {
+        errorMessage.textContent = "A aposta mínima é de R$2,00"; // Exibe a mensagem de erro
+        errorMessage.style.display = "block"; // Torna a mensagem visível
+    } else if (valorEmReais > 10000) {
+        errorMessage.textContent = "A aposta máxima é de R$10.000,00"; // Exibe a mensagem de erro
+        errorMessage.style.display = "block"; // Torna a mensagem visível
+    } else {
+        errorMessage.style.display = "none"; // Esconde a mensagem de erro, caso a aposta seja válida
+    }
 }
 
 // Adiciona os símbolos nas bobinas
@@ -114,12 +131,13 @@ function showResult(winningSymbol) {
 // Eventos para o botão girar
 girar.addEventListener("click", function (event) {
     event.preventDefault(); // Evita comportamento padrão do formulário
-    if (!isApostaValida()) {
-        errorMessage.textContent = "A aposta mínima é de R$2,00"; // Exibe a mensagem de erro
-        errorMessage.style.display = "block"; // Torna a mensagem visível
-        return; // Impede o giro se o valor for inválido
+    verificarLimiteAposta(); // Verifica os limites da aposta
+
+    if (errorMessage.style.display === "block") {
+        return; // Se houver mensagem de erro, impede o giro
     }
-    spinReels();
+    
+    spinReels(); // Inicia o giro se a aposta for válida
 });
 
 // Mostra o popup
@@ -140,12 +158,6 @@ teclasNumericas.forEach((botao) => {
     botao.addEventListener("click", function () {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn"; // Verifica se é o botão de apagar
-        const isZero = conteudo === "0"; // Verifica se o número clicado é zero
-
-        // Se for zero, verifica se já existe um número não zero antes de adicionar o zero
-        if (isZero && (valorAtual === "" || valorAtual === "0")) {
-            return; // Não adiciona zero se não houver um número não zero antes
-        }
 
         // Não adiciona mais números se o limite de 7 caracteres for alcançado
         if (valorAtual.length >= 7 && !isDelete) {
@@ -167,19 +179,19 @@ teclasNumericas.forEach((botao) => {
 
 // Quando o botão "✔" for pressionado, transfere o valor para o label da aposta
 checkBtn.addEventListener("click", function () {
-    // Verifica se a aposta é válida
-    if (isApostaValida()) {
-        // Atualiza o valor no label da aposta
-        const apostaLabel = document.getElementById("aposta-label");
-        apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
+    // Verifica os limites da aposta antes de transferir o valor
+    verificarLimiteAposta();
 
-        // Fecha o popup
-        popup.style.display = "none";
-    } else {
-        // Exibe a mensagem de erro
-        errorMessage.textContent = "A aposta mínima é de R$2,00";
-        errorMessage.style.display = "block"; // Torna a mensagem visível
+    if (errorMessage.style.display === "block") {
+        return; // Se houver mensagem de erro, impede a transferência
     }
+
+    // Atualiza o valor no label da aposta
+    const apostaLabel = document.getElementById("aposta-label");
+    apostaLabel.textContent = formatarValor(valorAtual); // Exibe o valor formatado no label da aposta
+
+    // Fecha o popup
+    popup.style.display = "none";
 });
 
 // Configura as bobinas
