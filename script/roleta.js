@@ -146,3 +146,8 @@ checkBtn.addEventListener("click", function () {
 });
 
 setupReels();
+
+
+
+//menu perfil
+
