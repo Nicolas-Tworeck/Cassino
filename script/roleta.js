@@ -208,3 +208,18 @@ checkBtn.addEventListener("click", function () {
 
 // Configura as bobinas
 setupReels();
+
+// Seleciona os elementos do popup e do botão de fechar
+const popupBanca = document.getElementById("popupBanca");
+const closePopupBancaBtn = document.getElementById("closePopupBanca");
+const banca = document.querySelector(".banca");
+
+// Exibe o popup quando a classe .banca for clicada
+banca.addEventListener("click", function () {
+    popupBanca.style.display = "block";
+});
+
+// Fecha o popup quando o botão de fechar for clicado
+closePopupBancaBtn.addEventListener("click", function () {
+    popupBanca.style.display = "none";
+});
