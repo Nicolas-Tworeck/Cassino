@@ -51,6 +51,7 @@ form {
     padding-right: 13px;
     background: var(--amarelo);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 #girar:hover {
