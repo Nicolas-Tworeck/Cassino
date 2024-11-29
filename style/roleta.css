@@ -19,17 +19,19 @@ form {
     width: 450px;
     background-image: url(../img/back-roll.png);
     background-repeat: no-repeat;
+    background-size: cover;  /* Faz a imagem de fundo cobrir toda a área */
+    background-position: center;  /* Centraliza a imagem de fundo */
     display: flex;
-
+    height: 100vh;  /* Garantir que a altura seja 100% da altura da janela */
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-
 }
+
 
 .display {
     width: 86%;
-    margin-top: 80px;
+    margin-top: 87px;
     .slot-machine {
         display:flex;
         justify-content: center;
