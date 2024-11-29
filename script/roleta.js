@@ -42,11 +42,14 @@ function verificarLimiteAposta() {
     if (valorEmReais < 2) {
         errorMessage.textContent = "A aposta mínima é de R$2,00";
         errorMessage.style.display = "block";
+        return false; // Retorna false se a aposta não for válida
     } else if (valorEmReais > 10000) {
         errorMessage.textContent = "A aposta máxima é de R$10.000,00";
         errorMessage.style.display = "block";
+        return false; // Retorna false se a aposta não for válida
     } else {
         errorMessage.style.display = "none";
+        return true; // Retorna true se a aposta for válida
     }
 }
 
@@ -102,9 +105,9 @@ function spinReels() {
 
 girar.addEventListener("click", function (event) {
     event.preventDefault();
-    verificarLimiteAposta();
-    if (errorMessage.style.display === "block") return;
-    spinReels();
+    if (verificarLimiteAposta()) { // Verifica se a aposta é válida antes de girar
+        spinReels();
+    }
 });
 
 aposta.addEventListener("click", function (event) {
@@ -138,16 +141,23 @@ teclasNumericas.forEach((botao) => {
 });
 
 checkBtn.addEventListener("click", function () {
-    verificarLimiteAposta();
-    if (errorMessage.style.display === "block") return;
-    const apostaLabel = document.getElementById("aposta-label");
-    apostaLabel.textContent = formatarValor(valorAtual);
-    popup.style.display = "none";
+    if (verificarLimiteAposta()) { // Verifica se a aposta é válida antes de salvar
+        // Exibe o valor digitado na div da aposta
+        const apostaLabel = document.getElementById("aposta-label");
+        apostaLabel.textContent = formatarValor(valorAtual); // Atualiza o valor na div de aposta
+        popup.style.display = "none"; // Fecha o popup após salvar o valor
+    }
+});
+
+// Agora, quando clicar na área fora do popup, também valida e atualiza o valor da aposta
+popup.addEventListener("click", function (event) {
+    if (!event.target.closest('.popup-content')) { // Verifica se o clique foi fora do conteúdo do popup
+        if (verificarLimiteAposta()) { // Verifica se a aposta é válida
+            const apostaLabel = document.getElementById("aposta-label");
+            apostaLabel.textContent = formatarValor(valorAtual); // Atualiza o valor na div de aposta
+            popup.style.display = "none"; // Fecha o popup
+        }
+    }
 });
 
 setupReels();
-
-
-
-//menu perfil
-

@@ -31,7 +31,7 @@ form {
 
 .display {
     width: 86%;
-    margin-top: 87px;
+    margin-top: 85.5px;
     .slot-machine {
         display:flex;
         justify-content: center;
@@ -53,12 +53,17 @@ form {
 }
 
 
-
+#remove-number{
+    color: red;
+}
+#check-number{
+    color: greenyellow;
+}
 .grid-banca {
     display: grid;
     grid-template-columns: 133px 133px 133px;
     margin-bottom: 33px;
-    margin-top: 13px;
+    margin-top: 15.5px;
     margin-left: 2px;
 
     .aposta {
