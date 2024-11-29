@@ -301,6 +301,7 @@ body {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
+    cursor: pointer;
     transition: 0.3s;
 }
 

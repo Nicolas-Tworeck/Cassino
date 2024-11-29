@@ -7,6 +7,9 @@ function login() {
 function contrato() {
   window.location.href = "contrato.html";
 }
+function contato(){
+  window.location.href = "https://www.instagram.com/vegass.bet/profilecard/?igsh=em0zN2E0eTgxbnNu";
+}
 
 
 
