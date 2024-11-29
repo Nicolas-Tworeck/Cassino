@@ -29,22 +29,21 @@ form {
 
 .display {
     width: 86%;
+    margin-top: 126px;
     .slot-machine {
-        display: flex;
+        display:flex;
         justify-content: center;
         width: 100%;
         height: 325px;
         background: #fff;
         overflow: hidden;
         margin-bottom: 7px;
-
-        margin-top: 126px;
     }
 }
 
 .symbol {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     font-size: 50px;
     display: flex;
     justify-content: center;
@@ -246,3 +245,122 @@ form {
 
 
 
+@media(max-width:500px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 46.5%;
+        width: 79%;
+        background: red;
+        margin-top: 35.5%;
+    }
+}
+@media(max-width:440px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 291px;
+        width: 79%;
+        background: red;
+        margin-top: 37.5%;
+    }
+    .slot-machine{
+        margin: 0;
+    }
+    .grid-banca{
+        grid-template-columns: 115px 115px 115px;
+        margin-top: 9px;
+        .aposta{
+            font-size: 15px;
+            margin-bottom: 34px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+@media(max-width:420px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 43%;
+        width: 79%;
+        background: red;
+        margin-top: 41%;
+    }
+}
+@media(max-width:400px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 41%;
+        width: 79%;
+        background: red;
+        margin-top: 45%;
+    }
+}
+@media(max-width:360px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 38%;
+        width: 91%;
+        background: red;
+        margin-top: 65%;
+    }
+}
+@media(max-width:320px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 37.8%;
+        width: 91%;
+        background: red;
+        margin-top: 61%;
+    }
+}
+@media(max-width:412px){
+    .slot-container{
+        background-image: url(../img/back-roll-cell.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    .display{
+        height: 37.5%;
+        width: 88%;
+        background: red;
+        margin-top: 60%;
+    }
+
+}
