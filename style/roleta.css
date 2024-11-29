@@ -247,20 +247,6 @@ form {
 
 
 
-
-@media(max-width:500px) {
-    .slot-container {
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-    .display{
-        width: 86%;
-    .slot-machine{
-        width: 100%;
-        margin-top: 140px;
-        height: 362px;
-    }
-}
+@media(max-width:450px){
+    
 }
