@@ -11,28 +11,39 @@
 
 <body>
     <form>
-        <div class="nav">
 
-        </div>
+
         <div class="slot-container">
-            
-                <div class="display">
-                    <div class="slot-machine">
-                        <div class="reel" id="reel-1"></div>
-                        <div class="reel" id="reel-2"></div>
-                        <div class="reel" id="reel-3"></div>
-                    </div>
+            <div class="button-menu">
+                <button id="menuButton" class="hamburger">☰</button>
+            </div>
+            <div id="sideMenu" class="side-menu">
+                <button id="closeButton" class="close-btn"></button>
+                <ul>
+                    <li></i><a href="#home"><i id="icons" class="bi bi-person-circle"></i>PROFILE</a></li>
+                    <li><a href="#contact"><i id="icons" class="bi bi-file-arrow-down"></i>DEPOSIT</a></li>
+                    <li><a href="#contact"><i id="icons" class="bi bi-file-arrow-up"></i>WITHDRAW</a></li>
+                    <li><a href="#about"><i id="icons" class="bi bi-gear-fill"></i>CONFIGURATIONS</a></li>
+                    <li><a href="#services"><i id="icons" class="bi bi-telephone"></i>CONTACT</a></li>
+                    
+                </ul>
+            </div>
+            <div class="display">
+                <div class="slot-machine">
+                    <div class="reel" id="reel-1"></div>
+                    <div class="reel" id="reel-2"></div>
+                    <div class="reel" id="reel-3"></div>
                 </div>
-                <div class="grid-banca">
-                    <div class="banca">
-                        <label>R$00,00</label>
-                    </div>
-                    <button id="girar"><i class="bi bi-arrow-repeat"></i></button>
-                    <div id="aposta" class="aposta">
-                        <label id="aposta-label">R$00,00</label>
-                    </div>
+            </div>
+            <div class="grid-banca">
+                <div class="banca">
+                    <label>R$00,00</label>
                 </div>
-
+                <button id="girar" type="button"><i class="bi bi-arrow-repeat"></i></button>
+                <div id="aposta" class="aposta">
+                    <label id="aposta-label">R$00,00</label>
+                </div>
+            </div>
         </div>
 
         <!-- Popup -->
@@ -68,6 +79,8 @@
 
         <script src="script/roleta.js"></script>
     </form>
+    <script src="script/script.js"></script>
+    <script src="script/hamburguer.js"></script>
 </body>
 
 </html>
