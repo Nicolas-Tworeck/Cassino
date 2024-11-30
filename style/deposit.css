@@ -200,6 +200,9 @@ body {
         }
         .button{
             grid-template-columns: 50%;
+            p{
+                font-size: 12px;
+            }
         }
         .button-value{
             grid-template-columns: 70px 70px 70px 70px;
