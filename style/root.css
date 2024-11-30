@@ -4,6 +4,7 @@
     --amarelo: #efff00;
     --amarelo-escuro: #bfcc04;
     --branco-escuro: #d1d1d1;
+    --branco-mais-escuro: #a3a3a3;
     --branco: #ffffff;
     --preto-opaco:rgba(0, 0, 0, 0.577);
     --bordo: #922222;
@@ -13,6 +14,7 @@
     --border-button :#00000028;
     --verde: #182c21;
     --preto-claro-opaco:rgba(0, 0, 0, 0.77);
+    --preto-claro-solid:rgba(34, 34, 34, 0.74);
 
     --font: 'Poppins', sans-serif;
 }

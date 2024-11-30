@@ -1,0 +1,211 @@
+    * {
+        margin: 0;
+    }
+
+    body {
+        position: relative; /* Define o contexto para o posicionamento */
+        height: 100vh; 
+        font-family: var(--font);
+        background-image: url(../img/back-profile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .container {
+        position: absolute; /* Posiciona a div de forma absoluta em relação ao body */
+        top: 50%; /* Move a div para o centro vertical */
+        left: 50%; /* Move a div para o centro horizontal */
+        transform: translate(-50%, -50%); /* Ajusta o ponto de referência para centralizar */
+        background: var(--preto-claro-solid);
+        width: 500px;
+        height: 100vh;
+
+        #icons {
+            margin-right: 10px;
+        }
+
+        .nav {
+            width: 100%;
+            background: var(--bordo-escuro);
+            display: flex;
+            justify-content: start;
+
+            .voltar {
+                background: var(--bordo-escuro);
+                width: 70px;
+                margin: 10px;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                border-radius: 5px;
+                padding: 5px;
+                transition: 0.3s;
+            }
+
+            .voltar:hover {
+                background: var(--bordo-mais-escuro);
+            }
+
+            .area-banca {
+                display: grid;
+                margin-left: 60%;
+                margin-right: 20px;
+                color: var(--amarelo-escuro);
+
+                .capital {
+                    font-weight: 500;
+                }
+
+                .banca {
+                    font-size: 24px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+            }
+        }
+
+        .div-profile {
+            .edit-profile {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 50%;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                #icons {
+                    margin-right: 10px;
+                }
+
+                .button-edit-profile {
+                    background: var(--bordo);
+                    display: flex;
+                    justify-content: center;
+                    font-size: 25px;
+                    font-weight: 600;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    color: var(--branco-escuro);
+
+                }
+
+                .button-edit-profile:hover {
+                    background: var(--bordo-escuro);
+                }
+
+                .deposito {
+                    background: var(--bordo);
+                    display: flex;
+                    justify-content: center;
+                    font-size: 25px;
+                    font-weight: 600;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    color: var(--branco-escuro);
+                    margin-bottom: 10px;
+                }
+
+                .deposito:hover {
+                    background: var(--bordo-escuro);
+                }
+            }
+        }
+
+        .campos {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            justify-content: center;
+
+            label {
+                margin-top: 10px;
+                margin-left: 20px;
+                font-size: 20px;
+                font-weight: 500;
+                color: var(--branco-escuro);
+            }
+
+            input {
+                width: 80%;
+                margin-left: 20px;
+                margin-right: 20px;
+                font-size: 22px;
+                border-radius: 5px;
+                border: none;
+                background: var(--branco-mais-escuro);
+            }
+
+            select {
+                width: 81%;
+                margin-left: 21px;
+                font-size: 22px;
+                border-radius: 5px;
+                border: none;
+                background: var(--branco-escuro);
+            }
+
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 50%;
+            justify-content: center;
+            text-align: center;
+
+            .button {
+                width: 100%;
+                background: var(--amarelo);
+                font-size: 25px;
+                font-weight: 600;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .button:hover {
+                background: var(--amarelo-escuro);
+            }
+
+            #login {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            #contato{
+                margin-bottom: 15px;
+            }
+        }
+
+    }
+
+    @media (max-width:500px){
+        body{
+            background: black;
+        }
+        .container{
+            width: 100%;
+            background: transparent;
+            .div-profile{
+                .edit-profile{
+                    grid-template-columns: 80%;
+                }
+            }
+            .footer{
+                grid-template-columns: 80%;
+            }
+            .nav{
+                .area-banca{
+                    margin-left: 45%;
+                }
+            }
+            .campos{
+                label{
+                    margin-left: 20px;
+                }
+            }
+        }
+    }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE</title>
+    <link rel="shotcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="style/root.css">
+</head>
+
+<body>
+    <form>
+
+        <div class="container">
+
+            <div class="nav">
+
+                <div onclick="index()" class="voltar"><a onclick="index()"><i class="bi bi-arrow-return-left"></i></a>
+                </div>
+
+                <div class="area-banca">
+                    <label class="capital">Your capital</label>
+                    <div class="banca"><label>R$00,00</label></div>
+                </div>
+            </div>
+
+            <div class="div-profile">
+
+                <div class="edit-profile">
+                    <div class="deposito"><a><i id="icons" class="bi bi-file-arrow-down"></i>DEPOSIT</a></div>
+                    <div class="button-edit-profile"><a><i id="icons" class="bi bi-person-circle"></i>EDIT PROFILE</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="campos">
+
+
+
+                <label>Username</label>
+                <label>CEP</label>
+
+                <input type="text" disabled="ture" placeholder="Username">
+                <input id="cep" placeholder="Your CEP" type="text" maxlength="9" disabled=true>
+
+                <label>Name</label>
+                <label>Date of Birth</label>
+                
+                <input type="text" disabled="true" placeholder="Name">
+                <input id="birthdate" placeholder="Your Birth" maxlength="10" type="text" disabled="true">
+
+                <label>LestName</label>
+                <label>Phone</label>
+                
+                <input type="text" disabled="true" placeholder="LastName">
+                <input id="phone" placeholder="Your Phone" type="text" maxlength="15" disabled="true">
+                
+                <label>CPF</label>
+                <label>Gender</label>
+                
+                <input id="cpf" placeholder="CPF" type="text" maxlength="14" disabled="true">
+                <select id="gender" disabled="true">
+                    <option value="">SELECT</option>
+                    <option value="masculino">MALE</option>
+                    <option value="feminino">FEMALE</option>
+                    <option value="outros">OTHER</option>
+                </select>
+
+                <label>Email</label>
+                <label>Password</label>
+
+                <input type="email" disabled="true" placeholder="Email">
+                <input type="password" placeholder="*********" disabled="true">
+
+            </div>
+
+            <div class="footer">
+
+                <div class="button" id="login" onclick="login()"><a><i id="icons" class="bi bi-box-arrow-in-right"></i>LOG IN/REGISTER</a></div>
+                <div class="button" id="contato" onclick="contato()"><i id="icons" class="bi bi-telephone"></i>CONTACT</div>
+
+            </div>
+
+        </div>
+
+    </form>
+    <script src="script/script.js"></script>
+    <script src="script/cadastro.js"></script>
+</body>
+
+</html>
