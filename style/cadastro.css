@@ -26,17 +26,21 @@ body {
   border-radius: 5px;
   padding: 0px 35px 10px 35px;
 }
-p{
+
+p {
   color: var(--branco-escuro);
-  a{
-      color: var(--amarelo);
-      transition: 0.3s;
-      cursor: pointer;
+
+  a {
+    color: var(--amarelo);
+    transition: 0.3s;
+    cursor: pointer;
   }
-  a:hover{
-      color: var(--amarelo-escuro);
+
+  a:hover {
+    color: var(--amarelo-escuro);
   }
 }
+
 .container header {
   font-size: 35px;
   font-weight: 600;
@@ -78,11 +82,13 @@ form .page .field .label {
   font-weight: 500;
   color: var(--branco-escuro);
 }
+
 .field.terms {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Espaçamento entre o checkbox e o texto */
+  gap: 10px;
+  /* Espaçamento entre o checkbox e o texto */
 }
 
 .field.terms input[type="checkbox"] {
@@ -277,8 +283,126 @@ select:valid+.popup-error {
   display: none;
   /* Esconde a mensagem de erro se o campo for válido */
 }
-@media (max-width:1200px){
-  .container{
+
+@media (max-width:1200px) {
+  .container {
     width: 330px;
+  }
+}
+
+@media (max-width: 460px) {
+  .container {
+    width: 100vw;
+    /* Largura total da tela */
+    height: 100vh;
+    /* Altura total da tela */
+    padding: 20px;
+    /* Espaçamento interno */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* Espaçamento consistente entre os itens */
+  }
+
+  .container img {
+    width: 30%;
+    /* Proporção semelhante à versão normal */
+    max-width: 120px;
+    /* Tamanho máximo para manter a proporção */
+  }
+
+  .progress-bar {
+    width: 90%;
+    /* Ajusta a largura proporcionalmente */
+    display: flex;
+    justify-content: space-between;
+    /* Distribui as etapas uniformemente */
+  }
+
+  .progress-bar .step .bullet {
+    height: 25px;
+    /* Mesmo tamanho da versão normal */
+    width: 25px;
+    font-size: 14px;
+    /* Tamanho ajustado para telas pequenas */
+  }
+
+  .form-outer {
+    width: 90%;
+    /* Proporcional ao tamanho da tela */
+  }
+
+  .form-outer form .page .field {
+    width: 100%;
+    /* Campos ocupam toda a largura disponível */
+    margin-bottom: 15px;
+    /* Espaçamento entre campos */
+  }
+
+  form .page .field input,
+  form .page .field select {
+    font-size: 16px;
+    /* Proporção semelhante ao estilo normal */
+    border-radius: 5px;
+    /* Mantém a estética */
+  }
+
+  form .page .field button {
+    font-size: 16px;
+    /* Tamanho proporcional */
+    padding: 12px;
+    /* Botões ajustados */
+    border-radius: 5px;
+  }
+
+  .field.terms {
+    font-size: 14px;
+    /* Ajuste proporcional para o texto */
+    line-height: 1.5;
+    /* Melhora a legibilidade */
+    gap: 10px;
+    /* Espaçamento adequado entre o checkbox e o texto */
+  }
+
+  .field.terms input[type="checkbox"] {
+    width: 18px;
+    /* Tamanho proporcional do checkbox */
+    height: 18px;
+  }
+
+  .popup-error {
+    font-size: 12px;
+    /* Texto de erro discreto e legível */
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .progress-bar .step .bullet:before,
+  .progress-bar .step .bullet:after {
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    right: -42px;
+    height: 3px;
+    width: 39px;
+    background: var(--branco-escuro);
+  }
+}
+@media (max-width: 320px) {
+
+  .progress-bar .step .bullet:before,
+  .progress-bar .step .bullet:after {
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    right: -35px;
+    height: 3px;
+    width: 30px;
+    background: var(--branco-escuro);
   }
 }
