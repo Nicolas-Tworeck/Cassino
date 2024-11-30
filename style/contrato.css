@@ -18,28 +18,13 @@ body {
     .nav {
         display: flex;
         margin-bottom: 30px;
-        a {
-            background: var(--bordo);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-radius: 5px;
-            margin: 5px;
-            width: 10%;
-            color: white;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        a:hover{
-            background: var(--bordo-escuro);
-        }
+
         .h1{
             margin-top: 10px;
             margin-bottom: 10px;
             width: 100%;
             justify-content: center;
-            margin-right: 10%;
+
             color: white;
         }
     }

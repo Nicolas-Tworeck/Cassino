@@ -11,6 +11,7 @@
   <body>
     <div class="container">
       <img src="img/logo.png"  width="150px">
+      <p>I want to log in with <a onclick="login()">my account</a></p>
       <div class="progress-bar">
         <div class="step">
           <p></p>
@@ -127,6 +128,11 @@
               <input id="confirm-password" placeholder="Confirm Your Password" type="password">
               <div class="popup-error" id="confirm-password-error">Please fill in this field.</div>
             </div>
+            <div class="field terms">
+              <input type="checkbox" id="terms-checkbox" required="true">
+              <p>I agree to the <a onclick="contrato()">terms of the contract</a></p>
+            </div>
+            
             <div class="field btns">
               <button type="button" class="prev-3 prev">RETURN</button>
               <button type="submit" class="submit">FINISH</button>
@@ -137,5 +143,6 @@
       </div>
     </div>
     <script src="script/cadastro.js"></script>
+    <script src="script/script.js"></script>
   </body>
 </html>
