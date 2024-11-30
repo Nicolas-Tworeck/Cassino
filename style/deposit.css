@@ -150,12 +150,16 @@ body {
     .button{
         width: 100%;
         display: grid;
-        grid-template-columns: 25%;
+        grid-template-columns: 40%;
         justify-content: center;
+        text-align: center;
+        p{
+            color: var(--amarelo);
+            margin-top: 20px;
+        }
         select{ 
                 border-radius: 5px;
                 border: none;
-                margin-top: 10px;
                 margin-bottom: 30px;
                 font-size: 15px;
                 padding: 5px;

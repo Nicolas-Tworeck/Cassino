@@ -61,17 +61,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Se o campo estiver vazio ou com o valor "R$"
         if (inputElement.value.trim() === "" || inputElement.value.trim() === "R$") {
             okButton.disabled = true; // Desabilita o botão OK
-            warningMessage.textContent = "Insira um valor para depositar"; // Exibe o aviso
+            warningMessage.textContent = "Enter the amount you wish to deposit"; // Exibe o aviso
             warningMessage.style.visibility = "visible"; // Torna o aviso visível
         }
         // Se o valor for menor que 100 ou maior que 20000
         else if (parseInt(value) < 100) {
             okButton.disabled = true; // Desabilita o botão OK
-            warningMessage.textContent = "O valor mínimo de depósito é R$100"; // Exibe o aviso de valor mínimo
+            warningMessage.textContent = "The minimum deposit amount is R$100"; // Exibe o aviso de valor mínimo
             warningMessage.style.visibility = "visible"; // Torna o aviso visível
         } else if (parseInt(value) > 20000) {
             okButton.disabled = true; // Desabilita o botão OK
-            warningMessage.textContent = "O valor máximo de depósito é R$20.000"; // Exibe o aviso de valor máximo
+            warningMessage.textContent = "The maximum deposit amount is R$20.000"; // Exibe o aviso de valor máximo
             warningMessage.style.visibility = "visible"; // Torna o aviso visível
         }
         // Se o valor estiver dentro do intervalo permitido
