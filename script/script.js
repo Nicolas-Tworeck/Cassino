@@ -20,7 +20,9 @@ function index(){
 function deposit(){
   window.location.href = "deposit.html";
 }
-
+function saque(){
+  window.location.href = "saque.html";
+}
 function voltar(){
   window.history.back();
 }
