@@ -126,6 +126,7 @@ form .page .field select {
   padding-left: 10px;
   font-size: 17px;
   font-weight: 500;
+  border-radius: 5px;
 }
 
 form .page .field button {
