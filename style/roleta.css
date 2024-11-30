@@ -355,7 +355,11 @@ body {
             width: 86%;
             margin-top: 7%;
         }
+        .side-menu{
+            width: 50%;
+        }
     }
+
 }
 
 @media (max-width:396px) {
