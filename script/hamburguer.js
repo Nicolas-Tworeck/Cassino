@@ -1,4 +1,4 @@
-//hamburguer
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("menuButton");
@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
   
     menuButton.addEventListener("click", () => {
         sideMenu.classList.add("open");
-        body.style.overflow = "hidden"; // Impede rolagem
+        body.style.overflow = "hidden"; 
     });
   
     closeButton.addEventListener("click", () => {
         sideMenu.classList.remove("open");
-        body.style.overflow = ""; // Restaura rolagem
+        body.style.overflow = ""; 
     });
   
-    // Fecha o menu ao clicar fora dele
+    
     window.addEventListener("click", (e) => {
         if (!sideMenu.contains(e.target) && e.target !== menuButton) {
             sideMenu.classList.remove("open");
-            body.style.overflow = ""; // Restaura rolagem
+            body.style.overflow = ""; 
         }
     });
   });
