@@ -17,7 +17,7 @@ form {
 
 .slot-container {
     width: 450px;
-    background-image: url(../img/back-roll.png);
+    background-image: url(../img/background-cell.png);
     background-repeat: no-repeat;
     background-size: cover;
     /* Faz a imagem de fundo cobrir toda a área */
@@ -41,9 +41,11 @@ form {
         justify-content: center;
         width: 100%;
         height: 325px;
-        background: #fff;
+        background: #530e0ef0;
         overflow: hidden;
         margin-bottom: 7px;
+        border-radius: 5px;
+        border: 2px solid var(--amarelo);
     }
 }
 
@@ -355,6 +357,13 @@ body {
             grid-template-columns: 33% 33% 33%;
             width: 86%;
             margin-top: 7%;
+            #girar{
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                padding: 0;
+            }
         }
         .side-menu{
             width: 50%;
@@ -363,59 +372,5 @@ body {
 
 }
 
-@media (max-width:396px) {
-    .slot-container {
-        .display {
-            width: 100%;
-            margin-top: 21%;
-        }
-        .grid-banca{
-            width: 100%;
-            grid-template-columns: 33.3% 33.3% 33.3%;
-            margin-top: 5%;
-        }
-        .side-menu{
-            width: 70%;
-        }
-    }
 
 
-    .slot-machine {
-        width: 100%;
-    }
-    
-
-}
-
-@media (max-width:360px){
-    .slot-container{
-        .display{
-            margin-top: 24%;
-        }
-    }
-}
-
-@media (max-width:320px){
-    .slot-container{
-        .display{
-            margin-top: 22%;
-            .slot-machine{
-                height: 290px;
-            }
-        }
-        .grid-banca{
-            margin-top: 2.5%;
-            #girar{
-                margin-left: 5px;
-                margin-right: 5px;
-            }
-            .banca{
-                margin-right: 8px;
-            }
-            .aposta{
-                margin-left: 10px;
-            }
-        }
-           
-    }
-}
