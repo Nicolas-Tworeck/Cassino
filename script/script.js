@@ -23,6 +23,10 @@ function deposit(){
 function saque(){
   window.location.href = "saque.html";
 }
+
+function editProfile(){
+  window.location.href = "editProfile.html";
+}
 function voltar(){
   window.history.back();
 }

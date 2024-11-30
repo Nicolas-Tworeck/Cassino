@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT PROFILE</title>
+    <link rel="shotcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/editProfile.css">
+</head>
+<body>
+    <form>
+
+        <div class="container">
+
+            <div class="nav">
+
+                <div class="voltar"onclick="voltar()"><a ><i class="bi bi-arrow-return-left"></i></a></div>
+
+            </div>
+
+
+            <div class="slogan">
+
+                <h1>EDIT YOUR PROFILE</h1>
+
+            </div>
+
+
+            <div class="campos">
+
+
+
+                <label>Username</label>
+                <label>CEP</label>
+
+                <input type="text"  placeholder="Username">
+                <input id="cep" placeholder="Your CEP" type="text" maxlength="9" >
+
+                <label>Name</label>
+                <label>Date of Birth</label>
+                
+                <input type="text"  placeholder="Name">
+                <input id="birthdate" placeholder="Your Birth" maxlength="10" type="text" disabled="true">
+
+                <label>LestName</label>
+                <label>Phone</label>
+                
+                <input type="text"  placeholder="LastName">
+                <input id="phone" placeholder="Your Phone" type="text" maxlength="15" >
+                
+                <label>CPF</label>
+                <label>Gender</label>
+                
+                <input id="cpf" placeholder="CPF" type="text" maxlength="14" disabled="true">
+                <select id="gender" >
+                    <option value="">SELECT</option>
+                    <option value="masculino">MALE</option>
+                    <option value="feminino">FEMALE</option>
+                    <option value="outros">OTHER</option>
+                </select>
+
+                <label>Email</label>
+                <label>Password</label>
+
+                <input type="email" disabled="true" placeholder="Email">
+                <input type="password" placeholder="*********"  disabled="true">
+
+                <label for=""></label>
+                <a>Reset Password</a>
+
+            </div>
+
+            <div class="salvar">
+
+                <button>UPDATE PROFILE</button>
+
+            </div>
+
+        </div>
+
+    </form>
+    <script src="script/script.js"></script>
+    <script src="script/editProfile.js"></script>
+</body>
+</html>
