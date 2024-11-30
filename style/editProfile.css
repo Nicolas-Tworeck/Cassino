@@ -73,7 +73,7 @@ body {
         label {
             margin-top: 10px;
             margin-left: 20px;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--branco-escuro);
         }
@@ -129,6 +129,7 @@ body {
             padding: 5px 0 5px 0;
             background: var(--amarelo);
             transition: 0.3s;
+            padding: 5px 0 5px 0;
         }
 
         button:hover {
