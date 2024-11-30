@@ -41,6 +41,8 @@
                 border-radius: 5px;
                 padding: 5px;
                 transition: 0.3s;
+                font-size: 20px;
+                color: white;
             }
 
             .voltar:hover {
@@ -131,19 +133,21 @@
                 width: 80%;
                 margin-left: 20px;
                 margin-right: 20px;
-                font-size: 22px;
+                font-size: 15px;
                 border-radius: 5px;
                 border: none;
                 background: var(--branco-mais-escuro);
+                padding: 8px 0px 8px 8px;
             }
 
             select {
-                width: 81%;
+                width: 83%;
                 margin-left: 21px;
-                font-size: 22px;
+                font-size: 15px;
                 border-radius: 5px;
                 border: none;
                 background: var(--branco-escuro);
+                padding: 8px 0px 8px 8px;
             }
 
         }
