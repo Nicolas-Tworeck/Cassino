@@ -373,12 +373,17 @@ body {
             grid-template-columns: 33.3% 33.3% 33.3%;
             margin-top: 5%;
         }
+        .side-menu{
+            width: 80%;
+        }
     }
+
 
     .slot-machine {
         width: 100%;
     }
     
+
 }
 
 @media (max-width:360px){
