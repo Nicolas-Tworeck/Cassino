@@ -17,6 +17,12 @@ function index(){
   window.location.href = "index.html";
 }
 
+function deposit(){
+  window.location.href = "deposit.html";
+}
 
+function voltar(){
+  window.history.back();
+}
 
 

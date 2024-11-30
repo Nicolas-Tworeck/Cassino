@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPOSIT</title>
+    <link rel="shotcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/deposit.css">
+</head>
+
+<body>
+    <form>
+
+
+
+        <div class="container">
+
+            <div class="nav">
+
+                <div onclick="voltar()" class="voltar"><a onclick="index()"><i class="bi bi-arrow-return-left"></i></a>
+                </div>
+
+                <div class="area-banca">
+                    <label class="capital">Your capital</label>
+                    <div class="banca"><label>R$00,00</label></div>
+                </div>
+            </div>
+
+
+            <div class="deposit">
+
+                <div class="input">
+                    <input id="input-deposit" type="text" placeholder="R$00,00">
+                    <div id="warning-message" class="warning-message"></div>
+                </div>
+
+
+            </div>
+
+            <div class="button-value">
+                <button type="button" onclick="setValue(100)">R$100</button>
+                <button type="button" onclick="setValue(150)">R$150</button>
+                <button type="button" onclick="setValue(250)">R$250</button>
+                <button type="button" onclick="setValue(400)">R$400</button>
+                <button type="button" onclick="setValue(600)">R$600</button>
+                <button type="button" onclick="setValue(1000)">R$1000</button>
+                <button type="button" onclick="setValue(1250)">R$1250</button>
+                <button type="button" onclick="setValue(1500)">R$1500</button>
+            </div>
+            <div class="button">
+
+                <select>
+                    <option value="">PIX</option>
+                    <option value="">FETLOCK</option>
+                    <option value="">BANK DEPOSIT</option>
+                </select>
+
+
+
+            </div>
+            <div class="check-button">
+
+                <button id="button-check" class="button-check" type="button"><i id="icons"
+                        class="bi bi-file-arrow-down"></i>DEPOSIT</button>
+
+            </div>
+
+            <div class="saque">
+
+                <div class="saque-btn"><a><i id="icons"class="bi bi-file-arrow-up"></i>WITHDRAW</a></div>
+
+            </div>
+
+        </div>
+
+
+
+    </form>
+    <script src="script/script.js"></script>
+    <script src="script/deposit.js"></script>
+</body>
+
+</html>

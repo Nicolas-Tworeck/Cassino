@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-image: url(../img/back-deposit.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    font-family: var(--font);
+}
+
+.container {
+    position: absolute;
+    /* Posiciona a div de forma absoluta em relação ao body */
+    top: 50%;
+    /* Move a div para o centro vertical */
+    left: 50%;
+    /* Move a div para o centro horizontal */
+    transform: translate(-50%, -50%);
+    /* Ajusta o ponto de referência para centralizar */
+    background: var(--preto-claro-solid);
+    width: 500px;
+    height: 100vh;
+
+    #icons {
+        margin-right: 10px;
+    }
+
+    .nav {
+        width: 100%;
+        background: var(--bordo-escuro);
+        display: flex;
+        justify-content: start;
+
+        .voltar {
+            background: var(--bordo-escuro);
+            width: 70px;
+            margin: 10px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            border-radius: 5px;
+            padding: 5px;
+            transition: 0.3s;
+        }
+
+        .voltar:hover {
+            background: var(--bordo-mais-escuro);
+        }
+
+        .area-banca {
+            display: grid;
+            margin-left: 60%;
+            margin-right: 20px;
+            color: var(--amarelo-escuro);
+
+            .capital {
+                font-weight: 500;
+            }
+
+            .banca {
+                font-size: 24px;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+    }
+
+    .deposit {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 200px;
+        justify-content: center;
+        margin-top: 50px;
+
+        .input {
+            input {
+                width: 97%;
+                font-size: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-radius: 5px;
+                font-weight: 600;
+                background: white;
+            }
+
+            .warning-message {
+                color: var(--amarelo);
+                font-size: 9.5px;
+                text-align: center;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .button-value {
+        display: grid;
+        grid-template-columns: 80px 80px 80px 80px;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+            width: 95%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 5px 10px 5px 10px;
+            background: var(--bordo-escuro);
+            transition: 0.3s;
+            color: var(--branco-escuro);
+        }
+        button:hover{
+            background: var(--bordo-mais-escuro);
+        }
+    }
+
+    .check-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 35%;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+            border: none;
+            background: var(--amarelo);
+            opacity: 1;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--amarelo-escuro);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+    .button{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25%;
+        justify-content: center;
+        select{ 
+                border-radius: 5px;
+                border: none;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                font-size: 15px;
+                padding: 5px;
+        }
+    }
+    .saque{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 35%;
+        justify-content: center;
+        .saque-btn{
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            background: var(--bordo-escuro  );
+            text-align: center;
+            padding: 2px 0 2px 0;
+            margin-top: 10px;
+            color: var(--branco-escuro);
+            transition: 0.3s;
+        }
+        .saque-btn:hover{
+            background: var(--bordo-mais-escuro);
+        }
+    }
+}
+
+
+@media (max-width:500px){
+    .container{
+        width: 100%;
+        .nav{
+            .area-banca{
+                margin-left: 45%;
+            }
+        }
+        .button{
+            grid-template-columns: 50%;
+        }
+        .button-value{
+            grid-template-columns: 70px 70px 70px 70px;
+            button{
+                padding: 5px 0 5px 0;
+            }
+        }
+        .check-button{
+            button{
+                width: 50%;
+            }
+        }
+        .saque{
+            grid-template-columns: 50%;
+        }
+    }
+    
+    
+}
