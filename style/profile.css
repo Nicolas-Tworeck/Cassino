@@ -189,6 +189,7 @@
         .container{
             width: 100%;
             background: transparent;
+            margin: 0;
             .div-profile{
                 .edit-profile{
                     grid-template-columns: 80%;
