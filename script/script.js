@@ -27,6 +27,10 @@ function saque(){
 function editProfile(){
   window.location.href = "editProfile.html";
 }
+
+function demo(){
+  window.location.href = "demo.html";
+}
 function voltar(){
   window.history.back();
 }

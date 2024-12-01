@@ -86,7 +86,7 @@ form {
         transition: 0.3s;
 
         label {
-            font-size: 22px;
+            font-size: 18px;
 
             color: var(--amarelo-escuro);
         }
@@ -108,7 +108,7 @@ form {
         margin-left: 7px;
 
         label {
-            font-size: 22px;
+            font-size: 18px;
 
             color: var(--amarelo-escuro);
         }
@@ -238,6 +238,7 @@ form {
     text-align: center;
     color: var(--amarelo-escuro);
     font-weight: 600;
+    font-size: 13px;
 }
 
 
