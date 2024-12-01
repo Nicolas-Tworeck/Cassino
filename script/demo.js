@@ -79,7 +79,7 @@ function setupReels() {
         reel.innerHTML = "";
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
-        const totalSymbolsToDisplay = symbols.length * 10;
+        const totalSymbolsToDisplay = symbols.length * 100;
 
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
@@ -91,13 +91,13 @@ function setupReels() {
     });
 }
 
-// Função para girar as bobinas com mais velocidade
+// Função para girar as bobinas
 function spinReelsMaisRapido() {
     if (isSpinning) return;
     isSpinning = true;
     girar.disabled = true;
 
-    const shouldWin = Math.random() < 0.05;  // Probabilidade de ganhar (5%)
+    const shouldWin = Math.random() < 0.5;  // Probabilidade de ganhar (10%)
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
@@ -108,19 +108,19 @@ function spinReelsMaisRapido() {
 
         let stopPosition;
         if (shouldWin) {
+            // Se a aposta for vencedora, garanta que as bobinas mostrem símbolos vencedores
             stopPosition = symbols.indexOf(winningSymbol);
+            // Para garantir que todos os rolos tenham a mesma combinação vencedora
+            reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
             stopPosition = Math.floor(Math.random() * symbols.length);
+            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 10)) * 100;
+            reelInner.style.transform = `translateY(-${offset}px)`;
         }
-
-        // Aumenta a quantidade de rotação (mais rápido)
-        const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 10)) * 100; 
-
-        reelInner.style.transform = `translateY(-${offset}px)`;
 
         setTimeout(() => {
             if (index === reels.length - 1) {
-                // Se o jogador ganhou
+                // Se o jogador ganhou e as bobinas coincidem
                 if (shouldWin) {
                     const valorAposta = Number(valorAtual.replace(/\D/g, '')) / 100;
                     const ganho = valorAposta + valorAposta * 0.5;  // Ganha 50% a mais do valor apostado
@@ -213,4 +213,11 @@ setupReels();
 // Função para recarregar a página
 function reloadPage() {
     location.reload();
+}
+function reloadAccount() {
+    if (saldo < 10000) {
+        saldo = 10000;
+        atualizarSaldo();
+        console.log("Saldo recarregado para R$10.000,00");
+    }
 }
