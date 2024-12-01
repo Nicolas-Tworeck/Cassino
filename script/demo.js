@@ -79,7 +79,7 @@ function setupReels() {
         reel.innerHTML = "";
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
-        const totalSymbolsToDisplay = symbols.length * 4;
+        const totalSymbolsToDisplay = symbols.length * 10;
 
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
@@ -91,8 +91,8 @@ function setupReels() {
     });
 }
 
-// Função para girar as bobinas
-function spinReels() {
+// Função para girar as bobinas com mais velocidade
+function spinReelsMaisRapido() {
     if (isSpinning) return;
     isSpinning = true;
     girar.disabled = true;
@@ -102,7 +102,7 @@ function spinReels() {
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 0.6 + 0.2 * index;
+        const duration = 2;  // A duração continua em 2 segundos
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
@@ -113,7 +113,9 @@ function spinReels() {
             stopPosition = Math.floor(Math.random() * symbols.length);
         }
 
-        const offset = stopPosition * 100;
+        // Aumenta a quantidade de rotação (mais rápido)
+        const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 10)) * 100; 
+
         reelInner.style.transform = `translateY(-${offset}px)`;
 
         setTimeout(() => {
@@ -143,7 +145,7 @@ girar.addEventListener("click", function (event) {
         if (saldo >= valorAposta) {
             saldo -= valorAposta; // Subtrai o valor da aposta do saldo
             atualizarSaldo(); // Atualiza o saldo na tela
-            spinReels(); // Gira a roleta
+            spinReelsMaisRapido(); // Gira a roleta mais rápido
         } else {
             errorMessage.textContent = "Saldo insuficiente!";
             errorMessage.style.display = "block";
@@ -208,15 +210,7 @@ popup.addEventListener("click", function (event) {
 // Configura as bobinas da roleta ao carregar a página
 setupReels();
 
-// Função para recarregar a conta
-function reloadAccount() {
-    if (saldo < 10000) {
-        saldo = 10000;  // Recarrega a conta para 10.000 reais
-        atualizarSaldo();  // Atualiza o saldo na tela
-    }
+// Função para recarregar a página
+function reloadPage() {
+    location.reload();
 }
-
-// Adicionando o evento de clique no botão de recarregar a conta
-document.getElementById("reloadAccount").addEventListener("click", reloadAccount);
-
-
