@@ -105,7 +105,7 @@ form {
     }
 
     .aposta:hover {
-        background: var(--bordo-mais-escuro);
+        background: var(--verde-claro);
         box-shadow: 5px 5px 10px 2px;
 
     }
@@ -294,10 +294,12 @@ body {
         padding-right: 10px;
         transition: 0.3s;
         cursor: pointer;
+        box-shadow: 5px 5px 20px 1px;
     }
 
     button:hover {
         background: var(--amarelo-escuro);
+        box-shadow: 5px 5px 10px 2px;   
     }
 }
 
