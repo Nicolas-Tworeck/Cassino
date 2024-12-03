@@ -367,6 +367,7 @@ body {
 
 @media (max-width:500px) {
     .slot-container {
+        border-radius: 0;
         width: 100%;
 
         .display {
