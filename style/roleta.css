@@ -42,6 +42,10 @@ form {
     width: 86%;
     display: grid;
     margin-top: 20px;
+    background: var(--amarelo);
+    padding: 10px;
+    border-radius:25px 65px 25px 65px ;
+    box-shadow: 5px 5px 10px 5px;
     .slot-machine {
         display: flex;
         justify-content: center;
@@ -52,9 +56,7 @@ form {
         background-repeat: no-repeat;
         background-size: cover;
         overflow: hidden;
-        margin-bottom: 7px;
-        border-radius: 10px;
-        border: 2px solid var(--amarelo);
+        border-radius: 20px 60px 20px 60px;
     }
 }
 
@@ -93,6 +95,7 @@ form {
         margin-bottom: 32px;
         margin-right: 2px;
         transition: 0.3s;
+        box-shadow: 5px 5px 20px 1px;
 
         label {
             font-size: 18px;
@@ -103,6 +106,7 @@ form {
 
     .aposta:hover {
         background: var(--bordo-mais-escuro);
+        box-shadow: 5px 5px 10px 2px;
 
     }
 
@@ -115,7 +119,7 @@ form {
         margin-top: 32px;
         margin-bottom: 32px;
         margin-left: 7px;
-
+        box-shadow: 5px 5px 20px 1px;
         label {
             font-size: 18px;
 
@@ -134,9 +138,11 @@ form {
         background: var(--amarelo);
         transition: 0.3s;
         cursor: pointer;
+        box-shadow: 5px 5px 20px 1px;
     }
 
     #girar:hover {
+        box-shadow: 5px 5px 10px 2px ;
         background-color: var(--amarelo-escuro);
     }
 
@@ -365,7 +371,11 @@ body {
             width: 86%;
             margin-top: 16%;
         }
-
+        .side-menu a:hover {
+            text-decoration: underline;
+            color: var(--amarelo-escuro);
+            font-size: 20px;
+        }
         .grid-banca {
             grid-template-columns: 33% 33% 33%;
             width: 86%;
