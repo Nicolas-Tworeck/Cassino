@@ -89,7 +89,7 @@ function spinReelsMaisRapido() {
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 2;
+        const duration = 3;
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
