@@ -14,10 +14,23 @@ form {
     height: 100vh;
     justify-content: center;
 }
+.demo{
+    width: 100%;
+    background: var(--amarelo);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    label{
+        font-size: 25px;
+        margin-left: 30px;
+        font-weight: 600;
+        color: black;
+    }
+
+}
 
 .slot-container {
     width: 450px;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(200,145,22,1) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
     /* Faz a imagem de fundo cobrir toda a área */
     background-position: center center;
     /* Centraliza a imagem de fundo */
@@ -27,25 +40,52 @@ form {
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    box-shadow: 10px 10px 10px  ;
 }
 
-.estrelas{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    img{
-        width: 60%;
+.estrelas {
+    color: var(--amarelo);
+
+    #centro {
+        font-size: 70px;
+        text-shadow: 
+        0 0 10px #FFD700, 
+        0 0 20px #FFEC8B, 
+        0 0 30px #FFD700,  
+        0 0 40px #FFEC8B;
+    }
+
+    #penultima {
+        font-size: 50px;
+        text-shadow: 
+        0 0 10px #FFD700, 
+        0 0 20px #FFEC8B, 
+        0 0 30px #FFD700,  
+        0 0 40px #FFEC8B;
+    }
+
+    #canto {
+        font-size: 30px;
+        text-shadow: 
+        0 0 10px #FFD700, 
+        0 0 20px #FFEC8B, 
+        0 0 30px #FFD700,  
+        0 0 40px #FFEC8B;
     }
 }
+
 .display {
     width: 86%;
     display: grid;
-    margin-top: 20px;
     background: var(--amarelo);
     padding: 10px;
-    border-radius:25px 65px 25px 65px ;
-    box-shadow: 5px 5px 10px 5px;
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 
+    0 0 10px #FFD700, 
+    0 0 20px #FFEC8B, 
+    0 0 30px #FFD700,  
+    0 0 40px #FFEC8B;
+
     .slot-machine {
         display: flex;
         justify-content: center;
@@ -56,7 +96,7 @@ form {
         background-repeat: no-repeat;
         background-size: cover;
         overflow: hidden;
-        border-radius: 20px 60px 20px 60px;
+        border-radius: 20px 20px 20px 20px;
     }
 }
 
@@ -79,23 +119,25 @@ form {
 }
 
 .grid-banca {
-    display: grid;
-    grid-template-columns: 133px 133px 133px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 33px;
     margin-top: 15.5px;
     margin-left: 2px;
 
     .aposta {
+        width: 100px;
         display: flex;
         justify-content: center;
         background: var(--verde);
         align-items: center;
         border-radius: 10px;
-        margin-top: 32px;
-        margin-bottom: 32px;
-        margin-right: 2px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 5px 0 5px;
         transition: 0.3s;
         box-shadow: 5px 5px 20px 1px;
+        margin-left: 20px;
 
         label {
             font-size: 18px;
@@ -111,18 +153,20 @@ form {
     }
 
     .banca {
+        width: 100px;
         display: flex;
         justify-content: center;
         background: var(--verde);
         align-items: center;
         border-radius: 10px;
-        margin-top: 32px;
-        margin-bottom: 32px;
-        margin-left: 7px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 5px 0 5px;
         box-shadow: 5px 5px 20px 1px;
+        margin-right: 20px;
         label {
             font-size: 18px;
-
+            
             color: var(--amarelo-escuro);
         }
     }
@@ -131,18 +175,23 @@ form {
     #girar {
         font-size: 50px;
         border-radius: 100%;
-        margin-left: 20px;
-        margin-right: 16px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding: 0 10px 0 10px;
         background: var(--amarelo);
         transition: 0.3s;
         cursor: pointer;
-        box-shadow: 5px 5px 20px 1px;
+        box-shadow: 
+        0 0 10px #FFD700, 
+        0 0 20px #FFEC8B, 
+        0 0 30px #FFD700,  
+        0 0 40px #FFEC8B;
     }
 
     #girar:hover {
-        box-shadow: 5px 5px 10px 2px ;
+        box-shadow: 
+        0 0 10px #caac00, 
+        0 0 20px #c9b96c, 
+        0 0 30px #caac02,  
+        0 0 40px #bcad66;
         background-color: var(--amarelo-escuro);
     }
 
@@ -299,7 +348,7 @@ body {
 
     button:hover {
         background: var(--amarelo-escuro);
-        box-shadow: 5px 5px 10px 2px;   
+        box-shadow: 5px 5px 10px 2px;
     }
 }
 
@@ -314,7 +363,6 @@ body {
     color: white;
     transition: right 0.3s ease-in-out;
     z-index: 999;
-    padding: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -325,7 +373,7 @@ body {
 }
 
 .side-menu li {
-    margin: 20px 0;
+    margin: 20px 0 0 30px;
 }
 
 .side-menu a {
@@ -372,33 +420,35 @@ body {
 
         .display {
             width: 86%;
-            margin-top: 16%;
         }
+
         .side-menu a:hover {
             text-decoration: underline;
             color: var(--amarelo-escuro);
             font-size: 20px;
         }
+
         .grid-banca {
             grid-template-columns: 33% 33% 33%;
             width: 86%;
             margin-top: 7%;
-            .banca{
-                label{
-                font-size: 13px;
-            }
-            }
-            .aposta{
-                label{
+
+            .banca {
+                label {
                     font-size: 13px;
                 }
             }
-            #girar{
-                margin-left: 15%;
-                margin-right: 15%;
+
+            .aposta {
+                label {
+                    font-size: 13px;
+                }
             }
+
+
         }
-        .side-menu{
+
+        .side-menu {
             width: 50%;
         }
     }
@@ -406,23 +456,3 @@ body {
 }
 
 
-@media (max-width:390px){
-    .slot-container{
-    .grid-banca{
-        #girar{
-            margin-left: 7%;
-            margin-right: 7%;
-        }
-    }
-}
-}
-@media (max-width:330px){
-    .slot-container{
-    .grid-banca{
-        #girar{
-            margin-left: 2%;
-            margin-right: 2%;
-        }
-    }
-}
-}
