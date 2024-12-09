@@ -1,4 +1,4 @@
-let saldo = 10;
+let saldo = 0;
 const saldoDisplay = document.querySelector(".banca label");
 
 function atualizarSaldo() {
