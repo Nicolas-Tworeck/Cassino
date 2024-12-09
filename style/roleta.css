@@ -484,23 +484,32 @@ body {
 
 
 
-
 @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
     * {
         margin: 0;
         font-family: var(--font);
+        box-sizing: border-box;
     }
 
     body {
         background-image: url(../img/back-jogo-pc.png);
         background-repeat: no-repeat;
         background-size: cover;
+        display: -webkit-box; /* Usando -webkit-box para centralizar todo o conteúdo */
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
 
     form {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
-        height: 100vh;
+        display: -webkit-box; /* Usando -webkit-box para centralizar o formulário */
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        align-items: center;
         justify-content: center;
+        height: 100%;
     }
 
     .demo {
@@ -508,6 +517,11 @@ body {
         background: var(--amarelo);
         padding-top: 10px;
         padding-bottom: 10px;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        align-items: center;
     }
 
     .demo label {
@@ -521,11 +535,12 @@ body {
         width: 450px;
         background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
         background-position: center center;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
-        height: 100%;
-        -webkit-box-orient: vertical; /* Necessário para o layout do -webkit-box */
-        -webkit-box-pack: center; /* Necessário para centralizar os itens */
+        display: -webkit-box; 
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
         align-items: center;
+        justify-content: center;
+        height: 100%;
         border-radius: 10px;
         box-shadow: 10px 10px 10px;
     }
@@ -551,17 +566,20 @@ body {
 
     .display {
         width: 86%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        justify-content: center;
+        align-items: center;
         background: var(--amarelo);
         padding: 10px;
         margin-left: 7px;
-        border-radius: 25px 25px 25px 25px;
+        border-radius: 25px;
         box-shadow: 0 0 5px #FFD700, 0 0 10px #FFEC8B, 0 0 20px #FFD700, 0 0 10px #FFEC8B;
     }
 
     .slot-machine {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: center;
+        align-items: center;
         width: 100%;
         height: 325px;
         background-image: url(../img/cifrao-roleta.png);
@@ -569,14 +587,14 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
         overflow: hidden;
-        border-radius: 20px 20px 20px 20px;
+        border-radius: 20px;
     }
 
     .symbol {
         width: 100px;
         height: 100px;
         font-size: 50px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: center;
         align-items: center;
     }
@@ -590,7 +608,7 @@ body {
     }
 
     .grid-banca {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box; 
         justify-content: center;
         margin-bottom: 33px;
         margin-top: 50px;
@@ -599,7 +617,7 @@ body {
 
     .aposta {
         width: 100px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -619,7 +637,7 @@ body {
 
     .banca {
         width: 100px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -687,7 +705,7 @@ body {
 
     .button-pop-close {
         width: 100%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: end;
     }
 
@@ -701,7 +719,7 @@ body {
     }
 
     .minha-aposta {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box; 
         justify-content: center;
         margin: 0;
     }
@@ -713,7 +731,7 @@ body {
 
     .valor {
         width: 100%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: end;
         background: var(--branco-escuro);
     }
@@ -727,7 +745,7 @@ body {
     }
 
     .teclado-numerico {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         -webkit-box-orient: horizontal;
         -webkit-box-pack: center;
         margin-bottom: 10px;
@@ -771,7 +789,7 @@ body {
     }
 
     .button-menu {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
         justify-content: end;
         width: 100%;
         margin-top: 5px;
@@ -795,33 +813,6 @@ body {
         box-shadow: 5px 5px 10px 2px;
     }
 
-    .imagem-vitoria {
-        z-index: 9999;
-        max-width: 150px;
-        max-height: 150px;
-        pointer-events: none;
-        filter: drop-shadow(4px 4px 10px var(--bordo));
-    }
-
-    .fundo-escuro {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(5px);
-        z-index: 999;
-    }
-
-    .imagem-perda {
-        z-index: 9999;
-        max-width: 150px;
-        max-height: 150px;
-        pointer-events: none;
-        filter: drop-shadow(4px 4px 10px var(--amarelo));
-    }
-
     .side-menu {
         position: fixed;
         top: 0;
@@ -835,14 +826,8 @@ body {
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     }
 
-    .side-menu ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .side-menu li {
-        margin: 20px 0 0 30px;
+    .side-menu.open {
+        right: 0;
     }
 
     .side-menu a {
@@ -859,35 +844,10 @@ body {
         font-size: 25px;
     }
 
-    .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 24px;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-    }
-
-    .side-menu.open {
-        right: 0;
-    }
-
-    #icons {
-        margin-right: 10px;
-    }
-
     @media (max-width: 500px) {
         .slot-container {
             border-radius: 0;
             width: 100%;
-        }
-
-        .side-menu a:hover {
-            text-decoration: underline;
-            color: var(--amarelo-escuro);
-            font-size: 20px;
         }
 
         .grid-banca {
