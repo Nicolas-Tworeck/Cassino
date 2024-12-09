@@ -35,4 +35,23 @@ function voltar(){
   window.history.back();
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Cria o elemento de áudio dinamicamente
+  const music = new Audio("../audio/ambiente.mp3");
+  music.loop = true; // Configura para tocar em loop
+  music.volume = 0.25; // Ajusta o volume (de 0.0 a 1.0)
+
+  // Tenta iniciar a música automaticamente
+  music.play().catch(() => {
+    console.warn("Reprodução automática bloqueada. Necessário interação do usuário.");
+  });
+
+  // Garantir reprodução após interação do usuário
+  document.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+    }
+  });
+});
+
 

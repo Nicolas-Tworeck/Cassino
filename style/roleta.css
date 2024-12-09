@@ -351,13 +351,37 @@ body {
         box-shadow: 5px 5px 10px 2px;
     }
 }
+.imagem-vitoria {
+    z-index: 9999;
+    max-width: 150px;
+    max-height: 150px;
+    pointer-events: none;
+    filter: drop-shadow(4px 4px 10px var(--bordo));
+}
+.fundo-escuro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);  /* Desfoque do fundo */
+    z-index: 999;  /* Fica acima de todo o conteúdo */
+}
+.imagem-perda {
+    z-index: 9999;
+    max-width: 150px;
+    max-height: 150px;
+    pointer-events: none;
+    filter: drop-shadow(4px 4px 10px var(--amarelo));
+}
 
 .side-menu {
     position: fixed;
     top: 0;
     right: -100%;
     /* Esconde completamente fora da tela */
-    width: 20%;
+    width: 25%;
     height: 100%;
     background-color: var(--preto-claro-opaco);
     color: white;

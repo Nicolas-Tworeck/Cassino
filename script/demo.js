@@ -26,6 +26,9 @@ let isSpinning = false;
 let valorAtual = "";
 let numeroDigitado = false;
 
+const somRoleta = new Audio('../audio/rulet.mp3');
+somRoleta.loop = true;
+
 function formatarValor(valor) {
     valor = valor.replace(/\D/g, '');
     if (valor.length > 7) valor = valor.slice(0, 7);
@@ -67,7 +70,7 @@ function setupReels() {
         reel.innerHTML = "";
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
-        const totalSymbolsToDisplay = symbols.length * 100;
+        const totalSymbolsToDisplay = symbols.length * 500;
 
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
@@ -79,17 +82,109 @@ function setupReels() {
     });
 }
 
+function exibirImagemVitoria() {
+    // Criar o som da vitória
+    const somVitoria = new Audio('../audio/vitoria.mp3');
+    somVitoria.currentTime = 0;
+    somVitoria.play();
+
+    const imagemVitoria = document.createElement("img");
+    imagemVitoria.src = "../img/ganho.png";
+    imagemVitoria.alt = "Vitória!";
+    imagemVitoria.className = "imagem-vitoria";
+
+    // Criar o fundo desfocado e escuro
+    const fundoEscuro = document.createElement("div");
+    fundoEscuro.className = "fundo-escuro";
+
+    // Estilo inicial da imagem
+    imagemVitoria.style.position = "fixed";
+    imagemVitoria.style.top = "50%";
+    imagemVitoria.style.left = "50%";
+    imagemVitoria.style.transform = "translate(-50%, -50%) scale(0)";
+    imagemVitoria.style.opacity = "0";
+    imagemVitoria.style.transition = "transform 1s ease, opacity 1s ease";
+
+    document.body.appendChild(fundoEscuro); // Adicionar o fundo
+    document.body.appendChild(imagemVitoria);
+
+    // Transição inicial da imagem
+    setTimeout(() => {
+        imagemVitoria.style.transform = "translate(-50%, -50%) scale(2)";
+        imagemVitoria.style.opacity = "1";
+    }, 100);
+
+    // Manter visível por 3 segundos
+    setTimeout(() => {
+        imagemVitoria.style.transform = "translate(-50%, -50%) scale(4)";
+        imagemVitoria.style.opacity = "0";
+    }, 3100);
+
+    // Remover imagem e fundo após transição
+    setTimeout(() => {
+        imagemVitoria.remove();
+        fundoEscuro.remove();
+    }, 4100);
+}
+
+function exibirImagemPerda() {
+    // Criar o som da perda
+    const somPerda = new Audio('../audio/perda.mp3');
+    somPerda.currentTime = 0;
+    somPerda.play();
+
+    const imagemPerda = document.createElement("img");
+    imagemPerda.src = "../img/perda.png"; // Substitua pelo caminho real da imagem de perda
+    imagemPerda.alt = "Você perdeu!";
+    imagemPerda.className = "imagem-perda";
+
+    // Criar o fundo desfocado e escuro
+    const fundoEscuro = document.createElement("div");
+    fundoEscuro.className = "fundo-escuro";
+
+    // Estilo inicial da imagem
+    imagemPerda.style.position = "fixed";
+    imagemPerda.style.top = "50%";
+    imagemPerda.style.left = "50%";
+    imagemPerda.style.transform = "translate(-50%, -50%) scale(0)";
+    imagemPerda.style.opacity = "0";
+    imagemPerda.style.transition = "transform 1s ease, opacity 1s ease";
+
+    document.body.appendChild(fundoEscuro); // Adicionar o fundo
+    document.body.appendChild(imagemPerda);
+
+    // Transição inicial da imagem
+    setTimeout(() => {
+        imagemPerda.style.transform = "translate(-50%, -50%) scale(2)";
+        imagemPerda.style.opacity = "1";
+    }, 100);
+
+    // Manter visível por 3 segundos
+    setTimeout(() => {
+        imagemPerda.style.transform = "translate(-50%, -50%) scale(4)";
+        imagemPerda.style.opacity = "0";
+    }, 3100);
+
+    // Remover imagem e fundo após transição
+    setTimeout(() => {
+        imagemPerda.remove();
+        fundoEscuro.remove();
+    }, 4100);
+}
+
 function spinReelsRapido() {
     if (isSpinning) return;
     isSpinning = true;
     girar.disabled = true;
 
-    const shouldWin = Math.random() < 0.25;
+    somRoleta.play();
+
+    const shouldWin = Math.random() < 0.4; // Ajuste a chance de ganhar
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 5; // Duração de 5 segundos
+        const duration = 5;
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
@@ -99,18 +194,25 @@ function spinReelsRapido() {
             reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
             stopPosition = Math.floor(Math.random() * symbols.length);
-            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 100)) * 100;
+            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 200)) * 100;
             reelInner.style.transform = `translateY(-${offset}px)`;
         }
 
         setTimeout(() => {
             if (index === reels.length - 1) {
+                somRoleta.pause();
+                somRoleta.currentTime = 0;
+
                 if (shouldWin) {
                     const valorAposta = Number(valorAtual.replace(/\D/g, '')) / 100;
-                    const ganho = valorAposta + valorAposta * 0.5;
+                    const ganho = valorAposta + valorAposta * 3;
                     saldo += ganho;
                     atualizarSaldo();
+                    exibirImagemVitoria();
+                } else {
+                    exibirImagemPerda(); // Exibir imagem de perda
                 }
+
                 isSpinning = false;
                 girar.disabled = false;
             }
