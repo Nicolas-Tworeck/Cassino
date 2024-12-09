@@ -66,16 +66,20 @@ function verificarLimiteAposta() {
 }
 
 function setupReels() {
-    reels.forEach(reel => {
+    reels.forEach((reel, index) => {
         reel.innerHTML = "";
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
+
+        // Gerar uma sequência de símbolos única para cada bobina
+        const symbolsForReel = symbols.slice(index).concat(symbols.slice(0, index));
+
         const totalSymbolsToDisplay = symbols.length * 500;
 
         for (let i = 0; i < totalSymbolsToDisplay; i++) {
             const symbolDiv = document.createElement("div");
             symbolDiv.classList.add("symbol");
-            symbolDiv.textContent = symbols[i % symbols.length];
+            symbolDiv.textContent = symbolsForReel[i % symbolsForReel.length];
             reelInner.appendChild(symbolDiv);
         }
         reel.appendChild(reelInner);
@@ -83,7 +87,6 @@ function setupReels() {
 }
 
 function exibirImagemVitoria() {
-    // Criar o som da vitória
     const somVitoria = new Audio('../audio/vitoria.mp3');
     somVitoria.currentTime = 0;
     somVitoria.play();
@@ -93,11 +96,9 @@ function exibirImagemVitoria() {
     imagemVitoria.alt = "Vitória!";
     imagemVitoria.className = "imagem-vitoria";
 
-    // Criar o fundo desfocado e escuro
     const fundoEscuro = document.createElement("div");
     fundoEscuro.className = "fundo-escuro";
 
-    // Estilo inicial da imagem
     imagemVitoria.style.position = "fixed";
     imagemVitoria.style.top = "50%";
     imagemVitoria.style.left = "50%";
@@ -105,22 +106,19 @@ function exibirImagemVitoria() {
     imagemVitoria.style.opacity = "0";
     imagemVitoria.style.transition = "transform 1s ease, opacity 1s ease";
 
-    document.body.appendChild(fundoEscuro); // Adicionar o fundo
+    document.body.appendChild(fundoEscuro);
     document.body.appendChild(imagemVitoria);
 
-    // Transição inicial da imagem
     setTimeout(() => {
         imagemVitoria.style.transform = "translate(-50%, -50%) scale(2)";
         imagemVitoria.style.opacity = "1";
     }, 100);
 
-    // Manter visível por 3 segundos
     setTimeout(() => {
         imagemVitoria.style.transform = "translate(-50%, -50%) scale(4)";
         imagemVitoria.style.opacity = "0";
     }, 3100);
 
-    // Remover imagem e fundo após transição
     setTimeout(() => {
         imagemVitoria.remove();
         fundoEscuro.remove();
@@ -128,7 +126,6 @@ function exibirImagemVitoria() {
 }
 
 function exibirImagemPerda() {
-    // Criar o som da perda
     const somPerda = new Audio('../audio/perda.mp3');
     somPerda.currentTime = 0;
     somPerda.play();
@@ -138,11 +135,9 @@ function exibirImagemPerda() {
     imagemPerda.alt = "Você perdeu!";
     imagemPerda.className = "imagem-perda";
 
-    // Criar o fundo desfocado e escuro
     const fundoEscuro = document.createElement("div");
     fundoEscuro.className = "fundo-escuro";
 
-    // Estilo inicial da imagem
     imagemPerda.style.position = "fixed";
     imagemPerda.style.top = "50%";
     imagemPerda.style.left = "50%";
@@ -150,49 +145,48 @@ function exibirImagemPerda() {
     imagemPerda.style.opacity = "0";
     imagemPerda.style.transition = "transform 1s ease, opacity 1s ease";
 
-    document.body.appendChild(fundoEscuro); // Adicionar o fundo
+    document.body.appendChild(fundoEscuro);
     document.body.appendChild(imagemPerda);
 
-    // Transição inicial da imagem
     setTimeout(() => {
         imagemPerda.style.transform = "translate(-50%, -50%) scale(2)";
         imagemPerda.style.opacity = "1";
     }, 100);
 
-    // Manter visível por 3 segundos
     setTimeout(() => {
         imagemPerda.style.transform = "translate(-50%, -50%) scale(4)";
         imagemPerda.style.opacity = "0";
     }, 3100);
 
-    // Remover imagem e fundo após transição
     setTimeout(() => {
         imagemPerda.remove();
         fundoEscuro.remove();
     }, 4100);
 }
 
-function spinReelsRapido() {
+function spinReels() {
     if (isSpinning) return;
     isSpinning = true;
     girar.disabled = true;
 
     somRoleta.play();
 
-    const shouldWin = Math.random() < 0.4; // Ajuste a chance de ganhar
+    const shouldWin = Math.random() < 0.4; // Chance de vitória ajustada
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 5;
+        const duration = 5; // Ajuste da duração da rotação
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
         let stopPosition;
         if (shouldWin) {
+            // Alinha os rolos para um símbolo vencedor nas 3 bobinas
             stopPosition = symbols.indexOf(winningSymbol);
             reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
+            // Para uma rotação não vencedora, aleatoriza a posição final
             stopPosition = Math.floor(Math.random() * symbols.length);
             const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 200)) * 100;
             reelInner.style.transform = `translateY(-${offset}px)`;
@@ -205,12 +199,12 @@ function spinReelsRapido() {
 
                 if (shouldWin) {
                     const valorAposta = Number(valorAtual.replace(/\D/g, '')) / 100;
-                    const ganho = valorAposta + valorAposta * 3;
+                    const ganho = valorAposta + valorAposta * 3; // Multiplicação do prêmio
                     saldo += ganho;
                     atualizarSaldo();
                     exibirImagemVitoria();
                 } else {
-                    exibirImagemPerda(); // Exibir imagem de perda
+                    exibirImagemPerda();
                 }
 
                 isSpinning = false;
@@ -227,7 +221,7 @@ girar.addEventListener("click", function (event) {
         if (saldo >= valorAposta) {
             saldo -= valorAposta;
             atualizarSaldo();
-            spinReelsRapido();
+            spinReels();
         } else {
             errorMessage.textContent = "Saldo insuficiente!";
             errorMessage.style.display = "block";
@@ -270,8 +264,7 @@ checkBtn.addEventListener("click", function () {
         const apostaLabel = document.getElementById("aposta-label");
         apostaLabel.textContent = formatarValor(valorAtual);
         popup.style.display = "none";
-    }
-});
+}});
 
 popup.addEventListener("click", function (event) {
     if (!event.target.closest('.popup-content')) {
@@ -284,15 +277,3 @@ popup.addEventListener("click", function (event) {
 });
 
 setupReels();
-
-function reloadPage() {
-    location.reload();
-}
-
-function reloadAccount() {
-    if (saldo < 10000) {
-        saldo = 10000;
-        atualizarSaldo();
-        console.log("Saldo recarregado para R$10.000,00");
-    }
-}

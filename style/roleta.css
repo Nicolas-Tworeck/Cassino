@@ -79,6 +79,7 @@ form {
     display: grid;
     background: var(--amarelo);
     padding: 10px;
+    margin-left: 7px;
     border-radius: 25px 25px 25px 25px;
     box-shadow: 
     0 0 5px #FFD700, 
