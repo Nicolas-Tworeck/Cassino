@@ -79,7 +79,7 @@ function setupReels() {
     });
 }
 
-function spinReelsMaisRapido() {
+function spinReelsRapido() {
     if (isSpinning) return;
     isSpinning = true;
     girar.disabled = true;
@@ -89,7 +89,7 @@ function spinReelsMaisRapido() {
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 3;
+        const duration = 5; // Duração de 5 segundos
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
 
@@ -99,7 +99,7 @@ function spinReelsMaisRapido() {
             reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
             stopPosition = Math.floor(Math.random() * symbols.length);
-            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 10)) * 100;
+            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 100)) * 100;
             reelInner.style.transform = `translateY(-${offset}px)`;
         }
 
@@ -125,7 +125,7 @@ girar.addEventListener("click", function (event) {
         if (saldo >= valorAposta) {
             saldo -= valorAposta;
             atualizarSaldo();
-            spinReelsMaisRapido();
+            spinReelsRapido();
         } else {
             errorMessage.textContent = "Saldo insuficiente!";
             errorMessage.style.display = "block";

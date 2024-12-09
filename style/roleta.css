@@ -49,10 +49,10 @@ form {
     #centro {
         font-size: 70px;
         text-shadow: 
-        0 0 10px #FFD700, 
-        0 0 20px #FFEC8B, 
-        0 0 30px #FFD700,  
-        0 0 40px #FFEC8B;
+        0 0 5px #FFD700, 
+        0 0 10px #FFEC8B, 
+        0 0 20px #FFD700,  
+        0 0 30px #FFEC8B;
     }
 
     #penultima {
@@ -81,10 +81,10 @@ form {
     padding: 10px;
     border-radius: 25px 25px 25px 25px;
     box-shadow: 
-    0 0 10px #FFD700, 
-    0 0 20px #FFEC8B, 
-    0 0 30px #FFD700,  
-    0 0 40px #FFEC8B;
+    0 0 5px #FFD700, 
+    0 0 10px #FFEC8B, 
+    0 0 20px #FFD700,  
+    0 0 10px #FFEC8B;
 
     .slot-machine {
         display: flex;
