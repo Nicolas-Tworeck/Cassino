@@ -490,201 +490,173 @@ body {
         margin: 0;
         font-family: var(--font);
     }
-    
+
     body {
         background-image: url(../img/back-jogo-pc.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     form {
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         height: 100vh;
         justify-content: center;
     }
-    
+
     .demo {
         width: 100%;
         background: var(--amarelo);
         padding-top: 10px;
         padding-bottom: 10px;
-    
-        label {
-            font-size: 25px;
-            margin-left: 30px;
-            font-weight: 600;
-            color: black;
-        }
     }
-    
+
+    .demo label {
+        font-size: 25px;
+        margin-left: 30px;
+        font-weight: 600;
+        color: black;
+    }
+
     .slot-container {
         width: 450px;
         background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
         background-position: center center;
-        display: -webkit-box;
-        height: 100vh;
-        flex-direction: column;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        height: 100%;
+        -webkit-box-orient: vertical; /* Necessário para o layout do -webkit-box */
+        -webkit-box-pack: center; /* Necessário para centralizar os itens */
         align-items: center;
         border-radius: 10px;
         box-shadow: 10px 10px 10px;
     }
-    
+
     .estrelas {
         color: var(--amarelo);
-    
-        #centro {
-            font-size: 70px;
-            text-shadow: 
-                0 0 5px #FFD700, 
-                0 0 10px #FFEC8B, 
-                0 0 20px #FFD700,  
-                0 0 30px #FFEC8B;
-        }
-    
-        #penultima {
-            font-size: 50px;
-            text-shadow: 
-                0 0 10px #FFD700, 
-                0 0 20px #FFEC8B, 
-                0 0 30px #FFD700,  
-                0 0 40px #FFEC8B;
-        }
-    
-        #canto {
-            font-size: 30px;
-            text-shadow: 
-                0 0 10px #FFD700, 
-                0 0 20px #FFEC8B, 
-                0 0 30px #FFD700,  
-                0 0 40px #FFEC8B;
-        }
     }
-    
+
+    #centro {
+        font-size: 70px;
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFEC8B, 0 0 20px #FFD700, 0 0 30px #FFEC8B;
+    }
+
+    #penultima {
+        font-size: 50px;
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFEC8B, 0 0 30px #FFD700, 0 0 40px #FFEC8B;
+    }
+
+    #canto {
+        font-size: 30px;
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFEC8B, 0 0 30px #FFD700, 0 0 40px #FFEC8B;
+    }
+
     .display {
         width: 86%;
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         background: var(--amarelo);
         padding: 10px;
         margin-left: 7px;
         border-radius: 25px 25px 25px 25px;
-        box-shadow: 
-            0 0 5px #FFD700, 
-            0 0 10px #FFEC8B, 
-            0 0 20px #FFD700,  
-            0 0 10px #FFEC8B;
-    
-        .slot-machine {
-            display: -webkit-box;
-            justify-content: center;
-            width: 100%;
-            height: 325px;
-            background-image: url(../img/cifrao-roleta.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            overflow: hidden;
-            border-radius: 20px 20px 20px 20px;
-        }
+        box-shadow: 0 0 5px #FFD700, 0 0 10px #FFEC8B, 0 0 20px #FFD700, 0 0 10px #FFEC8B;
     }
-    
+
+    .slot-machine {
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        justify-content: center;
+        width: 100%;
+        height: 325px;
+        background-image: url(../img/cifrao-roleta.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        border-radius: 20px 20px 20px 20px;
+    }
+
     .symbol {
         width: 100px;
         height: 100px;
         font-size: 50px;
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         justify-content: center;
         align-items: center;
     }
-    
+
     #remove-number {
         color: red;
     }
-    
+
     #check-number {
         color: greenyellow;
     }
-    
+
     .grid-banca {
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin-bottom: 33px;
         margin-top: 50px;
         margin-left: 2px;
-    
-        .aposta {
-            width: 100px;
-            display: -webkit-box;
-            justify-content: center;
-            background: var(--verde);
-            align-items: center;
-            border-radius: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 0 5px 0 5px;
-            transition: 0.3s;
-            box-shadow: 5px 5px 20px 1px;
-            margin-left: 20px;
-    
-            label {
-                font-size: 18px;
-                color: var(--amarelo-escuro);
-            }
-        }
-    
-        .aposta:hover {
-            background: var(--verde-claro);
-            box-shadow: 5px 5px 10px 2px;
-        }
-    
-        .banca {
-            width: 100px;
-            display: -webkit-box;
-            justify-content: center;
-            background: var(--verde);
-            align-items: center;
-            border-radius: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 0 5px 0 5px;
-            box-shadow: 5px 5px 20px 1px;
-            margin-right: 20px;
-    
-            label {
-                font-size: 18px;
-                color: var(--amarelo-escuro);
-            }
-        }
-    
-        #girar {
-            font-size: 50px;
-            border-radius: 100%;
-            padding: 0 10px 0 10px;
-            background: var(--amarelo);
-            transition: 0.3s;
-            cursor: pointer;
-            box-shadow: 
-                0 0 10px #FFD700, 
-                0 0 20px #FFEC8B, 
-                0 0 30px #FFD700,  
-                0 0 40px #FFEC8B;
-        }
-    
-        #girar:hover {
-            box-shadow: 
-                0 0 10px #caac00, 
-                0 0 20px #c9b96c, 
-                0 0 30px #caac02,  
-                0 0 40px #bcad66;
-            background-color: var(--amarelo-escuro);
-        }
     }
-    
+
+    .aposta {
+        width: 100px;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        justify-content: center;
+        background: var(--verde);
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 5px 0 5px;
+        transition: 0.3s;
+        box-shadow: 5px 5px 20px 1px;
+        margin-left: 20px;
+    }
+
+    .aposta:hover {
+        background: var(--verde-claro);
+        box-shadow: 5px 5px 10px 2px;
+    }
+
+    .banca {
+        width: 100px;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        justify-content: center;
+        background: var(--verde);
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 20px 1px;
+        margin-right: 20px;
+    }
+
+    .banca label {
+        font-size: 18px;
+        color: var(--amarelo-escuro);
+    }
+
+    #girar {
+        font-size: 50px;
+        border-radius: 100%;
+        padding: 0 10px 0 10px;
+        background: var(--amarelo);
+        transition: 0.3s;
+        cursor: pointer;
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FFEC8B, 0 0 30px #FFD700, 0 0 40px #FFEC8B;
+    }
+
+    #girar:hover {
+        box-shadow: 0 0 10px #caac00, 0 0 20px #c9b96c, 0 0 30px #caac02, 0 0 40px #bcad66;
+        background-color: var(--amarelo-escuro);
+    }
+
     #result {
         margin-top: 20px;
         font-size: 18px;
         color: var(--amarelo-escuro);
     }
-    
+
     .popup-content {
         background-color: #fff;
         border-radius: 10px;
@@ -692,7 +664,7 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
     }
-    
+
     .popup {
         display: none;
         position: fixed;
@@ -704,73 +676,83 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
-    .button-pop-close {
-        display: -webkit-box;
-        justify-content: end;
-    
-        button {
-            background: transparent;
-            border: none;
-            color: var(--bordo);
-            margin-top: 5px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
+
+    .popup-content {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 250px;
+        height: 270px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
+    .button-pop-close {
+        width: 100%;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        justify-content: end;
+    }
+
+    .button-pop-close button {
+        background: transparent;
+        border: none;
+        color: var(--bordo);
+        margin-top: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
     .minha-aposta {
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin: 0;
-    
-        h1 {
-            font-size: 30px;
-            font-weight: 600;
-        }
     }
-    
+
+    .minha-aposta h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
     .valor {
         width: 100%;
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         justify-content: end;
         background: var(--branco-escuro);
-    
-        label {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-right: 10px;
-            font-size: 20px;
-            font-weight: 600;
-        }
     }
-    
+
+    .valor label {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
     .teclado-numerico {
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: center;
         margin-bottom: 10px;
         margin-top: 30px;
-    
-        button {
-            border: none;
-            transition: 0.3s;
-            background: transparent;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    
-        button:hover {
-            background: var(--branco-escuro);
-        }
     }
-    
+
+    .teclado-numerico button {
+        border: none;
+        transition: 0.3s;
+        background: transparent;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .teclado-numerico button:hover {
+        background: var(--branco-escuro);
+    }
+
     .apostaMinima {
         text-align: center;
         color: var(--amarelo-escuro);
         font-weight: 600;
         font-size: 13px;
     }
-    
+
     .popup {
         display: none;
         position: fixed;
@@ -781,39 +763,38 @@ body {
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1000;
     }
-    
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
         overflow-x: hidden;
-        /* Garante que não haverá scroll horizontal */
     }
-    
+
     .button-menu {
-        display: -webkit-box;
+        display: -webkit-box; /* Alterado de flex para -webkit-box */
         justify-content: end;
         width: 100%;
         margin-top: 5px;
-    
-        button {
-            margin-right: 5px;
-            background: var(--amarelo);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            padding-left: 10px;
-            padding-right: 10px;
-            transition: 0.3s;
-            cursor: pointer;
-            box-shadow: 5px 5px 20px 1px;
-        }
-    
-        button:hover {
-            background: var(--amarelo-escuro);
-            box-shadow: 5px 5px 10px 2px;
-        }
     }
-    
+
+    .button-menu button {
+        margin-right: 5px;
+        background: var(--amarelo);
+        border: none;
+        border-radius: 5px;
+        font-size: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: 0.3s;
+        cursor: pointer;
+        box-shadow: 5px 5px 20px 1px;
+    }
+
+    .button-menu button:hover {
+        background: var(--amarelo-escuro);
+        box-shadow: 5px 5px 10px 2px;
+    }
+
     .imagem-vitoria {
         z-index: 9999;
         max-width: 150px;
@@ -821,7 +802,7 @@ body {
         pointer-events: none;
         filter: drop-shadow(4px 4px 10px var(--bordo));
     }
-    
+
     .fundo-escuro {
         position: fixed;
         top: 0;
@@ -829,10 +810,10 @@ body {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(5px); /* Desfoque do fundo */
-        z-index: 999; /* Fica acima de todo o conteúdo */
+        backdrop-filter: blur(5px);
+        z-index: 999;
     }
-    
+
     .imagem-perda {
         z-index: 9999;
         max-width: 150px;
@@ -840,12 +821,11 @@ body {
         pointer-events: none;
         filter: drop-shadow(4px 4px 10px var(--amarelo));
     }
-    
+
     .side-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        /* Esconde completamente fora da tela */
         width: 25%;
         height: 100%;
         background-color: var(--preto-claro-opaco);
@@ -854,17 +834,17 @@ body {
         z-index: 999;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     }
-    
+
     .side-menu ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
-    
+
     .side-menu li {
         margin: 20px 0 0 30px;
     }
-    
+
     .side-menu a {
         color: rgb(255, 255, 255);
         text-decoration: none;
@@ -872,13 +852,13 @@ body {
         cursor: pointer;
         transition: 0.3s;
     }
-    
+
     .side-menu a:hover {
         text-decoration: underline;
         color: var(--amarelo-escuro);
         font-size: 25px;
     }
-    
+
     .close-btn {
         position: absolute;
         top: 20px;
@@ -889,52 +869,37 @@ body {
         color: white;
         cursor: pointer;
     }
-    
+
     .side-menu.open {
         right: 0;
-        /* Move o menu para dentro da tela */
     }
-    
+
     #icons {
         margin-right: 10px;
     }
-    
+
     @media (max-width: 500px) {
         .slot-container {
             border-radius: 0;
             width: 100%;
-    
-            .display {
-                width: 86%;
-            }
-    
-            .side-menu a:hover {
-                text-decoration: underline;
-                color: var(--amarelo-escuro);
-                font-size: 20px;
-            }
-    
-            .grid-banca {
-                grid-template-columns: 33% 33% 33%;
-                width: 86%;
-                margin-top: 7%;
-    
-                .banca {
-                    label {
-                        font-size: 13px;
-                    }
-                }
-    
-                .aposta {
-                    label {
-                        font-size: 13px;
-                    }
-                }
-            }
-    
-            .side-menu {
-                width: 70%;
-            }
+        }
+
+        .side-menu a:hover {
+            text-decoration: underline;
+            color: var(--amarelo-escuro);
+            font-size: 20px;
+        }
+
+        .grid-banca {
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            width: 86%;
+            margin-left: 2px;
+        }
+
+        .teclado-numerico button {
+            width: 100%;
+            font-size: 20px;
         }
     }
 }
