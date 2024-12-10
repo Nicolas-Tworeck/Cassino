@@ -805,7 +805,6 @@ body {
         -webkit-box-pack: start;     /* Centraliza os itens verticalmente */
         -webkit-box-align: end; 
         width: 100%;
-        margin-top: 5px;
     }
 
     .button-menu button {
