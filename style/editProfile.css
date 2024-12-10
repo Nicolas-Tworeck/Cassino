@@ -182,7 +182,7 @@ body {
     .voltar {
         background: var(--bordo-escuro);
         width: 70px;
-        margin: 10px;
+        margin: 30px 10px 10px 10px;
         display: -webkit-box;
         -webkit-box-align: center;
         -webkit-box-pack: center;
