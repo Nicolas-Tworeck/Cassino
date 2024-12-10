@@ -169,6 +169,7 @@ body {
     .nav {
         width: 100%;
         background: var(--bordo-escuro);
+        height: 55px;
         display: -webkit-box;
         -webkit-box-pack: start;
 
