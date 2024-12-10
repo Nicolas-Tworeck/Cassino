@@ -801,7 +801,9 @@ body {
     .button-menu {
         display: -webkit-box;
         /* Alterado de flex para -webkit-box */
-        justify-content: end;
+        -webkit-box-orient: vertical; /* Define o layout em colunas */
+        -webkit-box-pack: start;     /* Centraliza os itens verticalmente */
+        -webkit-box-align: end; 
         width: 100%;
         margin-top: 5px;
     }
