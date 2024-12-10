@@ -14,12 +14,14 @@ form {
     height: 100vh;
     justify-content: center;
 }
-.demo{
+
+.demo {
     width: 100%;
     background: var(--amarelo);
     padding-top: 10px;
     padding-bottom: 10px;
-    label{
+
+    label {
         font-size: 25px;
         margin-left: 30px;
         font-weight: 600;
@@ -40,7 +42,7 @@ form {
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px  ;
+    box-shadow: 10px 10px 10px;
 }
 
 .estrelas {
@@ -48,29 +50,29 @@ form {
 
     #centro {
         font-size: 70px;
-        text-shadow: 
-        0 0 5px #FFD700, 
-        0 0 10px #FFEC8B, 
-        0 0 20px #FFD700,  
-        0 0 30px #FFEC8B;
+        text-shadow:
+            0 0 5px #FFD700,
+            0 0 10px #FFEC8B,
+            0 0 20px #FFD700,
+            0 0 30px #FFEC8B;
     }
 
     #penultima {
         font-size: 50px;
-        text-shadow: 
-        0 0 10px #FFD700, 
-        0 0 20px #FFEC8B, 
-        0 0 30px #FFD700,  
-        0 0 40px #FFEC8B;
+        text-shadow:
+            0 0 10px #FFD700,
+            0 0 20px #FFEC8B,
+            0 0 30px #FFD700,
+            0 0 40px #FFEC8B;
     }
 
     #canto {
         font-size: 30px;
-        text-shadow: 
-        0 0 10px #FFD700, 
-        0 0 20px #FFEC8B, 
-        0 0 30px #FFD700,  
-        0 0 40px #FFEC8B;
+        text-shadow:
+            0 0 10px #FFD700,
+            0 0 20px #FFEC8B,
+            0 0 30px #FFD700,
+            0 0 40px #FFEC8B;
     }
 }
 
@@ -81,11 +83,11 @@ form {
     padding: 10px;
     margin-left: 7px;
     border-radius: 25px 25px 25px 25px;
-    box-shadow: 
-    0 0 5px #FFD700, 
-    0 0 10px #FFEC8B, 
-    0 0 20px #FFD700,  
-    0 0 10px #FFEC8B;
+    box-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFEC8B,
+        0 0 20px #FFD700,
+        0 0 10px #FFEC8B;
 
     .slot-machine {
         display: flex;
@@ -165,9 +167,10 @@ form {
         padding: 0 5px 0 5px;
         box-shadow: 5px 5px 20px 1px;
         margin-right: 20px;
+
         label {
             font-size: 18px;
-            
+
             color: var(--amarelo-escuro);
         }
     }
@@ -180,19 +183,19 @@ form {
         background: var(--amarelo);
         transition: 0.3s;
         cursor: pointer;
-        box-shadow: 
-        0 0 10px #FFD700, 
-        0 0 20px #FFEC8B, 
-        0 0 30px #FFD700,  
-        0 0 40px #FFEC8B;
+        box-shadow:
+            0 0 10px #FFD700,
+            0 0 20px #FFEC8B,
+            0 0 30px #FFD700,
+            0 0 40px #FFEC8B;
     }
 
     #girar:hover {
-        box-shadow: 
-        0 0 10px #caac00, 
-        0 0 20px #c9b96c, 
-        0 0 30px #caac02,  
-        0 0 40px #bcad66;
+        box-shadow:
+            0 0 10px #caac00,
+            0 0 20px #c9b96c,
+            0 0 30px #caac02,
+            0 0 40px #bcad66;
         background-color: var(--amarelo-escuro);
     }
 
@@ -352,6 +355,7 @@ body {
         box-shadow: 5px 5px 10px 2px;
     }
 }
+
 .imagem-vitoria {
     z-index: 9999;
     max-width: 150px;
@@ -359,6 +363,7 @@ body {
     pointer-events: none;
     filter: drop-shadow(4px 4px 10px var(--bordo));
 }
+
 .fundo-escuro {
     position: fixed;
     top: 0;
@@ -366,9 +371,12 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);  /* Desfoque do fundo */
-    z-index: 999;  /* Fica acima de todo o conteúdo */
+    backdrop-filter: blur(5px);
+    /* Desfoque do fundo */
+    z-index: 999;
+    /* Fica acima de todo o conteúdo */
 }
+
 .imagem-perda {
     z-index: 9999;
     max-width: 150px;
@@ -498,7 +506,8 @@ body {
     }
 
     form {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         height: 100vh;
         justify-content: center;
     }
@@ -520,15 +529,17 @@ body {
     .slot-container {
         width: 450px;
         background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
-        height: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-align: center; /* Necessário para o layout do -webkit-box */
-        -webkit-box-pack: center; /* Necessário para centralizar os itens */
-        align-items: center;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; /* Define o layout em colunas */
+        -webkit-box-pack: center; /* Centraliza os itens verticalmente */
+        -webkit-box-align: center; /* Centraliza os itens horizontalmente */
+        height: 100%; /* Ajuste conforme necessário */
         border-radius: 10px;
         box-shadow: 10px 10px 10px;
     }
+    
+
+    
 
     .estrelas {
         color: var(--amarelo);
@@ -551,7 +562,8 @@ body {
 
     .display {
         width: 86%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         background: var(--amarelo);
         padding: 10px;
         margin-left: 7px;
@@ -560,7 +572,8 @@ body {
     }
 
     .slot-machine {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         width: 100%;
         height: 325px;
@@ -576,7 +589,8 @@ body {
         width: 100px;
         height: 100px;
         font-size: 50px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         align-items: center;
     }
@@ -590,7 +604,8 @@ body {
     }
 
     .grid-banca {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin-bottom: 33px;
         margin-top: 50px;
@@ -599,7 +614,8 @@ body {
 
     .aposta {
         width: 100px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -610,7 +626,8 @@ body {
         transition: 0.3s;
         box-shadow: 5px 5px 20px 1px;
         margin-left: 20px;
-        label{
+
+        label {
             color: var(--amarelo-escuro);
         }
     }
@@ -622,7 +639,8 @@ body {
 
     .banca {
         width: 100px;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -690,7 +708,8 @@ body {
 
     .button-pop-close {
         width: 100%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: end;
     }
 
@@ -704,7 +723,8 @@ body {
     }
 
     .minha-aposta {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin: 0;
     }
@@ -716,7 +736,8 @@ body {
 
     .valor {
         width: 100%;
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: end;
         background: var(--branco-escuro);
     }
@@ -730,7 +751,8 @@ body {
     }
 
     .teclado-numerico {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         -webkit-box-orient: horizontal;
         -webkit-box-pack: center;
         margin-bottom: 10px;
@@ -774,7 +796,8 @@ body {
     }
 
     .button-menu {
-        display: -webkit-box; /* Alterado de flex para -webkit-box */
+        display: -webkit-box;
+        /* Alterado de flex para -webkit-box */
         justify-content: end;
         width: 100%;
         margin-top: 5px;
