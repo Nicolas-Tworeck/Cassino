@@ -169,26 +169,28 @@ body {
     .nav {
         width: 100%;
         background: var(--bordo-escuro);
-        height: 55px;
+        height: 70px; /* Aumentei a altura */
+        padding: 10px 0; /* Adicionei padding para aumentar o espaço interno */
         display: -webkit-box;
         -webkit-box-pack: start;
-
-        .voltar {
-            background: var(--bordo-escuro);
-            width: 70px;
-            margin: 10px;
-            display: -webkit-box;
-            -webkit-box-align: center;
-            -webkit-box-pack: center;
-            border-radius: 5px;
-            padding: 5px;
-            transition: 0.3s;
-            cursor: pointer;
-            color: white;
-        }
-
-        .voltar:hover {
-            background: var(--bordo-mais-escuro);
-        }
     }
+    
+    .voltar {
+        background: var(--bordo-escuro);
+        width: 70px;
+        margin: 10px;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        border-radius: 5px;
+        padding: 5px;
+        transition: 0.3s;
+        cursor: pointer;
+        color: white;
+    }
+    
+    .voltar:hover {
+        background: var(--bordo-mais-escuro);
+    }
+    
 }
