@@ -610,6 +610,9 @@ body {
         transition: 0.3s;
         box-shadow: 5px 5px 20px 1px;
         margin-left: 20px;
+        label{
+            color: var(--amarelo-escuro);
+        }
     }
 
     .aposta:hover {
