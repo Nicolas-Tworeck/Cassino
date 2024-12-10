@@ -523,6 +523,8 @@ body {
         justify-content: center;
         display: -webkit-box; /* Alterado de flex para -webkit-box */
         height: 100%;
+        -webkit-box-orient: vertical; /* Necessário para o layout do -webkit-box */
+        -webkit-box-pack: center; /* Necessário para centralizar os itens */
         align-items: center;
         border-radius: 10px;
         box-shadow: 10px 10px 10px;
