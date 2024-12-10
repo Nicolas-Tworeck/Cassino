@@ -171,11 +171,11 @@ body {
     .nav {
         width: 100%;
         background: var(--bordo-escuro);
-        height: 100px; /* Aumentei ainda mais a altura */
+        height: 70px; /* Aumentei ainda mais a altura */
         padding: 20px 0; /* Aumentei o padding para dar mais espaço interno */
         display: -webkit-box;
         -webkit-box-pack: start;
-        -webkit-box-align: center; /* Garantir que o conteúdo fique centralizado verticalmente */
+        -webkit-box-align: end; /* Garantir que o conteúdo fique centralizado verticalmente */
     }
 
     .voltar {
