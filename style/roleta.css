@@ -751,6 +751,7 @@ body {
         margin-right: 10px;
         font-size: 20px;
         font-weight: 600;
+        -webkit-box-align: end; 
     }
 
     .teclado-numerico {
