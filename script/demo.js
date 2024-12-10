@@ -174,11 +174,13 @@ function spinReels() {
     const shouldWin = Math.random() < 0.4; // Chance de vitória ajustada
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
+    const totalMovimentosRapidos = 1000; // Aumente o número de movimentos para garantir uma rotação rápida
+
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 5; // Ajuste da duração da rotação
+        const duracao = 5; // A duração da rotação permanece a mesma
 
-        reelInner.style.transition = `transform ${duration}s ease-out`;
+        reelInner.style.transition = `transform ${duracao}s ease-out`;
 
         let stopPosition;
         if (shouldWin) {
@@ -210,7 +212,7 @@ function spinReels() {
                 isSpinning = false;
                 girar.disabled = false;
             }
-        }, duration * 1000);
+        }, duracao * 1000);
     });
 }
 
