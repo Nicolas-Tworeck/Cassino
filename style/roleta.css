@@ -741,7 +741,7 @@ body {
         width: 100%;
         display: -webkit-box;
         /* Alterado de flex para -webkit-box */
-        justify-content: end;
+        -webkit-box-align: end; 
         background: var(--branco-escuro);
     }
 
