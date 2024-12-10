@@ -171,26 +171,27 @@ body {
     .nav {
         width: 100%;
         background: var(--bordo-escuro);
-        height: 70px;
-        /* Aumentei a altura */
-        padding: 10px 0;
-        /* Adicionei padding para aumentar o espaço interno */
+        height: 100px; /* Aumentei ainda mais a altura */
+        padding: 20px 0; /* Aumentei o padding para dar mais espaço interno */
         display: -webkit-box;
         -webkit-box-pack: start;
+        -webkit-box-align: center; /* Garantir que o conteúdo fique centralizado verticalmente */
     }
 
     .voltar {
         background: var(--bordo-escuro);
         width: 70px;
-        margin: 30px 10px 10px 10px;
+        height: 50px; /* Defini a altura para o botão */
+        margin: 25px 10px 10px 10px; /* Ajustei o margin para ficar mais centralizado */
         display: -webkit-box;
         -webkit-box-align: center;
         -webkit-box-pack: center;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px; /* Aumentei o padding para dar mais espaço interno */
         transition: 0.3s;
         cursor: pointer;
         color: white;
+        font-size: 18px; /* Ajustei o tamanho da fonte para um botão maior */
     }
 
     .voltar:hover {
