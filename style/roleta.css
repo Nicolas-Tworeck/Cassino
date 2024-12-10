@@ -740,11 +740,12 @@ body {
     .valor {
         width: 100%;
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
-        -webkit-box-align: end; 
+        -webkit-box-orient: horizontal;  /* Organiza os itens de forma horizontal */
+        -webkit-box-pack: end;           /* Alinha os itens horizontalmente no final */
+        -webkit-box-align: end;          /* Alinha os itens verticalmente no final */
         background: var(--branco-escuro);
     }
-
+    
     .valor label {
         margin-top: 5px;
         margin-bottom: 5px;
