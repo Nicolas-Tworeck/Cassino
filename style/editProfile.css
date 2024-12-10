@@ -17,13 +17,9 @@ body {
 
 .container {
     position: absolute;
-    /* Posiciona a div de forma absoluta em relação ao body */
     top: 50%;
-    /* Move a div para o centro vertical */
     left: 50%;
-    /* Move a div para o centro horizontal */
     transform: translate(-50%, -50%);
-    /* Ajusta o ponto de referência para centralizar */
     background: var(--preto-claro-solid);
     width: 500px;
     height: 100vh;
@@ -171,27 +167,27 @@ body {
     .nav {
         width: 100%;
         background: var(--bordo-escuro);
-        height: 70px; /* Aumentei ainda mais a altura */
-        padding: 20px 0; /* Aumentei o padding para dar mais espaço interno */
+        height: 70px;
+        padding: 20px 0;
         display: -webkit-box;
         -webkit-box-pack: start;
-        -webkit-box-align: end; /* Garantir que o conteúdo fique centralizado verticalmente */
+        -webkit-box-align: end;
     }
 
     .voltar {
         background: var(--bordo-escuro);
         width: 70px;
-        height: 50px; /* Defini a altura para o botão */
-        margin: 25px 10px 10px 10px; /* Ajustei o margin para ficar mais centralizado */
+        height: 50px;
+        margin: 25px 10px 10px 10px;
         display: -webkit-box;
         -webkit-box-align: center;
         -webkit-box-pack: center;
         border-radius: 5px;
-        padding: 10px; /* Aumentei o padding para dar mais espaço interno */
+        padding: 10px;
         transition: 0.3s;
         cursor: pointer;
         color: white;
-        font-size: 18px; /* Ajustei o tamanho da fonte para um botão maior */
+        font-size: 18px;
     }
 
     .voltar:hover {

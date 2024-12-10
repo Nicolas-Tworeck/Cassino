@@ -33,12 +33,9 @@ form {
 .slot-container {
     width: 450px;
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
-    /* Faz a imagem de fundo cobrir toda a área */
     background-position: center center;
-    /* Centraliza a imagem de fundo */
     display: flex;
     height: 100vh;
-    /* Garantir que a altura seja 100% da altura da janela */
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
@@ -219,7 +216,6 @@ form {
     text-align: center;
 }
 
-/*popup*/
 .popup {
     display: none;
     position: fixed;
@@ -328,7 +324,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-    /* Garante que não haverá scroll horizontal */
 }
 
 .button-menu {
@@ -372,9 +367,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
-    /* Desfoque do fundo */
     z-index: 999;
-    /* Fica acima de todo o conteúdo */
 }
 
 .imagem-perda {
@@ -389,7 +382,6 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    /* Esconde completamente fora da tela */
     width: 25%;
     height: 100%;
     background-color: var(--preto-claro-opaco);
@@ -436,7 +428,6 @@ body {
 
 .side-menu.open {
     right: 0;
-    /* Move o menu para dentro da tela */
 }
 
 #icons {
@@ -507,7 +498,6 @@ body {
 
     form {
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         height: 100vh;
         justify-content: center;
     }
@@ -530,16 +520,12 @@ body {
         width: 450px;
         background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(200, 145, 22, 1) 100%);
         display: -webkit-box;
-        -webkit-box-orient: vertical; /* Define o layout em colunas */
-        -webkit-box-pack: center; /* Centraliza os itens verticalmente */
-        -webkit-box-align: center; /* Centraliza os itens horizontalmente */
-        height: 100%; /* Ajuste conforme necessário */
         border-radius: 10px;
         box-shadow: 10px 10px 10px;
     }
-    
 
-    
+
+
 
     .estrelas {
         color: var(--amarelo);
@@ -563,7 +549,6 @@ body {
     .display {
         width: 86%;
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         background: var(--amarelo);
         padding: 10px;
         margin-left: 7px;
@@ -573,9 +558,9 @@ body {
 
     .slot-machine {
         display: -webkit-box;
-        -webkit-box-orient: vertical; /* Define o layout em colunas */
-        -webkit-box-pack: center;     /* Centraliza os itens verticalmente */
-        -webkit-box-align: center;    /* Centraliza os itens horizontalmente */
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
         width: 100%;
         height: 325px;
         background-image: url(../img/cifrao-roleta.png);
@@ -585,18 +570,18 @@ body {
         overflow: hidden;
         border-radius: 20px 20px 20px 20px;
     }
-    
+
     .symbol {
         width: 100px;
         height: 100px;
         font-size: 50px;
         display: -webkit-box;
-        justify-content: center; /* Centraliza o conteúdo dentro do símbolo */
-        align-items: center;     /* Centraliza o conteúdo dentro do símbolo */
-        -webkit-box-align: center; /* Garante que o conteúdo seja centralizado verticalmente */
-        -webkit-box-pack: center;  /* Garante que o conteúdo seja centralizado horizontalmente */
+        justify-content: center;
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
     }
-    
+
 
     #remove-number {
         color: red;
@@ -608,7 +593,6 @@ body {
 
     .grid-banca {
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin-bottom: 33px;
         margin-top: 50px;
@@ -618,7 +602,6 @@ body {
     .aposta {
         width: 100px;
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -643,7 +626,6 @@ body {
     .banca {
         width: 100px;
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         justify-content: center;
         background: var(--verde);
         align-items: center;
@@ -712,7 +694,6 @@ body {
     .button-pop-close {
         width: 100%;
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         justify-content: end;
     }
 
@@ -727,7 +708,6 @@ body {
 
     .minha-aposta {
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
         justify-content: center;
         margin: 0;
     }
@@ -740,19 +720,19 @@ body {
     .valor {
         width: 100%;
         display: -webkit-box;
-        -webkit-box-orient: horizontal;  /* Organiza os itens de forma horizontal */
-        -webkit-box-pack: end;           /* Alinha os itens horizontalmente no final */
-        -webkit-box-align: end;          /* Alinha os itens verticalmente no final */
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: end;
+        -webkit-box-align: end;
         background: var(--branco-escuro);
     }
-    
+
     .valor label {
         margin-top: 5px;
         margin-bottom: 5px;
         margin-right: 10px;
         font-size: 20px;
         font-weight: 600;
-        -webkit-box-align: end; 
+        -webkit-box-align: end;
     }
 
     .teclado-numerico {
@@ -800,10 +780,9 @@ body {
 
     .button-menu {
         display: -webkit-box;
-        /* Alterado de flex para -webkit-box */
-        -webkit-box-orient: vertical; /* Define o layout em colunas */
-        -webkit-box-pack: start;     /* Centraliza os itens verticalmente */
-        -webkit-box-align: end; 
+        -webkit-box-orient: vertical;
+        -webkit-box-pack: start;
+        -webkit-box-align: end;
         width: 100%;
     }
 

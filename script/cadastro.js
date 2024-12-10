@@ -12,7 +12,6 @@ const bullet = [...document.querySelectorAll(".step .bullet")];
 let max = 4;
 let current = 1;
 
-// Funções de máscara
 function mascaraCPF(cpf) {
   cpf = cpf.replace(/\D/g, ''); 
   cpf = cpf.replace(/^(\d{3})(\d)/, '$1.$2');
@@ -29,7 +28,7 @@ function mascaraTelefone(phone) {
 }
 
 function mascaraData(data) {
-  data = data.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+  data = data.replace(/\D/g, ''); 
   if (data.length <= 2) {
     data = data.replace(/(\d{2})/, '$1/');
   } else if (data.length <= 5) {
@@ -40,22 +39,17 @@ function mascaraData(data) {
   return data;
 }
 
-// Função para calcular a idade a partir da data de nascimento
 function validarIdade(dataNascimento) {
   const hoje = new Date();
-  const nascimento = new Date(dataNascimento.split("/").reverse().join("-")); // Converte para formato yyyy-mm-dd
+  const nascimento = new Date(dataNascimento.split("/").reverse().join("-"));
   let idade = hoje.getFullYear() - nascimento.getFullYear();
   const m = hoje.getMonth() - nascimento.getMonth();
-
-  // Ajusta a idade caso ainda não tenha feito aniversário neste ano
   if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) {
     idade--;
   }
-
   return idade;
 }
 
-// Função para validar CPF, telefone e email
 function validateCPF(cpf) {
   const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
   return cpfPattern.test(cpf);
@@ -71,13 +65,11 @@ function validateEmail(email) {
   return emailPattern.test(email);
 }
 
-// Função para validar a data de nascimento (exatamente 10 caracteres)
 function validateDateOfBirth(date) {
-  const datePattern = /^\d{2}\/\d{2}\/\d{4}$/; // Formato dd/mm/yyyy
-  return datePattern.test(date) && date.length === 10; // Verifica se tem exatamente 10 caracteres
+  const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
+  return datePattern.test(date) && date.length === 10;
 }
 
-// Função para verificar a confirmação de senha
 function validatePasswordMatch() {
   const password = document.getElementById('password');
   const confirmPassword = document.getElementById('confirm-password');
@@ -93,7 +85,6 @@ function validatePasswordMatch() {
   }
 }
 
-// Função de verificação dos campos obrigatórios
 function checkRequiredFields() {
   const fields = document.querySelectorAll(`.page:nth-child(${current}) input, .page:nth-child(${current}) select`);
   let allValid = true;
@@ -103,21 +94,20 @@ function checkRequiredFields() {
     let isValid = field.value.trim() !== '';
     let customValid = true;
 
-    // Aplique a máscara de CPF, Telefone, Data de Nascimento e Email
     if (field.id === 'cpf') {
-      field.value = mascaraCPF(field.value); // Aplica a máscara do CPF
+      field.value = mascaraCPF(field.value);
       if (!validateCPF(field.value)) {
         customValid = false;
         errorPopup.textContent = 'Por favor, preencha o CPF corretamente (XXX.XXX.XXX-XX).';
       }
     } else if (field.id === 'phone') {
-      field.value = mascaraTelefone(field.value); // Aplica a máscara do telefone
+      field.value = mascaraTelefone(field.value);
       if (!validatePhone(field.value)) {
         customValid = false;
         errorPopup.textContent = 'Por favor, preencha o telefone corretamente (XX) XXXXX-XXXX.';
       }
     } else if (field.id === 'birthdate') {
-      field.value = mascaraData(field.value); // Aplica a máscara de data
+      field.value = mascaraData(field.value);
       if (!validateDateOfBirth(field.value)) {
         customValid = false;
         errorPopup.textContent = '';
@@ -125,9 +115,9 @@ function checkRequiredFields() {
         const idade = validarIdade(field.value);
         if (idade < 18) {
           customValid = false;
-          document.getElementById('age-error').style.display = 'block'; // Exibe erro se idade < 18
+          document.getElementById('age-error').style.display = 'block';
         } else {
-          document.getElementById('age-error').style.display = 'none'; // Oculta o erro se idade >= 18
+          document.getElementById('age-error').style.display = 'none';
         }
       }
     } else if (field.id === 'email') {
@@ -137,7 +127,6 @@ function checkRequiredFields() {
       }
     }
 
-    // Verificação final
     if (!isValid || !customValid) {
       errorPopup.style.display = 'block';
       allValid = false;
@@ -146,7 +135,6 @@ function checkRequiredFields() {
     }
   });
 
-  // Verificar se as senhas coincidem na última etapa
   if (!validatePasswordMatch()) {
     allValid = false;
   }
@@ -154,7 +142,6 @@ function checkRequiredFields() {
   return allValid;
 }
 
-// Aplicar a máscara em tempo real
 document.getElementById('cpf').addEventListener('input', function() {
   this.value = mascaraCPF(this.value);
 });
@@ -167,17 +154,14 @@ document.getElementById('birthdate').addEventListener('input', function() {
   this.value = mascaraData(this.value);
 });
 
-// Validar email ao digitar
 document.getElementById('email').addEventListener('input', function() {
-  checkRequiredFields(); // Verifica se o email está válido enquanto o usuário digita
+  checkRequiredFields();
 });
 
-// Validar a confirmação de senha ao digitar
 document.getElementById('confirm-password').addEventListener('input', function() {
-  validatePasswordMatch(); // Verifica se as senhas coincidem enquanto o usuário digita
+  validatePasswordMatch();
 });
 
-// Botões de navegação para avançar
 nextBtnFirst.addEventListener("click", function () {
   if (checkRequiredFields()) {
     slidePage.style.marginLeft = "-25%";
@@ -221,7 +205,6 @@ submitBtn.addEventListener("click", function () {
   }
 });
 
-// Botões de navegação para voltar
 prevBtnSec.addEventListener("click", function () {
   slidePage.style.marginLeft = "0%";
   bullet[current - 1].classList.remove("active");
@@ -245,18 +228,17 @@ prevBtnFourth.addEventListener("click", function () {
   progressText[current - 1].classList.remove("active");
   current -= 1;
 });
+
 function mascaraCEP(cep) {
-  cep = cep.replace(/\D/g, '');  // Remove qualquer caractere não numérico
-  cep = cep.replace(/^(\d{5})(\d)/, '$1-$2');  // Adiciona o hífen após os primeiros 5 números
+  cep = cep.replace(/\D/g, ''); 
+  cep = cep.replace(/^(\d{5})(\d)/, '$1-$2'); 
   return cep;
 }
 
-// Aplicar a máscara em tempo real no campo de CEP
 document.getElementById('cep').addEventListener('input', function() {
   this.value = mascaraCEP(this.value);
 });
 
-//telefone
 $(document).ready(function () {
   $("#telefone").inputmask({
     mask: ["(99) 9999-9999", "(99) 99999-9999",],
@@ -264,23 +246,17 @@ $(document).ready(function () {
   });
 })
 
-//CPF
 function mascara(i) {
-
   var v = i.value;
-
   if (isNaN(v[v.length - 1])) {
     i.value = v.substring(0, v.length - 1);
     return;
   }
-
   i.setAttribute("maxlength", "14");
   if (v.length == 3 || v.length == 7) i.value += ".";
   if (v.length == 11) i.value += "-";
-
 }
 
-//senhas
 let senha = document.getElementById('senha');
 let senhaC = document.getElementById('senhaC');
 
@@ -296,4 +272,3 @@ function validarSenha() {
 }
 
 senhaC.addEventListener('input', validarSenha);
-

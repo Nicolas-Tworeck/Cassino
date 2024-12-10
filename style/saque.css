@@ -14,13 +14,9 @@ body {
 
 .container {
     position: absolute;
-    /* Posiciona a div de forma absoluta em relação ao body */
     top: 50%;
-    /* Move a div para o centro vertical */
     left: 50%;
-    /* Move a div para o centro horizontal */
     transform: translate(-50%, -50%);
-    /* Ajusta o ponto de referência para centralizar */
     background: var(--preto-claro-solid);
     width: 500px;
     height: 100vh;

@@ -1,4 +1,4 @@
-let saldo = 0;
+let saldo = 0;//VARIAVEL QUE VAI O VALOR QUE A PESSOA DEPOSITOU
 const saldoDisplay = document.querySelector(".banca label");
 
 function atualizarSaldo() {
@@ -71,7 +71,6 @@ function setupReels() {
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
 
-        // Gerar uma sequência de símbolos única para cada bobina
         const symbolsForReel = symbols.slice(index).concat(symbols.slice(0, index));
 
         const totalSymbolsToDisplay = symbols.length * 500;
@@ -85,20 +84,20 @@ function setupReels() {
         reel.appendChild(reelInner);
     });
 }
-
+//NÃO SEI COMO ESSA BUCETA TA FUNCIONANDO, MAS TÁ, NÃO VOU MEXER
 function exibirImagemVitoria() {
-    const somVitoria = new Audio('../audio/vitoria.mp3');
+    const somVitoria = new Audio('../audio/vitoria.mp3');//EFEITO QUANDO GANHA
     somVitoria.currentTime = 0;
     somVitoria.play();
 
     const imagemVitoria = document.createElement("img");
-    imagemVitoria.src = "../img/ganho.png";
+    imagemVitoria.src = "../img/ganho.png";//IMG QUANDO GANHA
     imagemVitoria.alt = "Vitória!";
     imagemVitoria.className = "imagem-vitoria";
 
     const fundoEscuro = document.createElement("div");
     fundoEscuro.className = "fundo-escuro";
-
+    //ESSES NGC SÃO PARA A ESTILIZAÇÃO DA ANIMAÇÃO DE VITORIA OU GANHO
     imagemVitoria.style.position = "fixed";
     imagemVitoria.style.top = "50%";
     imagemVitoria.style.left = "50%";
@@ -126,12 +125,12 @@ function exibirImagemVitoria() {
 }
 
 function exibirImagemPerda() {
-    const somPerda = new Audio('../audio/perda.mp3');
+    const somPerda = new Audio('../audio/perda.mp3');//EFEITO QUANDO PERDE
     somPerda.currentTime = 0;
     somPerda.play();
 
     const imagemPerda = document.createElement("img");
-    imagemPerda.src = "../img/perda.png"; // Substitua pelo caminho real da imagem de perda
+    imagemPerda.src = "../img/perda.png";//IMG QUANDO PERDE
     imagemPerda.alt = "Você perdeu!";
     imagemPerda.className = "imagem-perda";
 
@@ -171,24 +170,22 @@ function spinReels() {
 
     somRoleta.play();
 
-    const shouldWin = Math.random() < 0.0001; // Chance de vitória mínima ajustada para 0.01% (1 em 10.000)
+    const shouldWin = Math.random() < 0.05;
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duration = 5; // Duração da rotação
+        const duration = 5;
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
-
+        //ALGUÉM ME EXPLICA COMO ISSO TA FUNCIONANDOOOOOOOOOOOOOOOO
         let stopPosition;
         if (shouldWin) {
-            // Alinha os rolos para um símbolo vencedor nas 3 bobinas
             stopPosition = symbols.indexOf(winningSymbol);
             reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
-            // Para uma rotação não vencedora, aleatoriza a posição final
             stopPosition = Math.floor(Math.random() * symbols.length);
-            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 200)) * 100;
+            const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 200)) * 100;//O 200 É A QUANTIA DE SIMBOLOS QUE IRÁ GIRAR, PODEMOS DIZER TBM QUE É A VELOCIDADE DAS BOBINAS
             reelInner.style.transform = `translateY(-${offset}px)`;
         }
 
@@ -199,7 +196,7 @@ function spinReels() {
 
                 if (shouldWin) {
                     const valorAposta = Number(valorAtual.replace(/\D/g, '')) / 100;
-                    const ganho = valorAposta + valorAposta * 3; // Multiplicação do prêmio
+                    const ganho = valorAposta + valorAposta * 3;//O 3 É O MULTIPLICADOR DE GANHO, QUANTO VOCÊ APOSTAR ELE MULTIPLICARÁ ESSE VALOR
                     saldo += ganho;
                     atualizarSaldo();
                     exibirImagemVitoria();
@@ -222,6 +219,7 @@ girar.addEventListener("click", function (event) {
             saldo -= valorAposta;
             atualizarSaldo();
             spinReels();
+            //ESSA MERDA NÃO É PRA MIM
         } else {
             errorMessage.textContent = "Saldo insuficiente!";
             errorMessage.style.display = "block";
@@ -244,7 +242,7 @@ teclasNumericas.forEach((botao) => {
     botao.addEventListener("click", function () {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn";
-
+        //PUT@ QUE P@RIU, MEU CHEFE VAI COMER MEU C#
         if (conteudo === "0" && !numeroDigitado) return;
         if (valorAtual.length >= 7 && !isDelete) return;
 

@@ -71,7 +71,6 @@ function setupReels() {
         const reelInner = document.createElement("div");
         reelInner.classList.add("reel-inner");
 
-        // Gerar uma sequência de símbolos única para cada bobina
         const symbolsForReel = symbols.slice(index).concat(symbols.slice(0, index));
 
         const totalSymbolsToDisplay = symbols.length * 500;
@@ -131,7 +130,7 @@ function exibirImagemPerda() {
     somPerda.play();
 
     const imagemPerda = document.createElement("img");
-    imagemPerda.src = "../img/perda.png"; // Substitua pelo caminho real da imagem de perda
+    imagemPerda.src = "../img/perda.png";
     imagemPerda.alt = "Você perdeu!";
     imagemPerda.className = "imagem-perda";
 
@@ -171,24 +170,22 @@ function spinReels() {
 
     somRoleta.play();
 
-    const shouldWin = Math.random() < 0.4; // Chance de vitória ajustada
+    const shouldWin = Math.random() < 0.4;
     const winningSymbol = shouldWin ? symbols[Math.floor(Math.random() * symbols.length)] : null;
 
-    const totalMovimentosRapidos = 1000; // Aumente o número de movimentos para garantir uma rotação rápida
+    const totalMovimentosRapidos = 1000;
 
     reels.forEach((reel, index) => {
         const reelInner = reel.querySelector(".reel-inner");
-        const duracao = 5; // A duração da rotação permanece a mesma
+        const duracao = 5;
 
         reelInner.style.transition = `transform ${duracao}s ease-out`;
 
         let stopPosition;
         if (shouldWin) {
-            // Alinha os rolos para um símbolo vencedor nas 3 bobinas
             stopPosition = symbols.indexOf(winningSymbol);
             reelInner.style.transform = `translateY(-${stopPosition * 100}px)`;
         } else {
-            // Para uma rotação não vencedora, aleatoriza a posição final
             stopPosition = Math.floor(Math.random() * symbols.length);
             const offset = (stopPosition + Math.floor(Math.random() * symbols.length * 200)) * 100;
             reelInner.style.transform = `translateY(-${offset}px)`;
@@ -201,7 +198,7 @@ function spinReels() {
 
                 if (shouldWin) {
                     const valorAposta = Number(valorAtual.replace(/\D/g, '')) / 100;
-                    const ganho = valorAposta + valorAposta * 3; // Multiplicação do prêmio
+                    const ganho = valorAposta + valorAposta * 3;
                     saldo += ganho;
                     atualizarSaldo();
                     exibirImagemVitoria();
@@ -278,4 +275,16 @@ popup.addEventListener("click", function (event) {
     }
 });
 
+
+//FINÇÃO DE RECARREGAR A CONTA CASO ESTIVER MENOS QUE 10000
+const reloadAccountBtn = document.getElementById("reloadAccountBtn");
+
+reloadAccountBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (saldo < 10000) {
+        saldo = 10000;  
+        atualizarSaldo();  
+    }
+});
 setupReels();

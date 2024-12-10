@@ -1,0 +1,20 @@
+BOA NOITE MEU LINDO.
+Então, para fazer a conexão com o BD da parte do login/registro vc pega o valor do html, se for fazer da forma q aprendemos.
+
+Para a banca (na tela do jogo), no js tem uma variavel chamada de "saldo", onde você puxará o saldo referente aquela conta (dãã).
+
+Quando você está no perfil, no canto superior direito tem a banca da pessoa, o sistema para puxar o valor é diferente, 
+por conta de não ser o mesmo js que está na conta real do jogo, como você? Você pode mudar o value do label que está na pg html
+para uma var que puxe o valor do BD.
+
+Na parte de editProfile, vc obviamente editará seu perfil, mas na hora de mudar a senha, n sei como vc vai fazer, 
+mas tem que enviar uma mensagem via e-mail para a pessoa obviamente, pedindo para ela trocar o e-mail.
+
+No saque não sei qual é sua ideia ou como vai fazer a função, mas o botão está la, so conectar com a função de sacar 
+(mesma coisa pro depósito).
+
+
+Acho que é isso ;)
+Ass : Nicolas Tworeck
+Se precisar nao me procure.
+Sucesso paizão

@@ -88,7 +88,6 @@ form .page .field .label {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  /* Espaçamento entre o checkbox e o texto */
 }
 
 .field.terms input[type="checkbox"] {
@@ -262,7 +261,6 @@ form .page .btns button.next {
   color: var(--amarelo-escuro);
   font-size: 12px;
   display: none;
-  /* Inicialmente escondido */
   position: absolute;
   top: 100%;
   left: 0;
@@ -276,13 +274,11 @@ form .page .btns button.next {
 input:invalid+.popup-error,
 select:invalid+.popup-error {
   display: block;
-  /* Exibe a mensagem de erro se o campo for inválido */
 }
 
 input:valid+.popup-error,
 select:valid+.popup-error {
   display: none;
-  /* Esconde a mensagem de erro se o campo for válido */
 }
 
 @media (max-width:1200px) {
@@ -294,89 +290,67 @@ select:valid+.popup-error {
 @media (max-width: 460px) {
   .container {
     width: 100vw;
-    /* Largura total da tela */
     height: 100vh;
-    /* Altura total da tela */
     padding: 20px;
-    /* Espaçamento interno */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    /* Espaçamento consistente entre os itens */
   }
 
   .container img {
     width: 30%;
-    /* Proporção semelhante à versão normal */
     max-width: 120px;
-    /* Tamanho máximo para manter a proporção */
   }
 
   .progress-bar {
     width: 90%;
-    /* Ajusta a largura proporcionalmente */
     display: flex;
     justify-content: space-between;
-    /* Distribui as etapas uniformemente */
   }
 
   .progress-bar .step .bullet {
     height: 25px;
-    /* Mesmo tamanho da versão normal */
     width: 25px;
     font-size: 14px;
-    /* Tamanho ajustado para telas pequenas */
   }
 
   .form-outer {
     width: 90%;
-    /* Proporcional ao tamanho da tela */
   }
 
   .form-outer form .page .field {
     width: 100%;
-    /* Campos ocupam toda a largura disponível */
     margin-bottom: 15px;
-    /* Espaçamento entre campos */
   }
 
   form .page .field input,
   form .page .field select {
     font-size: 16px;
-    /* Proporção semelhante ao estilo normal */
     border-radius: 5px;
-    /* Mantém a estética */
   }
 
   form .page .field button {
     font-size: 16px;
-    /* Tamanho proporcional */
     padding: 12px;
-    /* Botões ajustados */
     border-radius: 5px;
   }
 
   .field.terms {
     font-size: 14px;
-    /* Ajuste proporcional para o texto */
     line-height: 1.5;
-    /* Melhora a legibilidade */
     gap: 10px;
-    /* Espaçamento adequado entre o checkbox e o texto */
   }
 
   .field.terms input[type="checkbox"] {
     width: 18px;
-    /* Tamanho proporcional do checkbox */
     height: 18px;
   }
 
   .popup-error {
     font-size: 12px;
-    /* Texto de erro discreto e legível */
     margin-top: 5px;
   }
 }

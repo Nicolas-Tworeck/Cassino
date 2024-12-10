@@ -3,20 +3,20 @@
     }
 
     body {
-        position: relative; /* Define o contexto para o posicionamento */
-        height: 100vh; 
+        position: relative;
+        height: 100vh;
         font-family: var(--font);
         background-image: url(../img/back-profile.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
     }
-    
+
     .container {
-        position: absolute; /* Posiciona a div de forma absoluta em relação ao body */
-        top: 50%; /* Move a div para o centro vertical */
-        left: 50%; /* Move a div para o centro horizontal */
-        transform: translate(-50%, -50%); /* Ajusta o ponto de referência para centralizar */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: var(--preto-claro-solid);
         width: 500px;
         height: 100vh;
@@ -185,29 +185,34 @@
 
     }
 
-    @media (max-width:500px){
-        body{
+    @media (max-width:500px) {
+        body {
             background: black;
         }
-        .container{
+
+        .container {
             width: 100%;
             background: transparent;
             margin: 0;
-            .div-profile{
-                .edit-profile{
+
+            .div-profile {
+                .edit-profile {
                     grid-template-columns: 80%;
                 }
             }
-            .footer{
+
+            .footer {
                 grid-template-columns: 80%;
             }
-            .nav{
-                .area-banca{
+
+            .nav {
+                .area-banca {
                     margin-left: 45%;
                 }
             }
-            .campos{
-                label{
+
+            .campos {
+                label {
                     margin-left: 20px;
                 }
             }

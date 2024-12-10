@@ -7,51 +7,47 @@ function login() {
 function contrato() {
   window.location.href = "contrato.html";
 }
-function contato(){
+function contato() {
   window.location.href = "https://www.instagram.com/vegass.bet/profilecard/?igsh=em0zN2E0eTgxbnNu";
 }
-function profile(){
+function profile() {
   window.location.href = "profile.html";
 }
-function index(){
+function index() {
   window.location.href = "index.html";
 }
 
-function deposit(){
+function deposit() {
   window.location.href = "deposit.html";
 }
-function saque(){
+function saque() {
   window.location.href = "saque.html";
 }
 
-function editProfile(){
+function editProfile() {
   window.location.href = "editProfile.html";
 }
 
-function demo(){
+function demo() {
   window.location.href = "demo.html";
 }
-function voltar(){
+function voltar() {
   window.history.back();
 }
 
+//MUSICA DE FUNDO
 document.addEventListener("DOMContentLoaded", () => {
-  // Cria o elemento de áudio dinamicamente
   const music = new Audio("../audio/ambiente.mp3");
-  music.loop = true; // Configura para tocar em loop
-  music.volume = 0.25; // Ajusta o volume (de 0.0 a 1.0)
+  music.loop = true;
+  music.volume = 0.25;
 
-  // Tenta iniciar a música automaticamente
   music.play().catch(() => {
     console.warn("Reprodução automática bloqueada. Necessário interação do usuário.");
   });
 
-  // Garantir reprodução após interação do usuário
   document.addEventListener("click", () => {
     if (music.paused) {
       music.play();
     }
   });
 });
-
-
