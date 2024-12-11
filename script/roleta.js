@@ -84,7 +84,6 @@ function setupReels() {
         reel.appendChild(reelInner);
     });
 }
-//NÃO SEI COMO ESSA BUCETA TA FUNCIONANDO, MAS TÁ, NÃO VOU MEXER
 function exibirImagemVitoria() {
     const somVitoria = new Audio('../audio/vitoria.mp3');//EFEITO QUANDO GANHA
     somVitoria.currentTime = 0;
@@ -178,7 +177,7 @@ function spinReels() {
         const duration = 5;
 
         reelInner.style.transition = `transform ${duration}s ease-out`;
-        //ALGUÉM ME EXPLICA COMO ISSO TA FUNCIONANDOOOOOOOOOOOOOOOO
+       
         let stopPosition;
         if (shouldWin) {
             stopPosition = symbols.indexOf(winningSymbol);
@@ -242,7 +241,7 @@ teclasNumericas.forEach((botao) => {
     botao.addEventListener("click", function () {
         const conteudo = botao.textContent.trim();
         const isDelete = botao.id === "deleteBtn";
-        //PUT@ QUE P@RIU, MEU CHEFE VAI COMER MEU C#
+        
         if (conteudo === "0" && !numeroDigitado) return;
         if (valorAtual.length >= 7 && !isDelete) return;
 
